@@ -34,7 +34,7 @@ function tablasSobreLinea(o: { clave: string; nombre: string; mat: string; x0: n
  * Cajón de listones: postes en las esquinas interiores, filas de tablas en los cuatro lados y fondo de tablillas
  * a la altura yF (sobre listones de apoyo si yF > 0). filasFrente permite un frente más bajo (camas de mascota).
  */
-function cajonListones(o: { L: number; D: number; filas: number; filasFrente?: number; tabla: string; poste: string; fondo: string; yF: number; junta: number; pasos: [number, number, number] }) {
+export function cajonListones(o: { L: number; D: number; filas: number; filasFrente?: number; tabla: string; poste: string; fondo: string; yF: number; junta: number; pasos: [number, number, number] }) {
   const [a, t] = seccion(o.tabla)
   const [p] = seccion(o.poste)
   const [fa, fe] = seccion(o.fondo)

@@ -3314,6 +3314,514 @@
    ],
    "permiso": null,
    "nota": "La tela (lona o crudo) se compra aparte."
+  },
+  {
+   "id": "colgador_muro",
+   "nombre": "Colgador de muro con repisa",
+   "categoria": "entrada",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6"
+   ],
+   "herrajes": [
+    "t4x50",
+    "escuadra"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Ganchos a 1,70 m para adultos y 1,10 m para niños, cada 15–20 cm",
+     "fuente": "perchas"
+    },
+    {
+     "texto": "Respaldo de tablas 1x6 y repisa superior",
+     "fuente": "colgador"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "puf_cajon",
+   "nombre": "Puf cajón con ruedas",
+   "categoria": "sala de estar",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "terc18"
+   ],
+   "herrajes": [
+    "t4x40",
+    "rueda",
+    "cola"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Cubo de ~45 cm en terciado de 18 mm con ruedas",
+     "fuente": "puf"
+    }
+   ],
+   "permiso": null,
+   "nota": "El tapiz (espuma y tela) se compra aparte."
+  },
+  {
+   "id": "banca_zapatos",
+   "nombre": "Banca de entrada con zapatero",
+   "categoria": "entrada",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "terc18"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Banca de entrada con repisa para zapatos debajo",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "mesa_exterior",
+   "nombre": "Mesa de centro de exterior 2×4",
+   "categoria": "exterior",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pi2x4"
+   ],
+   "herrajes": [
+    "tdeck",
+    "protdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Mesa de exterior de bajo costo con listones 2x4",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "caja_exterior",
+   "nombre": "Baúl de terraza",
+   "categoria": "exterior",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "deck",
+    "pi2x2"
+   ],
+   "herrajes": [
+    "tdeck",
+    "protdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Caja de almacenaje para patios y terrazas",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "mesa_jardineria",
+   "nombre": "Mesa de jardinería (potting bench)",
+   "categoria": "jardín",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pi2x4",
+    "pi2x2",
+    "deck"
+   ],
+   "herrajes": [
+    "tdeck",
+    "protdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Mesa de trasplante que también sirve de bar o exhibidor de plantas",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "velador_infantil",
+   "nombre": "Velador infantil con libros a la vista",
+   "categoria": "espacio infantil",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "terc18",
+    "pc1x2"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Velador infantil con repisas para los cuentos de la noche",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "carro_taller",
+   "nombre": "Carro de taller con ruedas",
+   "categoria": "taller",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc2x4",
+    "terc18",
+    "osb15"
+   ],
+   "herrajes": [
+    "t4x50",
+    "rueda",
+    "perno"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Banco de trabajo móvil compacto con repisas",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "bar_exterior",
+   "nombre": "Barra de terraza",
+   "categoria": "exterior",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pi2x4",
+    "deck"
+   ],
+   "herrajes": [
+    "tdeck",
+    "protdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Barra de madera para terrazas y patios",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "mueble_tocadiscos",
+   "nombre": "Mueble para tocadiscos y vinilos",
+   "categoria": "sala de estar",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc2x2",
+    "terc18"
+   ],
+   "herrajes": [
+    "t4x50",
+    "cola",
+    "barniz"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Mueble con espacio para tocadiscos, parlantes y discos",
+     "fuente": "anikas"
+    },
+    {
+     "texto": "Los LP miden 31,5 cm: celdas de 33 cm de alto",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "repisa_muro",
+   "nombre": "Repisa de muro tipo caja",
+   "categoria": "decoración",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "escuadra"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Repisa de muro sencilla que se arma en pocas horas",
+     "fuente": "sodimac_estante"
+    },
+    {
+     "texto": "Las repisas simples están entre los proyectos que más se venden",
+     "fuente": "ventas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "caja_tapa",
+   "nombre": "Caja de madera con tapa",
+   "categoria": "decoración",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6",
+    "terc12"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Cajas de madera: de los objetos hechos a mano que más se venden",
+     "fuente": "ventas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "verdulero",
+   "nombre": "Verdulero de tres niveles",
+   "categoria": "cocina",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc2x2",
+    "pc1x3"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Contenedor de verduras con divisiones, ventilado",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "zapatero_bajo_cama",
+   "nombre": "Zapatero bajo la cama con ruedas",
+   "categoria": "dormitorio",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6",
+    "hdf3",
+    "pc1x3"
+   ],
+   "herrajes": [
+    "t4x40",
+    "rueda",
+    "clavo1"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Organizador de 10 pares bajo la cama con divisiones",
+     "fuente": "anikas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
   }
  ],
  "fuentes": {
@@ -3456,6 +3964,34 @@
   "tablas_picar": {
    "titulo": "Crehana: tipos de tablas de picar y mantención con aceite",
    "url": "https://www.crehana.com/blog/estilo-vida/tipos-tablas-picar/"
+  },
+  "anikas": {
+   "titulo": "Anika's DIY Life: 40 proyectos para principiantes con plano (2024–2025)",
+   "url": "https://www.anikasdiylife.com/kreg-jig-projects-for-beginners/"
+  },
+  "colgador": {
+   "titulo": "Ana White: perchero de pasillo con repisa (1x6 y 2x6)",
+   "url": "https://ana-white.com/woodworking-projects/diy-long-hallway-coat-rack-shelves"
+  },
+  "perchas": {
+   "titulo": "Homestyler: perchas a 167–178 cm (adultos) y 15–20 cm entre ganchos",
+   "url": "https://www.homestyler.com/article/wallmounted-coat-rack-design?lang=ja_JP"
+  },
+  "puf": {
+   "titulo": "How To Specialist: puf de almacenaje 45×45 cm en terciado con ruedas",
+   "url": "https://howtospecialist.com/finishes/furniture/storage-ottoman-plans/"
+  },
+  "bunnings": {
+   "titulo": "Bunnings Workshop: proyectos de madera más populares",
+   "url": "https://www.workshop.bunnings.com.au/discussion/179010/top-10-most-popular-woodworking-projects"
+  },
+  "ventas": {
+   "titulo": "Skynova: proyectos de madera que más se venden (cajas, repisas, tablas)",
+   "url": "https://www.skynova.com/learn/startups/most-profitable-woodworking-projects-to-build-and-sell"
+  },
+  "sodimac_estante": {
+   "titulo": "Sodimac Chile: ¿Cómo hacer un estante de madera?",
+   "url": "https://www.sodimac.cl/sodimac-cl/content/como-hacer-un-estante-de-madera/"
   }
  },
  "descartados": [

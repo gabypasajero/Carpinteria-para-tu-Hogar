@@ -14,8 +14,9 @@ import { OFICINA } from './oficina'
 import { ORGANIZACION } from './organizacion'
 import { repisa } from './repisa'
 import { velador } from './velador'
+import { WEB } from './web'
 
-export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet, ...DORMITORIO, ...LIVING, ...COCINA, ...BANO, ...OFICINA, ...INFANTIL, ...ORGANIZACION, ...EXTERIOR, ...CONSTRUCCION, ...INSPIRACION]
+export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet, ...DORMITORIO, ...LIVING, ...COCINA, ...BANO, ...OFICINA, ...INFANTIL, ...ORGANIZACION, ...EXTERIOR, ...CONSTRUCCION, ...INSPIRACION, ...WEB]
 
 export const CATEGORIAS: Categoria[] = [
   'dormitorio',

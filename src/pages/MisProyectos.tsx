@@ -9,7 +9,9 @@ function enlace(d: DisenoGuardado) {
   return `/proyecto/${d.proyecto}?${new URLSearchParams(Object.entries(d.params).map(([k, v]) => [k, String(v)]))}`
 }
 
-export function MisProyectos() {
+export function MisProyectos({ incrustado = false }: { incrustado?: boolean }) {
+  const Caja = incrustado ? 'section' : 'main'
+  const Titulo = incrustado ? 'h2' : 'h1'
   const { sesion, locales, borrarLocal } = useApp()
   const [nube, setNube] = useState<DisenoGuardado[]>([])
   const [error, setError] = useState('')
@@ -33,8 +35,8 @@ export function MisProyectos() {
   )
 
   return (
-    <main className="pagina">
-      <h1>Mis proyectos</h1>
+    <Caja className={incrustado ? 'yo-seccion' : 'pagina'}>
+      <Titulo>{incrustado ? "Proyectos del catálogo guardados" : "Mis proyectos"}</Titulo>
       {error && <p className="aviso">{error}</p>}
       {supabase && sesion && (
         <section>
@@ -59,6 +61,6 @@ export function MisProyectos() {
           <Link to="/ingresar">Ingresa</Link> para guardar tus diseños en tu cuenta y verlos desde cualquier equipo.
         </p>
       )}
-    </main>
+    </Caja>
   )
 }

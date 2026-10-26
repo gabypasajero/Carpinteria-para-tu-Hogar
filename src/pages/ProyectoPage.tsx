@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { Bloqueo } from '../components/Bloqueo'
 import { Comparador } from '../components/Comparador'
 import { Cotizacion } from '../components/Cotizacion'
 import { Ficha } from '../components/Ficha'
@@ -13,6 +14,7 @@ import { DIFICULTAD, cm } from '../core/costos'
 import { planillaDimensionado } from '../core/dimensionado'
 import type { ProyectoDef } from '../core/types'
 import { guardarDiseno } from '../lib/disenos'
+import { proyectoAbierto, useAcceso } from '../lib/plan'
 import { useCalculo } from '../lib/useCalculo'
 import { desdeInstancia } from '../core/libre'
 import { useApp } from '../store/useApp'
@@ -65,7 +67,10 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
   const calc = useCalculo(proyecto, params)
   const { res, cortes, letras, opt, costos } = calc
 
-  const [pestana, setPestana] = useState<Pestana>('corte')
+  const { pro } = useAcceso()
+  const abierto = proyectoAbierto(proyecto, pro)
+  const [pestana, setPestana] = useState<Pestana>(abierto ? 'corte' : 'materiales')
+  const bloqueada = (k: Pestana) => !abierto && k !== 'materiales' && k !== 'ficha'
   const [explosion, setExplosion] = useState(0)
   const [mostrarLetras, setMostrarLetras] = useState(true)
   const [resaltada, setResaltada] = useState<string | null>(null)
@@ -143,7 +148,7 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
   return (
     <main className="configurador">
       <aside className="lateral-panel">
-        <Link to="/" className="volver">
+        <Link to="/inspiracion" className="volver">
           ← Proyectos
         </Link>
         <h1>{proyecto.nombre}</h1>
@@ -177,8 +182,8 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           </ul>
         )}
         <div className="acciones">
-          <button className="boton" onClick={descargarPdf} disabled={captura !== null}>
-            Descargar PDF
+          <button className="boton" onClick={abierto ? descargarPdf : () => setPestana('corte')} disabled={captura !== null}>
+            Descargar PDF{!abierto && ' 🔒'}
           </button>
           <button className="boton secundario" onClick={guardar}>
             Guardar diseño
@@ -233,11 +238,13 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           {PESTANAS.map(([k, label]) => (
             <button key={k} role="tab" aria-selected={pestana === k} className={pestana === k ? 'activa' : ''} onClick={() => setPestana(k)}>
               {label}
+              {bloqueada(k) && ' 🔒'}
             </button>
           ))}
         </div>
         <div className="pestana-contenido" role="tabpanel">
-          {pestana === 'corte' && (
+          {bloqueada(pestana) && <Bloqueo que={PESTANAS.find(([k]) => k === pestana)![1]} />}
+          {pestana === 'corte' && abierto && (
             <>
               <div className="barra-pestana">
                 <p className="nota">Lleva esta lista a la tienda o descárgala para pedir el dimensionado (corte y tapacanto).</p>
@@ -249,8 +256,8 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
             </>
           )}
           {pestana === 'materiales' && <TablaMateriales lineas={costos.lineas} total={costos.total} />}
-          {pestana === 'optimizacion' && <PlanoCortes opt={opt} />}
-          {pestana === 'guia' && (
+          {pestana === 'optimizacion' && abierto && <PlanoCortes opt={opt} />}
+          {pestana === 'guia' && abierto && (
             <Guia pasos={res.pasos} piezas={res.piezas} letras={letras} herramientas={proyecto.herramientas} paso={pasoGuia} onPaso={setPasoGuia} />
           )}
           {pestana === 'ficha' && <Ficha proyecto={proyecto} lineas={costos.lineas} />}

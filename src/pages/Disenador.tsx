@@ -5,6 +5,7 @@ import { Canvas } from '@react-three/fiber'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import type { Mesh } from 'three'
+import { Bloqueo } from '../components/Bloqueo'
 import { Cotizacion } from '../components/Cotizacion'
 import { PlanoCortes } from '../components/PlanoCortes'
 import { TablaCorte } from '../components/TablaCorte'
@@ -15,6 +16,7 @@ import { agruparPiezas, letrasPorClave } from '../core/despiece'
 import { aInstancia, caja, choques, codificar, decodificar, desdeInstancia, girar, herrajesSugeridos, medidas, nuevaPieza, sobrePiso, type Eje, type PiezaLibre } from '../core/libre'
 import { optimizar } from '../core/optimizador'
 import type { ProyectoDef, ResultadoProyecto } from '../core/types'
+import { PIEZAS_GRATIS, useAcceso } from '../lib/plan'
 import { usePrecios } from '../lib/useCalculo'
 import { PROYECTOS, buscarProyecto, paramsPorDefecto } from '../projects'
 import { useApp } from '../store/useApp'
@@ -85,6 +87,7 @@ function Escena({ onCanvas }: { onCanvas: (c: HTMLCanvasElement) => void }) {
 
 function Biblioteca() {
   const { piezas, agregar, herrajes, setHerraje, cargar } = useDiseno()
+  const lleno = useLleno()
   const [tab, setTab] = useState<'materiales' | 'herrajes' | 'plantillas'>('materiales')
   const usados = Object.fromEntries(herrajes.map((h) => [h.id, h.cantidad]))
   const desdeProyecto = (pid: string) => {
@@ -102,6 +105,7 @@ function Biblioteca() {
           </button>
         ))}
       </div>
+      {tab === 'materiales' && lleno && <Bloqueo que={`Diseñar con más de ${PIEZAS_GRATIS} piezas`} />}
       {tab === 'materiales' &&
         GRUPOS.map(([g, f]) => (
           <details key={g} open={g !== 'Volcanita'}>
@@ -111,7 +115,7 @@ function Biblioteca() {
                 .filter((m) => f(m.id))
                 .map((m) => (
                   <li key={m.id}>
-                    <button className="dz-item" onClick={() => agregar(nuevaPieza(m.id, id(), piezas.length, piezas))}>
+                    <button className="dz-item" disabled={lleno} onClick={() => agregar(nuevaPieza(m.id, id(), piezas.length, piezas))}>
                       <span className="dz-muestra" style={{ background: m.color }} />
                       <span>
                         {m.nombre}
@@ -193,6 +197,7 @@ function Num({ label, valor, onChange, min = 1 }: { label: string; valor: number
 
 function Propiedades() {
   const { piezas, seleccion, actualizar, quitar, agregar } = useDiseno()
+  const lleno = useLleno()
   const p = piezas.find((x) => x.id === seleccion)
   if (!p) return <p className="nota dz-vacio">Toca una pieza para editarla, o agrega una desde la biblioteca.</p>
   const m = MATERIALES[p.material]
@@ -256,6 +261,7 @@ function Propiedades() {
       <div className="dz-botones">
         <button onClick={() => mover(1, -c.min[1])}>Apoyar en el piso</button>
         <button
+          disabled={lleno}
           onClick={() => {
             const copia = { ...p, id: id(), nombre: `${p.nombre} (copia)`, pos: [p.pos[0] + 50, p.pos[1], p.pos[2] + 50] as [number, number, number] }
             agregar(copia)
@@ -271,8 +277,16 @@ function Propiedades() {
   )
 }
 
+/** Sin plan Pro el diseñador permite hasta PIEZAS_GRATIS piezas. */
+function useLleno() {
+  const { pro } = useAcceso()
+  const n = useDiseno((s) => s.piezas.length)
+  return !pro && n >= PIEZAS_GRATIS
+}
+
 export function Disenador() {
   const d = useDiseno()
+  const { pro } = useAcceso()
   const precios = usePrecios()
   const tiendas = useApp((s) => s.tiendas)
   const [busqueda, setBusqueda] = useSearchParams()
@@ -348,6 +362,10 @@ export function Disenador() {
     }
   }
   async function pdf() {
+    if (!pro) {
+      setMensaje('El PDF del diseñador es parte del plan Pro: pruébalo 7 días gratis en Yo › Mi plan.')
+      return
+    }
     if (!canvas.current) return
     setMensaje('Generando PDF…')
     const { generarPdf } = await import('../lib/pdf')
@@ -374,7 +392,7 @@ export function Disenador() {
             Compartir
           </button>
           <button className="boton secundario" onClick={pdf} disabled={!d.piezas.length}>
-            PDF
+            PDF{!pro && ' 🔒'}
           </button>
           <button className="boton destacado" onClick={() => setCotizando(true)} disabled={!d.piezas.length}>
             Que me lo fabriquen

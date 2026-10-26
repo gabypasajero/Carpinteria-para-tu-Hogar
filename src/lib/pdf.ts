@@ -14,7 +14,8 @@ interface Capturas {
 }
 
 const MARGEN = 15
-const CAFE: [number, number, number] = [138, 90, 43]
+// Magenta de De Todito Outlet.
+const CAFE: [number, number, number] = [168, 50, 94]
 
 function finalY(doc: jsPDF): number {
   return (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable.finalY
@@ -53,7 +54,7 @@ function imagen(doc: jsPDF, dataUrl: string, y: number, altoMax: number): number
 function recuadroTiendas(doc: jsPDF, tiendas: Tienda[], costoMateriales: number, enlace: string) {
   const ancho = doc.internal.pageSize.getWidth() - 2 * MARGEN
   const y = doc.internal.pageSize.getHeight() - 56
-  doc.setDrawColor(224, 138, 46).setFillColor(253, 240, 222).roundedRect(MARGEN, y, ancho, 40, 3, 3, 'FD')
+  doc.setDrawColor(168, 50, 94).setFillColor(248, 233, 239).roundedRect(MARGEN, y, ancho, 40, 3, 3, 'FD')
   doc.setFont('helvetica', 'bold').setFontSize(13).setTextColor(...CAFE).text('¿Prefieres que te lo hagan?', MARGEN + 6, y + 9)
   doc.setFont('helvetica', 'normal').setFontSize(10).setTextColor(40)
   doc.text(`Te lo fabricamos a esta medida desde ${formatoCLP(precioFabricacion(costoMateriales, tiendas))} aprox. Pide tu cotización a:`, MARGEN + 6, y + 16)
@@ -120,7 +121,7 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
     body: costos.lineas.map((l) => [l.nombre, comprar(l.cantidad, l.unidadVenta), formatoCLP(l.precioUnitario), formatoCLP(l.total), l.tienda]),
     foot: [['Total estimado', '', '', formatoCLP(costos.total), '']],
     headStyles: { fillColor: CAFE },
-    footStyles: { fillColor: [245, 236, 225], textColor: 30 },
+    footStyles: { fillColor: [248, 233, 239], textColor: 30 },
     styles: { fontSize: 9 },
     columnStyles: { 2: { halign: 'right' }, 3: { halign: 'right' } },
   })

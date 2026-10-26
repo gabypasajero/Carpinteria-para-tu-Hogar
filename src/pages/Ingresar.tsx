@@ -2,7 +2,9 @@ import { useState, type FormEvent } from 'react'
 import { supabase } from '../lib/supabase'
 import { useApp } from '../store/useApp'
 
-export function Ingresar() {
+export function Ingresar({ incrustado = false }: { incrustado?: boolean }) {
+  const Caja = incrustado ? 'section' : 'main'
+  const Titulo = incrustado ? 'h2' : 'h1'
   const sesion = useApp((s) => s.sesion)
   const [email, setEmail] = useState('')
   const [estado, setEstado] = useState<'inicio' | 'enviando' | 'enviado'>('inicio')
@@ -10,22 +12,22 @@ export function Ingresar() {
 
   if (!supabase) {
     return (
-      <main className="pagina">
-        <h1>Ingresar</h1>
+      <Caja className={incrustado ? 'yo-seccion' : 'pagina'}>
+        <Titulo>Ingresar</Titulo>
         <p>El inicio de sesión aún no está activo. Tus diseños se guardan en este navegador.</p>
-      </main>
+      </Caja>
     )
   }
 
   if (sesion) {
     return (
-      <main className="pagina">
-        <h1>Tu cuenta</h1>
+      <Caja className={incrustado ? 'yo-seccion' : 'pagina'}>
+        <Titulo>Tu cuenta</Titulo>
         <p>Ingresaste como {sesion.user.email}.</p>
         <button className="boton secundario" onClick={() => supabase!.auth.signOut()}>
           Cerrar sesión
         </button>
-      </main>
+      </Caja>
     )
   }
 
@@ -40,8 +42,8 @@ export function Ingresar() {
   }
 
   return (
-    <main className="pagina">
-      <h1>Ingresar</h1>
+    <Caja className={incrustado ? 'yo-seccion' : 'pagina'}>
+      <Titulo>Ingresar</Titulo>
       {estado === 'enviado' ? (
         <p>Te enviamos un enlace a {email}. Ábrelo desde este equipo para ingresar.</p>
       ) : (
@@ -57,6 +59,6 @@ export function Ingresar() {
           <p className="sub">Sin contraseñas: te llega un enlace al correo.</p>
         </form>
       )}
-    </main>
+    </Caja>
   )
 }

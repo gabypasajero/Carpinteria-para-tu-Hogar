@@ -32,7 +32,7 @@ function texturaLetra(letra: string, activa: boolean): CanvasTexture {
     c.width = 128
     c.height = 128
     const ctx = c.getContext('2d')!
-    ctx.fillStyle = activa ? '#e08a2e' : 'rgba(107,68,32,0.92)'
+    ctx.fillStyle = activa ? '#a8325e' : 'rgba(36,33,42,0.88)'
     ctx.beginPath()
     ctx.roundRect(8, 8, 112, 112, 26)
     ctx.fill()
@@ -84,7 +84,7 @@ export function Visor3D({ piezas, letras, exterior, explosion, paso, mostrarLetr
           const futura = paso !== null && p.paso > paso
           const actual = paso !== null && p.paso === paso
           const activa = resaltada === p.clave
-          const color = activa ? '#e08a2e' : actual ? '#f0b25a' : MATERIALES[p.material].color
+          const color = activa ? '#d1578a' : actual ? '#f0b25a' : MATERIALES[p.material].color
           return (
             <group key={i} position={pos}>
               <mesh

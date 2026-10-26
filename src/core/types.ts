@@ -1,6 +1,19 @@
 // Todas las medidas internas están en milímetros. La interfaz muestra centímetros.
 
-export type Categoria = 'dormitorio' | 'living' | 'cocina' | 'baño' | 'oficina' | 'infantil' | 'organización' | 'exterior' | 'construcción'
+export type Categoria =
+  | 'dormitorio'
+  | 'sala de estar'
+  | 'cocina'
+  | 'baño'
+  | 'oficina'
+  | 'espacio infantil'
+  | 'almacenamiento'
+  | 'entrada'
+  | 'jardín'
+  | 'decoración'
+  | 'taller'
+  | 'exterior'
+  | 'construcción'
 
 export type Plan = 'gratis' | 'pro'
 

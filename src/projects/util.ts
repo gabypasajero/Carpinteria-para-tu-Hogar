@@ -231,3 +231,11 @@ export const areaM2 = (piezas: PiezaInstancia[]) =>
 /** Desplaza un conjunto de piezas (para armar un proyecto con partes de otro). */
 export const mover = (piezas: PiezaInstancia[], d: V3): PiezaInstancia[] =>
   piezas.map((p) => ({ ...p, pos: [p.pos[0] + d[0], p.pos[1] + d[1], p.pos[2] + d[2]] as V3 }))
+
+/** Posiciones (inicio) de tablas de ancho a entre desde y hasta con al menos `junta` entre ellas (las extremas a ras). */
+export function filas(desde: number, hasta: number, a: number, junta: number): number[] {
+  const n = Math.max(1, Math.floor((hasta - desde + junta) / (a + junta)))
+  if (n === 1) return [desde]
+  const paso = (hasta - desde - a) / (n - 1)
+  return Array.from({ length: n }, (_, i) => desde + paso * i)
+}

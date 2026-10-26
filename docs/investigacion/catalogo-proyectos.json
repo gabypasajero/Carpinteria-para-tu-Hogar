@@ -376,7 +376,7 @@
   {
    "id": "closet_abierto",
    "nombre": "Closet abierto modular (vestidor)",
-   "categoria": "dormitorio",
+   "categoria": "almacenamiento",
    "dificultad": 2,
    "motor": "caja",
    "prioridad": 2,
@@ -468,7 +468,7 @@
   {
    "id": "zapatero",
    "nombre": "Zapatero",
-   "categoria": "dormitorio",
+   "categoria": "entrada",
    "dificultad": 1,
    "motor": "caja",
    "prioridad": 2,
@@ -553,7 +553,7 @@
   {
    "id": "mueble_tv",
    "nombre": "Mueble TV",
-   "categoria": "living",
+   "categoria": "sala de estar",
    "dificultad": 2,
    "motor": "caja",
    "prioridad": 1,
@@ -596,7 +596,7 @@
   {
    "id": "mesa_centro",
    "nombre": "Mesa de centro",
-   "categoria": "living",
+   "categoria": "sala de estar",
    "dificultad": 1,
    "motor": "liston",
    "prioridad": 1,
@@ -649,7 +649,7 @@
   {
    "id": "mesa_lateral",
    "nombre": "Mesa lateral / arrimo",
-   "categoria": "living",
+   "categoria": "sala de estar",
    "dificultad": 1,
    "motor": "liston",
    "prioridad": 2,
@@ -693,7 +693,7 @@
   {
    "id": "repisa",
    "nombre": "Repisa librero",
-   "categoria": "living",
+   "categoria": "sala de estar",
    "dificultad": 1,
    "motor": "caja",
    "prioridad": 1,
@@ -743,7 +743,7 @@
   {
    "id": "repisa_flotante",
    "nombre": "Repisa flotante de muro",
-   "categoria": "living",
+   "categoria": "decoración",
    "dificultad": 1,
    "motor": "caja",
    "prioridad": 1,
@@ -788,7 +788,7 @@
   {
    "id": "sofa_2x4",
    "nombre": "Sofá / sillón de madera (interior o terraza)",
-   "categoria": "living",
+   "categoria": "sala de estar",
    "dificultad": 2,
    "motor": "liston",
    "prioridad": 2,
@@ -841,7 +841,7 @@
   {
    "id": "panel_ranurado",
    "nombre": "Revestimiento de muro ranurado o de listones",
-   "categoria": "living",
+   "categoria": "decoración",
    "dificultad": 1,
    "motor": "entramado",
    "prioridad": 2,
@@ -1486,7 +1486,7 @@
   {
    "id": "estanteria",
    "nombre": "Estantería modular de pino",
-   "categoria": "oficina",
+   "categoria": "almacenamiento",
    "dificultad": 1,
    "motor": "liston",
    "prioridad": 1,
@@ -1533,7 +1533,7 @@
   {
    "id": "banco_trabajo",
    "nombre": "Banco de trabajo (taller)",
-   "categoria": "oficina",
+   "categoria": "taller",
    "dificultad": 2,
    "motor": "liston",
    "prioridad": 1,
@@ -1582,7 +1582,7 @@
   {
    "id": "casita_juego",
    "nombre": "Casita de juego infantil (exterior)",
-   "categoria": "infantil",
+   "categoria": "espacio infantil",
    "dificultad": 3,
    "motor": "exterior",
    "prioridad": 2,
@@ -1644,7 +1644,7 @@
   {
    "id": "mesa_infantil",
    "nombre": "Mesa y sillas infantiles",
-   "categoria": "infantil",
+   "categoria": "espacio infantil",
    "dificultad": 1,
    "motor": "liston",
    "prioridad": 2,
@@ -1683,7 +1683,7 @@
   {
    "id": "baul",
    "nombre": "Baúl / juguetero",
-   "categoria": "infantil",
+   "categoria": "espacio infantil",
    "dificultad": 1,
    "motor": "caja",
    "prioridad": 2,
@@ -1721,7 +1721,7 @@
   {
    "id": "cama_montessori",
    "nombre": "Cama casita Montessori (a ras de piso)",
-   "categoria": "infantil",
+   "categoria": "espacio infantil",
    "dificultad": 2,
    "motor": "liston",
    "prioridad": 2,
@@ -1765,7 +1765,7 @@
   {
    "id": "torre_aprendizaje",
    "nombre": "Torre de aprendizaje",
-   "categoria": "infantil",
+   "categoria": "espacio infantil",
    "dificultad": 2,
    "motor": "caja",
    "prioridad": 3,
@@ -1801,7 +1801,7 @@
   {
    "id": "perchero",
    "nombre": "Perchero con banca de entrada",
-   "categoria": "organización",
+   "categoria": "entrada",
    "dificultad": 1,
    "motor": "liston",
    "prioridad": 2,
@@ -1842,7 +1842,7 @@
   {
    "id": "lavadero",
    "nombre": "Mueble de lavadero sobre lavadora",
-   "categoria": "organización",
+   "categoria": "almacenamiento",
    "dificultad": 1,
    "motor": "caja",
    "prioridad": 2,
@@ -1887,7 +1887,7 @@
   {
    "id": "panel_herramientas",
    "nombre": "Panel organizador de herramientas",
-   "categoria": "organización",
+   "categoria": "taller",
    "dificultad": 1,
    "motor": "caja",
    "prioridad": 3,
@@ -2049,7 +2049,7 @@
   {
    "id": "jardinera",
    "nombre": "Jardinera / huerto elevado",
-   "categoria": "exterior",
+   "categoria": "jardín",
    "dificultad": 1,
    "motor": "liston",
    "prioridad": 1,
@@ -2214,7 +2214,7 @@
   {
    "id": "lenera",
    "nombre": "Leñera / compostera",
-   "categoria": "exterior",
+   "categoria": "jardín",
    "dificultad": 1,
    "motor": "exterior",
    "prioridad": 2,
@@ -2561,6 +2561,759 @@
    ],
    "permiso": "Agrega superficie y es estructural: requiere permiso y cálculo.",
    "nota": "Recomendado solo como cotización a profesional."
+  },
+  {
+   "id": "bandeja_botas",
+   "nombre": "Bandeja de listones para botas",
+   "categoria": "entrada",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x2",
+    "pc1x3"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "barniz"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Listones con 1 cm de separación para que escurra el agua; barniz marino por la humedad",
+     "fuente": "cajas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "caja_listones",
+   "nombre": "Caja de almacenamiento con listones",
+   "categoria": "almacenamiento",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6",
+    "pc1x3"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Cabeceras de 1x6 y costados de listones 1x3: la altura la define la tabla de cabecera",
+     "fuente": "cajas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "casa_pajaros",
+   "nombre": "Casa de pájaros",
+   "categoria": "jardín",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "protdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "caladora"
+   ],
+   "reglas": [
+    {
+     "texto": "Piso interior de 10×10 cm, alto 15–20 cm y entrada a 12–15 cm del piso",
+     "fuente": "nidos2"
+    },
+    {
+     "texto": "Entrada de 2,5–2,9 cm para chincoles y similares; sin percha (atrae depredadores)",
+     "fuente": "nidos"
+    }
+   ],
+   "permiso": null,
+   "nota": "No barnizar el interior; dejar agujeros de ventilación y drenaje."
+  },
+  {
+   "id": "tabla_picar",
+   "nombre": "Tabla de picar laminada",
+   "categoria": "cocina",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x4"
+   ],
+   "herrajes": [
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "prensa",
+    "lijadora",
+    "serrucho"
+   ],
+   "reglas": [
+    {
+     "texto": "Mantener con aceite apto para alimentos y no sumergir en agua",
+     "fuente": "tablas_picar"
+    }
+   ],
+   "permiso": null,
+   "nota": "Para uso diario prefiere madera dura (roble, raulí o coigüe); el pino sirve para tablas de picoteo."
+  },
+  {
+   "id": "porta_plantas",
+   "nombre": "Porta plantas escalonado",
+   "categoria": "jardín",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc2x2",
+    "pc1x4"
+   ],
+   "herrajes": [
+    "t4x50",
+    "cola",
+    "barniz"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "ingletadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Deja al menos 18 cm entre niveles para macetas medianas",
+     "fuente": "plantas2"
+    },
+    {
+     "texto": "Estructura 2x2 y repisas de tablas, ~85 cm de alto",
+     "fuente": "plantas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "macetero_alto",
+   "nombre": "Macetero alto de listones",
+   "categoria": "jardín",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pi2x2",
+    "pc1x4"
+   ],
+   "herrajes": [
+    "tdeck",
+    "protdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Madera para contacto con tierra: impregnada o con forro plástico interior",
+     "fuente": "nch819"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "vinoteca",
+   "nombre": "Vinoteca de cubos",
+   "categoria": "sala de estar",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6",
+    "pc1x4"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "barniz"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "ingletadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Celdas de ~10 cm: caben casi todas las botellas de 750 ml",
+     "fuente": "vinos"
+    },
+    {
+     "texto": "Separación de 10 cm entre botellas en racks de listones",
+     "fuente": "vinos2"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "soporte_monitor",
+   "nombre": "Elevador de monitor",
+   "categoria": "oficina",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6",
+    "pc1x3"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Elevadores comerciales levantan el monitor 9 a 14 cm y dejan espacio para el teclado",
+     "fuente": "monitor"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "atril",
+   "nombre": "Atril para libros y tablet",
+   "categoria": "oficina",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6",
+    "pc1x2"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "caladora"
+   ],
+   "reglas": [
+    {
+     "texto": "Inclinación de 60–70° y tope inferior para sostener la página",
+     "fuente": "cajas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "banquito",
+   "nombre": "Banquito escalón infantil",
+   "categoria": "baño",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6",
+    "terc18"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "caladora"
+   ],
+   "reglas": [
+    {
+     "texto": "Peldaños cada ~16 cm y escalón superior de ~32 cm",
+     "fuente": "escalon"
+    },
+    {
+     "texto": "Base más ancha que el escalón y superficie antideslizante",
+     "fuente": "escalon2"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "caballetes",
+   "nombre": "Par de caballetes de taller",
+   "categoria": "taller",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc2x4"
+   ],
+   "herrajes": [
+    "t4x50",
+    "tdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "circular",
+    "ingletadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Alto de trabajo de ~75 cm; patas cortadas a 15°",
+     "fuente": "caballetes"
+    },
+    {
+     "texto": "Caballetes de 2x4 de 75 cm de alto",
+     "fuente": "caballetes2"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "caja_herramientas",
+   "nombre": "Caja de herramientas de madera",
+   "categoria": "taller",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6",
+    "pc1x3",
+    "pc2x2"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "caladora"
+   ],
+   "reglas": [
+    {
+     "texto": "Costados en punta y manilla pasante centrada a ~2 cm del borde superior",
+     "fuente": "tote"
+    },
+    {
+     "texto": "Fondo de terciado o tabla atornillada; manilla de 2,5 a 3 cm",
+     "fuente": "tote2"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "cajon_arena",
+   "nombre": "Arenero con tapa banca",
+   "categoria": "espacio infantil",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "deck",
+    "pi2x2"
+   ],
+   "herrajes": [
+    "tdeck",
+    "bisagra",
+    "protdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Arenero de ~1,2×1,2 m y 28 cm de profundidad útil",
+     "fuente": "arena2"
+    },
+    {
+     "texto": "Tapa abatible que se convierte en asientos",
+     "fuente": "arena"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "pikler",
+   "nombre": "Triángulo Pikler",
+   "categoria": "espacio infantil",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc2x2",
+    "terc18"
+   ],
+   "herrajes": [
+    "t4x50",
+    "cola",
+    "lija120",
+    "perno"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "caladora"
+   ],
+   "reglas": [
+    {
+     "texto": "Alto ~77–81 cm, peldaños cada ~9 cm, para 6 meses a 6 años",
+     "fuente": "pikler"
+    }
+   ],
+   "permiso": null,
+   "nota": "Juego de motricidad: uso siempre con un adulto, lijado perfecto y peldaños atornillados y encolados."
+  },
+  {
+   "id": "cama_perro",
+   "nombre": "Cama de madera para perro",
+   "categoria": "sala de estar",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x4",
+    "pc1x3",
+    "pc2x2"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "barniz"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Tamaños de referencia en pino macizo: 52×44, 72×54 y 100×70 cm",
+     "fuente": "perros"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "marco_cuadro",
+   "nombre": "Marco para cuadro",
+   "categoria": "decoración",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x3",
+    "hdf3"
+   ],
+   "herrajes": [
+    "cola",
+    "clavo1",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "ingletadora",
+    "prensa",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Esquinas a inglete de 45° encoladas y prensadas",
+     "fuente": "cajas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "librero_escalera",
+   "nombre": "Librero escalera",
+   "categoria": "sala de estar",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc2x2",
+    "pc1x6"
+   ],
+   "herrajes": [
+    "t4x50",
+    "cola",
+    "escuadra"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "ingletadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Apoyado en el muro y anclado con una escuadra: no es una escalera para subir",
+     "fuente": "plantas2"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "tumbona",
+   "nombre": "Tumbona de jardín",
+   "categoria": "exterior",
+   "dificultad": 2,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pi2x4",
+    "pi2x3",
+    "deck"
+   ],
+   "herrajes": [
+    "tdeck",
+    "perno",
+    "protdeck"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora",
+    "circular",
+    "ingletadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Madera exterior impregnada R3",
+     "fuente": "nch819"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "bandeja_sofa",
+   "nombre": "Bandeja para brazo de sofá",
+   "categoria": "sala de estar",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc1x6"
+   ],
+   "herrajes": [
+    "t4x40",
+    "cola",
+    "barniz"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Se ajusta al ancho del brazo del sofá más 1 cm de holgura",
+     "fuente": "cajas"
+    }
+   ],
+   "permiso": null,
+   "nota": null
+  },
+  {
+   "id": "tipi",
+   "nombre": "Tienda tipi infantil",
+   "categoria": "espacio infantil",
+   "dificultad": 1,
+   "motor": "liston",
+   "prioridad": 2,
+   "estado": "propuesto",
+   "parametros": [],
+   "piezas": [],
+   "materiales": [
+    "pc2x2"
+   ],
+   "herrajes": [
+    "perno",
+    "lija120"
+   ],
+   "herramientas": [
+    "huincha",
+    "escuadrac",
+    "taladro",
+    "brocas",
+    "serrucho",
+    "lijadora"
+   ],
+   "reglas": [
+    {
+     "texto": "Estructura A con travesaños: la tela se cose aparte",
+     "fuente": "pikler"
+    }
+   ],
+   "permiso": null,
+   "nota": "La tela (lona o crudo) se compra aparte."
   }
  ],
  "fuentes": {
@@ -2627,6 +3380,82 @@
   "sodimac_fichas": {
    "titulo": "Fichas de producto Sodimac (medidas reales de pino)",
    "url": "https://www.sodimac.cl"
+  },
+  "nidos": {
+   "titulo": "Sialis / Ciudad de Chicago: medidas de cajas nido (piso 4×4\", entrada 1–1⅛\")",
+   "url": "https://www.sialis.org/?p=2462"
+  },
+  "nidos2": {
+   "titulo": "Chicago: Bird species table & construction guidelines (PDF)",
+   "url": "https://chicago.gov/dam/city/depts/doe/general/NaturalResourcesAndWaterConservation_PDFs/TweetHomeChicago/BirdSpeciesTableConstructionGuidelines.pdf"
+  },
+  "pikler": {
+   "titulo": "Piccalio Climber (ficha): alto 77 cm, peldaños cada 9 cm, 6 meses a 6 años",
+   "url": "https://strolleria.com/products/climber-pikler-triangle-set"
+  },
+  "caballetes": {
+   "titulo": "Ana White: Easy Heavy Duty 2x4 Sawhorses",
+   "url": "https://www.ana-white.com/node/15929"
+  },
+  "caballetes2": {
+   "titulo": "My Repurposed Life: caballetes 2x4 de ~75 cm de alto",
+   "url": "https://myrepurposedlife.com/easy-2x4-sawhorse-plans"
+  },
+  "vinos": {
+   "titulo": "Fine Woodworking: botellas de 750 ml caben en celdas de ~10 cm",
+   "url": "https://www.finewoodworking.com/forum/wine-storage"
+  },
+  "vinos2": {
+   "titulo": "Jeff Kaufman: DIY wine rack (separación de 10 cm)",
+   "url": "https://www.jefftk.com/p/diy-wine-rack"
+  },
+  "tote": {
+   "titulo": "Kreg: DIY tool tote (1x10 y manilla de 3/4\")",
+   "url": "https://learn.kregtool.com/plans/diy-stenciled-tool-tote/"
+  },
+  "tote2": {
+   "titulo": "Canadian Woodworking: Tool tote",
+   "url": "https://canadianwoodworking.com/project/tool-tote/"
+  },
+  "arena": {
+   "titulo": "HGTV: How to build a covered sandbox",
+   "url": "https://www.hgtv.com/outdoors/outdoor-spaces/how-to-build-a-sandbox"
+  },
+  "arena2": {
+   "titulo": "Frame It All: arenero 4×4 de 28–30 cm de profundidad",
+   "url": "https://frameitall.com/blogs/frame-it-all/how-to-build-sandbox-cover"
+  },
+  "escalon": {
+   "titulo": "Community Playthings: piso escalón preescolar (32 cm, peldaños cada 16 cm)",
+   "url": "https://www.communityplaythings.com/products/sleep-and-hygiene/g232-preschool-step-stool"
+  },
+  "escalon2": {
+   "titulo": "Buildeazy: banquito multiuso de 40 cm",
+   "url": "https://www.buildeazy.com/?p=4127"
+  },
+  "perros": {
+   "titulo": "vidaXL: camas de perro de pino macizo (medidas por tamaño)",
+   "url": "https://www.vidaxl.com.au/e/vidaxl-dog-bed-715x54x9-cm-solid-wood-pine/8720287137443.html"
+  },
+  "plantas": {
+   "titulo": "Woodshop Diaries: porta plantas escalonado",
+   "url": "https://www.woodshopdiaries.com/?p=22242"
+  },
+  "plantas2": {
+   "titulo": "Bob Vila: escalera porta plantas (7\" entre niveles)",
+   "url": "https://www.bobvila.com/articles/ladder-plant-stand/"
+  },
+  "cajas": {
+   "titulo": "Ana White: Wood crate building guide",
+   "url": "https://ana-white.com/woodworking-projects/wood-crate-building-guide"
+  },
+  "monitor": {
+   "titulo": "StarTech / Lowe's: elevadores de monitor de 9 a 14 cm de alto",
+   "url": "https://www.cdw.ca/product/startech-desktop-monitor-riser-stand/7899595"
+  },
+  "tablas_picar": {
+   "titulo": "Crehana: tipos de tablas de picar y mantención con aceite",
+   "url": "https://www.crehana.com/blog/estilo-vida/tipos-tablas-picar/"
   }
  },
  "descartados": [

@@ -7,6 +7,7 @@ import { CONSTRUCCION } from './construccion'
 import { DORMITORIO } from './dormitorio'
 import { EXTERIOR } from './exterior'
 import { INFANTIL } from './infantil'
+import { INSPIRACION } from './inspiracion'
 import { LIVING } from './living'
 import { muebleTv } from './muebleTv'
 import { OFICINA } from './oficina'
@@ -14,9 +15,23 @@ import { ORGANIZACION } from './organizacion'
 import { repisa } from './repisa'
 import { velador } from './velador'
 
-export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet, ...DORMITORIO, ...LIVING, ...COCINA, ...BANO, ...OFICINA, ...INFANTIL, ...ORGANIZACION, ...EXTERIOR, ...CONSTRUCCION]
+export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet, ...DORMITORIO, ...LIVING, ...COCINA, ...BANO, ...OFICINA, ...INFANTIL, ...ORGANIZACION, ...EXTERIOR, ...CONSTRUCCION, ...INSPIRACION]
 
-export const CATEGORIAS: Categoria[] = ['dormitorio', 'living', 'cocina', 'baño', 'oficina', 'infantil', 'organización', 'exterior', 'construcción']
+export const CATEGORIAS: Categoria[] = [
+  'dormitorio',
+  'sala de estar',
+  'cocina',
+  'baño',
+  'oficina',
+  'espacio infantil',
+  'almacenamiento',
+  'entrada',
+  'jardín',
+  'decoración',
+  'taller',
+  'exterior',
+  'construcción',
+]
 
 export function buscarProyecto(id: string): ProyectoDef | undefined {
   return PROYECTOS.find((p) => p.id === id)

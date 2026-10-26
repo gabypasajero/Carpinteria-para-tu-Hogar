@@ -171,7 +171,7 @@
   "nota": null
  },
  "closet_abierto": {
-  "categoria": "dormitorio",
+  "categoria": "almacenamiento",
   "dificultad": 2,
   "herramientas": [
    "huincha",
@@ -212,7 +212,7 @@
   "nota": null
  },
  "zapatero": {
-  "categoria": "dormitorio",
+  "categoria": "entrada",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -247,7 +247,7 @@
   "nota": null
  },
  "mueble_tv": {
-  "categoria": "living",
+  "categoria": "sala de estar",
   "dificultad": 2,
   "herramientas": [
    "huincha",
@@ -263,7 +263,7 @@
   "nota": null
  },
  "mesa_centro": {
-  "categoria": "living",
+  "categoria": "sala de estar",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -287,7 +287,7 @@
   "nota": null
  },
  "mesa_lateral": {
-  "categoria": "living",
+  "categoria": "sala de estar",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -305,7 +305,7 @@
   "nota": null
  },
  "repisa": {
-  "categoria": "living",
+  "categoria": "sala de estar",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -329,7 +329,7 @@
   "nota": null
  },
  "repisa_flotante": {
-  "categoria": "living",
+  "categoria": "decoración",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -351,7 +351,7 @@
   "nota": null
  },
  "sofa_2x4": {
-  "categoria": "living",
+  "categoria": "sala de estar",
   "dificultad": 2,
   "herramientas": [
    "huincha",
@@ -375,7 +375,7 @@
   "nota": null
  },
  "panel_ranurado": {
-  "categoria": "living",
+  "categoria": "decoración",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -666,7 +666,7 @@
   "nota": null
  },
  "estanteria": {
-  "categoria": "oficina",
+  "categoria": "almacenamiento",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -688,7 +688,7 @@
   "nota": null
  },
  "banco_trabajo": {
-  "categoria": "oficina",
+  "categoria": "taller",
   "dificultad": 2,
   "herramientas": [
    "huincha",
@@ -711,7 +711,7 @@
   "nota": null
  },
  "casita_juego": {
-  "categoria": "infantil",
+  "categoria": "espacio infantil",
   "dificultad": 3,
   "herramientas": [
    "huincha",
@@ -743,7 +743,7 @@
   "nota": null
  },
  "mesa_infantil": {
-  "categoria": "infantil",
+  "categoria": "espacio infantil",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -759,7 +759,7 @@
   "nota": "Cantos redondeados y pintura no tóxica."
  },
  "baul": {
-  "categoria": "infantil",
+  "categoria": "espacio infantil",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -775,7 +775,7 @@
   "nota": "Usar bisagra con retenedor de tapa (evita golpes)."
  },
  "cama_montessori": {
-  "categoria": "infantil",
+  "categoria": "espacio infantil",
   "dificultad": 2,
   "herramientas": [
    "huincha",
@@ -798,7 +798,7 @@
   "nota": null
  },
  "torre_aprendizaje": {
-  "categoria": "infantil",
+  "categoria": "espacio infantil",
   "dificultad": 2,
   "herramientas": [
    "huincha",
@@ -814,7 +814,7 @@
   "nota": "Producto de seguridad infantil: recomendar diseño probado y advertencias."
  },
  "perchero": {
-  "categoria": "organización",
+  "categoria": "entrada",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -832,7 +832,7 @@
   "nota": null
  },
  "lavadero": {
-  "categoria": "organización",
+  "categoria": "almacenamiento",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -852,7 +852,7 @@
   "nota": null
  },
  "panel_herramientas": {
-  "categoria": "organización",
+  "categoria": "taller",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -935,7 +935,7 @@
   "nota": "Luces de vigas no tienen tabla chilena pública para hogar: limitar luces conservadoras o derivar a calculista."
  },
  "jardinera": {
-  "categoria": "exterior",
+  "categoria": "jardín",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -1010,7 +1010,7 @@
   "nota": null
  },
  "lenera": {
-  "categoria": "exterior",
+  "categoria": "jardín",
   "dificultad": 1,
   "herramientas": [
    "huincha",
@@ -1167,5 +1167,443 @@
   ],
   "permiso": "Agrega superficie y es estructural: requiere permiso y cálculo.",
   "nota": "Recomendado solo como cotización a profesional."
+ },
+ "bandeja_botas": {
+  "categoria": "entrada",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Listones con 1 cm de separación para que escurra el agua; barniz marino por la humedad",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "caja_listones": {
+  "categoria": "almacenamiento",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Cabeceras de 1x6 y costados de listones 1x3: la altura la define la tabla de cabecera",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "casa_pajaros": {
+  "categoria": "jardín",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Piso interior de 10×10 cm, alto 15–20 cm y entrada a 12–15 cm del piso",
+    "fuente": "nidos2"
+   },
+   {
+    "texto": "Entrada de 2,5–2,9 cm para chincoles y similares; sin percha (atrae depredadores)",
+    "fuente": "nidos"
+   }
+  ],
+  "permiso": null,
+  "nota": "No barnizar el interior; dejar agujeros de ventilación y drenaje."
+ },
+ "tabla_picar": {
+  "categoria": "cocina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "prensa",
+   "lijadora",
+   "serrucho"
+  ],
+  "reglas": [
+   {
+    "texto": "Mantener con aceite apto para alimentos y no sumergir en agua",
+    "fuente": "tablas_picar"
+   }
+  ],
+  "permiso": null,
+  "nota": "Para uso diario prefiere madera dura (roble, raulí o coigüe); el pino sirve para tablas de picoteo."
+ },
+ "porta_plantas": {
+  "categoria": "jardín",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Deja al menos 18 cm entre niveles para macetas medianas",
+    "fuente": "plantas2"
+   },
+   {
+    "texto": "Estructura 2x2 y repisas de tablas, ~85 cm de alto",
+    "fuente": "plantas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "macetero_alto": {
+  "categoria": "jardín",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Madera para contacto con tierra: impregnada o con forro plástico interior",
+    "fuente": "nch819"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "vinoteca": {
+  "categoria": "sala de estar",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Celdas de ~10 cm: caben casi todas las botellas de 750 ml",
+    "fuente": "vinos"
+   },
+   {
+    "texto": "Separación de 10 cm entre botellas en racks de listones",
+    "fuente": "vinos2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "soporte_monitor": {
+  "categoria": "oficina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Elevadores comerciales levantan el monitor 9 a 14 cm y dejan espacio para el teclado",
+    "fuente": "monitor"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "atril": {
+  "categoria": "oficina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Inclinación de 60–70° y tope inferior para sostener la página",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "banquito": {
+  "categoria": "baño",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Peldaños cada ~16 cm y escalón superior de ~32 cm",
+    "fuente": "escalon"
+   },
+   {
+    "texto": "Base más ancha que el escalón y superficie antideslizante",
+    "fuente": "escalon2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "caballetes": {
+  "categoria": "taller",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "circular",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto de trabajo de ~75 cm; patas cortadas a 15°",
+    "fuente": "caballetes"
+   },
+   {
+    "texto": "Caballetes de 2x4 de 75 cm de alto",
+    "fuente": "caballetes2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "caja_herramientas": {
+  "categoria": "taller",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Costados en punta y manilla pasante centrada a ~2 cm del borde superior",
+    "fuente": "tote"
+   },
+   {
+    "texto": "Fondo de terciado o tabla atornillada; manilla de 2,5 a 3 cm",
+    "fuente": "tote2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "cajon_arena": {
+  "categoria": "espacio infantil",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Arenero de ~1,2×1,2 m y 28 cm de profundidad útil",
+    "fuente": "arena2"
+   },
+   {
+    "texto": "Tapa abatible que se convierte en asientos",
+    "fuente": "arena"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "pikler": {
+  "categoria": "espacio infantil",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto ~77–81 cm, peldaños cada ~9 cm, para 6 meses a 6 años",
+    "fuente": "pikler"
+   }
+  ],
+  "permiso": null,
+  "nota": "Juego de motricidad: uso siempre con un adulto, lijado perfecto y peldaños atornillados y encolados."
+ },
+ "cama_perro": {
+  "categoria": "sala de estar",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Tamaños de referencia en pino macizo: 52×44, 72×54 y 100×70 cm",
+    "fuente": "perros"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "marco_cuadro": {
+  "categoria": "decoración",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "ingletadora",
+   "prensa",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Esquinas a inglete de 45° encoladas y prensadas",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "librero_escalera": {
+  "categoria": "sala de estar",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Apoyado en el muro y anclado con una escuadra: no es una escalera para subir",
+    "fuente": "plantas2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "tumbona": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "circular",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Madera exterior impregnada R3",
+    "fuente": "nch819"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "bandeja_sofa": {
+  "categoria": "sala de estar",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Se ajusta al ancho del brazo del sofá más 1 cm de holgura",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "tipi": {
+  "categoria": "espacio infantil",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Estructura A con travesaños: la tela se cose aparte",
+    "fuente": "pikler"
+   }
+  ],
+  "permiso": null,
+  "nota": "La tela (lona o crudo) se compra aparte."
  }
 }

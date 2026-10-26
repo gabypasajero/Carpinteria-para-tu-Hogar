@@ -1,16 +1,11 @@
 import { useState, type FormEvent } from 'react'
 import { cm, formatoCLP } from '../core/costos'
+import { precioFabricacion } from '../core/tiendas'
 import type { Params, ProyectoDef } from '../core/types'
 import { supabase } from '../lib/supabase'
 import { useApp } from '../store/useApp'
 
-const TIENDAS = {
-  detodito: { nombre: 'De Todito Outlet', whatsapp: import.meta.env.VITE_WHATSAPP_DETODITO as string | undefined },
-  molina: { nombre: 'Muebles y Hogar Molina', whatsapp: import.meta.env.VITE_WHATSAPP_MOLINA as string | undefined },
-  cualquiera: { nombre: 'La que responda primero', whatsapp: undefined },
-} as const
-
-type Tienda = keyof typeof TIENDAS
+const CUALQUIERA = { id: 'cualquiera', nombre: 'La que responda primero', whatsapp: null, factor: 0 }
 
 interface Props {
   proyecto: ProyectoDef
@@ -22,7 +17,9 @@ interface Props {
 
 export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerrar }: Props) {
   const sesion = useApp((s) => s.sesion)
-  const [tienda, setTienda] = useState<Tienda>('cualquiera')
+  const tiendas = useApp((s) => s.tiendas)
+  const opciones = [...tiendas, CUALQUIERA]
+  const [tienda, setTienda] = useState('cualquiera')
   const [form, setForm] = useState({ nombre: '', telefono: '', email: sesion?.user.email ?? '', comuna: '', comentario: '' })
   const [estado, setEstado] = useState<'editando' | 'enviando' | 'enviado' | 'error'>('editando')
   const [error, setError] = useState('')
@@ -40,7 +37,7 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
     .filter(Boolean)
     .join('\n')
 
-  const whatsapp = TIENDAS[tienda].whatsapp
+  const whatsapp = opciones.find((t) => t.id === tienda)?.whatsapp
   const set = (k: keyof typeof form) => (e: { target: { value: string } }) => setForm({ ...form, [k]: e.target.value })
 
   async function enviar(e: FormEvent) {
@@ -51,17 +48,17 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
       return
     }
     setEstado('enviando')
-    const { error } = await supabase.from('solicitudes').insert({
-      user_id: sesion?.user.id ?? null,
-      tienda,
-      proyecto: proyecto.id,
-      params,
-      costo_materiales: costoMateriales,
-      nombre: form.nombre,
-      telefono: form.telefono,
-      email: form.email || null,
-      comuna: form.comuna,
-      comentario: form.comentario || null,
+    const { error } = await supabase.rpc('carpinteria_enviar_solicitud', {
+      p_tienda: tienda,
+      p_proyecto: proyecto.id,
+      p_params: params,
+      p_costo_materiales: costoMateriales,
+      p_nombre: form.nombre,
+      p_telefono: form.telefono,
+      p_email: form.email,
+      p_comuna: form.comuna,
+      p_comentario: form.comentario,
+      p_enlace: window.location.href,
     })
     if (error) {
       setError(error.message)
@@ -77,8 +74,8 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
         </button>
         <h2 id="cotizar-titulo">¿No quieres hacerlo tú?</h2>
         <p>
-          Te lo fabricamos. Envía este diseño ({medidas}) y una tienda te contactará con el precio. Solo en materiales te costaría cerca de{' '}
-          <strong>{formatoCLP(costoMateriales)}</strong>.
+          Te lo fabricamos. Envía este diseño ({medidas}) y una tienda te contactará con el precio final. Fabricado cuesta desde{' '}
+          <strong>{formatoCLP(precioFabricacion(costoMateriales, tiendas))}</strong> aprox. (solo materiales: {formatoCLP(costoMateriales)}).
         </p>
 
         {estado === 'enviado' ? (
@@ -99,10 +96,10 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
           <form onSubmit={enviar} className="formulario">
             <fieldset className="tiendas">
               <legend>¿Quién lo fabrica?</legend>
-              {(Object.keys(TIENDAS) as Tienda[]).map((k) => (
-                <label key={k} className={tienda === k ? 'activa' : ''}>
-                  <input type="radio" name="tienda" checked={tienda === k} onChange={() => setTienda(k)} />
-                  {TIENDAS[k].nombre}
+              {opciones.map((t) => (
+                <label key={t.id} className={tienda === t.id ? 'activa' : ''}>
+                  <input type="radio" name="tienda" checked={tienda === t.id} onChange={() => setTienda(t.id)} />
+                  {t.nombre}
                 </label>
               ))}
             </fieldset>

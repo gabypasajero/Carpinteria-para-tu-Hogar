@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { Comparador } from '../components/Comparador'
 import { Cotizacion } from '../components/Cotizacion'
 import { Guia } from '../components/Guia'
 import { PanelMedidas } from '../components/PanelMedidas'
@@ -7,10 +8,12 @@ import { PlanoCortes } from '../components/PlanoCortes'
 import { TablaCorte } from '../components/TablaCorte'
 import { TablaMateriales } from '../components/TablaMateriales'
 import { Visor3D } from '../components/Visor3D'
-import { DIFICULTAD, cm, formatoCLP } from '../core/costos'
+import { DIFICULTAD, cm } from '../core/costos'
+import { planillaDimensionado } from '../core/dimensionado'
 import type { ProyectoDef } from '../core/types'
 import { guardarDiseno } from '../lib/disenos'
 import { useCalculo } from '../lib/useCalculo'
+import { useApp } from '../store/useApp'
 import { buscarProyecto, normalizarParams } from '../projects'
 
 type Pestana = 'corte' | 'materiales' | 'optimizacion' | 'guia'
@@ -67,6 +70,7 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
   const [cotizando, setCotizando] = useState(false)
   const [mensaje, setMensaje] = useState('')
   const canvas = useRef<HTMLCanvasElement | null>(null)
+  const tiendas = useApp((s) => s.tiendas)
 
   const cambiar = useCallback(
     (pid: string, valor: number) => {
@@ -94,10 +98,25 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
       setCaptura(null)
     }
     const { generarPdf } = await import('../lib/pdf')
-    const doc = generarPdf(proyecto, calc, capturas, window.location.href)
-    const [W, H, D] = res.exterior
-    doc.save(`${proyecto.id}-${cm(W)}x${cm(H)}x${cm(D)}.pdf`)
+    const doc = generarPdf(proyecto, calc, capturas, window.location.href, tiendas)
+    doc.save(`${nombreArchivo()}.pdf`)
     setMensaje('')
+  }
+
+  function nombreArchivo() {
+    const [W, H, D] = res.exterior
+    return `${proyecto.id}-${cm(W)}x${cm(H)}x${cm(D)}`
+  }
+
+  function descargarPlanilla() {
+    const [W, H, D] = res.exterior
+    const csv = planillaDimensionado(cortes, `${proyecto.nombre} ${cm(W)}×${cm(H)}×${cm(D)} cm`)
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }))
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${nombreArchivo()}-dimensionado.csv`
+    a.click()
+    URL.revokeObjectURL(url)
   }
 
   async function guardar() {
@@ -142,11 +161,8 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
             <span>Planchas / listones</span>
             <strong>{opt.tableros.length + opt.barras.length}</strong>
           </div>
-          <div>
-            <span>Materiales aprox.</span>
-            <strong>{formatoCLP(costos.total)}</strong>
-          </div>
         </div>
+        <Comparador costoMateriales={costos.total} horas={proyecto.horas} onCotizar={() => setCotizando(true)} />
         {res.avisos.length > 0 && (
           <ul className="avisos">
             {res.avisos.map((a) => (
@@ -206,7 +222,17 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           ))}
         </div>
         <div className="pestana-contenido" role="tabpanel">
-          {pestana === 'corte' && <TablaCorte cortes={cortes} resaltada={resaltada} onResaltar={setResaltada} />}
+          {pestana === 'corte' && (
+            <>
+              <div className="barra-pestana">
+                <p className="nota">Lleva esta lista a la tienda o descárgala para pedir el dimensionado (corte y tapacanto).</p>
+                <button className="boton secundario" onClick={descargarPlanilla}>
+                  Descargar planilla para dimensionar
+                </button>
+              </div>
+              <TablaCorte cortes={cortes} resaltada={resaltada} onResaltar={setResaltada} />
+            </>
+          )}
           {pestana === 'materiales' && <TablaMateriales lineas={costos.lineas} total={costos.total} />}
           {pestana === 'optimizacion' && <PlanoCortes opt={opt} />}
           {pestana === 'guia' && (

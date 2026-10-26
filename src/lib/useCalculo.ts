@@ -17,6 +17,13 @@ export function calcular(proyecto: ProyectoDef, params: Params, precios: Record<
 export type Calculo = ReturnType<typeof calcular>
 
 export function useCalculo(proyecto: ProyectoDef, params: Params): Calculo {
-  const precios = useApp((s) => s.precios)
+  const precios = usePrecios()
   return useMemo(() => calcular(proyecto, params, precios), [proyecto, params, precios])
+}
+
+/** Precios vigentes: los ajustes de la persona sobre los publicados en Supabase. */
+export function usePrecios(): Record<string, number> {
+  const base = useApp((s) => s.preciosBase)
+  const propios = useApp((s) => s.precios)
+  return useMemo(() => ({ ...base, ...propios }), [base, propios])
 }

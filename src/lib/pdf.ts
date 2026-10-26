@@ -2,6 +2,7 @@ import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import { MATERIALES } from '../core/catalogo'
 import { DIFICULTAD, cm, formatoCLP } from '../core/costos'
+import { precioFabricacion, type Tienda } from '../core/tiendas'
 import type { ProyectoDef } from '../core/types'
 import type { Calculo } from './useCalculo'
 
@@ -37,7 +38,23 @@ function imagen(doc: jsPDF, dataUrl: string, y: number, altoMax: number): number
   return y + h
 }
 
-export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Capturas, enlace: string): jsPDF {
+/** Recuadro «¿Prefieres que te lo hagan?»: cada plano que circula lleva a las tiendas. */
+function recuadroTiendas(doc: jsPDF, tiendas: Tienda[], costoMateriales: number, enlace: string) {
+  const ancho = doc.internal.pageSize.getWidth() - 2 * MARGEN
+  const y = doc.internal.pageSize.getHeight() - 56
+  doc.setDrawColor(224, 138, 46).setFillColor(253, 240, 222).roundedRect(MARGEN, y, ancho, 40, 3, 3, 'FD')
+  doc.setFont('helvetica', 'bold').setFontSize(13).setTextColor(...CAFE).text('¿Prefieres que te lo hagan?', MARGEN + 6, y + 9)
+  doc.setFont('helvetica', 'normal').setFontSize(10).setTextColor(40)
+  doc.text(`Te lo fabricamos a esta medida desde ${formatoCLP(precioFabricacion(costoMateriales, tiendas))} aprox. Pide tu cotización a:`, MARGEN + 6, y + 16)
+  tiendas.forEach((t, i) => {
+    doc.setFont('helvetica', 'bold').text(t.nombre, MARGEN + 6, y + 23 + i * 5.5)
+    if (t.whatsapp) doc.setFont('helvetica', 'normal').text(`WhatsApp +${t.whatsapp}`, MARGEN + 70, y + 23 + i * 5.5)
+  })
+  doc.setFont('helvetica', 'normal').setFontSize(8).setTextColor(110)
+  doc.text(doc.splitTextToSize(`O desde el botón «¿No quieres hacerlo tú?» en ${enlace}`, ancho - 12), MARGEN + 6, y + 36)
+}
+
+export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Capturas, enlace: string, tiendas: Tienda[]): jsPDF {
   const doc = new jsPDF({ unit: 'mm', format: 'a4' })
   const anchoPag = doc.internal.pageSize.getWidth()
   const altoPag = doc.internal.pageSize.getHeight()
@@ -62,7 +79,7 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
   }
   titulo(doc, 'Herramientas', y + 6)
   doc.text(doc.splitTextToSize(proyecto.herramientas.join(', ') + '.', anchoPag - 2 * MARGEN), MARGEN, y + 12)
-  doc.setFontSize(8).setTextColor(120).text(`Carpintería para tu hogar · ${enlace}`, MARGEN, altoPag - 8)
+  recuadroTiendas(doc, tiendas, costos.total, enlace)
 
   // Lista de corte
   doc.addPage()
@@ -184,6 +201,7 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
   for (let p = 1; p <= paginas; p++) {
     doc.setPage(p)
     doc.setFontSize(8).setTextColor(150).text(`${p} / ${paginas}`, anchoPag - MARGEN, altoPag - 8, { align: 'right' })
+    doc.text(`Carpintería para tu hogar · Fabrican: ${tiendas.map((t) => t.nombre).join(' y ')}`, MARGEN, altoPag - 8)
   }
   return doc
 }

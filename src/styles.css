@@ -406,6 +406,66 @@ input[type='range'] {
   margin-top: 0.3rem;
 }
 
+.comparador {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.opcion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-align: left;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 0.65rem 0.75rem;
+  background: var(--superficie);
+  font: inherit;
+  color: inherit;
+}
+
+.opcion-titulo {
+  font-size: 0.75rem;
+  color: var(--suave);
+}
+
+.opcion strong {
+  font-size: 1.05rem;
+}
+
+.opcion small {
+  font-size: 0.75rem;
+  color: var(--suave);
+}
+
+.opcion-fabricar {
+  border-color: var(--acento);
+  background: var(--acento-suave);
+  cursor: pointer;
+}
+
+.opcion-fabricar:hover {
+  border-color: #c97416;
+}
+
+.opcion-fabricar small {
+  color: var(--madera-osc);
+}
+
+.barra-pestana {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.barra-pestana .nota {
+  margin: 0;
+}
+
 .acciones {
   display: flex;
   flex-direction: column;

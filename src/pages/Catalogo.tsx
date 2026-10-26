@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'
 import { Miniatura } from '../components/Miniatura'
 import { DIFICULTAD, formatoCLP } from '../core/costos'
 import type { Categoria } from '../core/types'
-import { calcular } from '../lib/useCalculo'
+import { calcular, usePrecios } from '../lib/useCalculo'
 import { CATEGORIAS, PROYECTOS, paramsPorDefecto } from '../projects'
-import { useApp } from '../store/useApp'
 
 export function Catalogo() {
   const [categoria, setCategoria] = useState<Categoria | null>(null)
-  const precios = useApp((s) => s.precios)
+  const precios = usePrecios()
   const tarjetas = useMemo(
     () =>
       PROYECTOS.map((p) => {

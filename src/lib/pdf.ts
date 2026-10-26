@@ -1,9 +1,10 @@
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
-import { MATERIALES, nombreHerramienta } from '../core/catalogo'
+import { FECHA_PRECIOS, MATERIALES, nombreHerramienta } from '../core/catalogo'
 import { DIFICULTAD, cm, formatoCLP } from '../core/costos'
 import { precioFabricacion, type Tienda } from '../core/tiendas'
 import type { ProyectoDef } from '../core/types'
+import { FUENTES, GAMAS_HERRAMIENTAS, PRECIOS_POR_TIENDA, comprar, fechaLarga } from './investigacion'
 import type { Calculo } from './useCalculo'
 
 interface Capturas {
@@ -18,6 +19,16 @@ const CAFE: [number, number, number] = [138, 90, 43]
 function finalY(doc: jsPDF): number {
   return (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable.finalY
 }
+
+/** La fuente estándar del PDF no tiene ≥, ≤, ≈ ni flechas: se escriben con caracteres que sí tiene. */
+const limpiar = (t: string) =>
+  t
+    .replace(/≥/g, '>=')
+    .replace(/≤/g, '<=')
+    .replace(/≈/g, '~')
+    .replace(/→/g, '->')
+    .replace(/[−‑]/g, '-')
+    .replace(/[\u2009\u202f]/g, ' ')
 
 function titulo(doc: jsPDF, texto: string, y: number) {
   doc.setFont('helvetica', 'bold').setFontSize(14).setTextColor(...CAFE).text(texto, MARGEN, y)
@@ -72,7 +83,7 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
     titulo(doc, 'Ten en cuenta', y + 4)
     y += 10
     for (const a of res.avisos) {
-      const lineas = doc.splitTextToSize(`- ${a}`, anchoPag - 2 * MARGEN)
+      const lineas = doc.splitTextToSize(limpiar(`- ${a}`), anchoPag - 2 * MARGEN)
       doc.text(lineas, MARGEN, y)
       y += lineas.length * 5
     }
@@ -106,7 +117,7 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
   autoTable(doc, {
     startY: finalY(doc) + 17,
     head: [['Material o herraje', 'Comprar', 'Precio', 'Total', 'Dónde']],
-    body: costos.lineas.map((l) => [l.nombre, `${l.cantidad} ${l.unidadVenta}`, formatoCLP(l.precioUnitario), formatoCLP(l.total), l.tienda]),
+    body: costos.lineas.map((l) => [l.nombre, comprar(l.cantidad, l.unidadVenta), formatoCLP(l.precioUnitario), formatoCLP(l.total), l.tienda]),
     foot: [['Total estimado', '', '', formatoCLP(costos.total), '']],
     headStyles: { fillColor: CAFE },
     footStyles: { fillColor: [245, 236, 225], textColor: 30 },
@@ -171,8 +182,8 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
   y = 28
   for (const [i, paso] of res.pasos.entries()) {
     const img = capturas.pasos[i]
-    const texto = doc.splitTextToSize(paso.texto, anchoPag - 2 * MARGEN)
-    const consejo = paso.consejo ? doc.splitTextToSize(`Consejo: ${paso.consejo}`, anchoPag - 2 * MARGEN) : []
+    const texto = doc.splitTextToSize(limpiar(paso.texto), anchoPag - 2 * MARGEN)
+    const consejo = paso.consejo ? doc.splitTextToSize(limpiar(`Consejo: ${paso.consejo}`), anchoPag - 2 * MARGEN) : []
     const piezas = [...new Set(res.piezas.filter((p) => p.paso === i).map((p) => letras[p.clave]))].sort()
     const altoNecesario = 10 + texto.length * 5 + consejo.length * 5 + (img ? 75 : 0)
     if (y + altoNecesario > altoPag - 12) {
@@ -196,6 +207,58 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
     if (img) y = imagen(doc, img, y + 2, 70) + 4
     y += 6
   }
+
+  // Ficha técnica: permisos, reglas con su fuente, herramientas y dónde comprar.
+  doc.addPage()
+  titulo(doc, 'Ficha técnica', 20)
+  y = 28
+  const anchoTexto = anchoPag - 2 * MARGEN
+  const parrafo = (texto: string, opciones: { negrita?: boolean; color?: number } = {}) => {
+    const lineas = doc.splitTextToSize(limpiar(texto), anchoTexto)
+    if (y + lineas.length * 5 > altoPag - 15) {
+      doc.addPage()
+      y = 20
+    }
+    doc.setFont('helvetica', opciones.negrita ? 'bold' : 'normal').setTextColor(opciones.color ?? 40)
+    doc.text(lineas, MARGEN, y)
+    y += lineas.length * 5
+  }
+  if (proyecto.permiso) {
+    parrafo('Permisos (OGUC)', { negrita: true })
+    parrafo(proyecto.permiso)
+    y += 2
+  }
+  if (proyecto.nota) {
+    parrafo(proyecto.nota, { color: 110 })
+    y += 2
+  }
+  if (proyecto.reglas?.length) {
+    parrafo('Reglas que sigue el diseño', { negrita: true })
+    for (const r of proyecto.reglas) parrafo(`- ${r.texto} (${FUENTES[r.fuente]?.titulo ?? r.fuente})`)
+    y += 2
+  }
+  autoTable(doc, {
+    startY: y + 2,
+    head: [['Herramienta', 'Económica', 'Media', 'Premium']],
+    body: proyecto.herramientas.map((h) => {
+      const g = GAMAS_HERRAMIENTAS[h]?.gamas
+      const celda = (k: 'economica' | 'media' | 'premium') => (g?.[k] ? `${formatoCLP(g[k]!.oferta ?? g[k]!.precio)} ${g[k]!.tienda}` : '-')
+      return [limpiar(GAMAS_HERRAMIENTAS[h]?.nombre ?? h), celda('economica'), celda('media'), celda('premium')]
+    }),
+    headStyles: { fillColor: CAFE },
+    styles: { fontSize: 9 },
+  })
+  autoTable(doc, {
+    startY: finalY(doc) + 8,
+    head: [['Material o herraje', 'Precio por tienda']],
+    body: costos.lineas.map((l) => [
+      limpiar(l.nombre),
+      (PRECIOS_POR_TIENDA[l.id] ?? []).map((o) => `${o.tienda} ${formatoCLP(o.oferta ?? o.precio)}`).join('  ·  ') || `${l.tienda} ${formatoCLP(l.precioUnitario)}`,
+    ]),
+    headStyles: { fillColor: CAFE },
+    styles: { fontSize: 9 },
+  })
+  doc.setFontSize(8).setTextColor(120).text(`Precios consultados el ${fechaLarga(FECHA_PRECIOS)} en Sodimac, Easy e Imperial (con IVA). Confírmalos en la tienda.`, MARGEN, finalY(doc) + 6)
 
   const paginas = doc.getNumberOfPages()
   for (let p = 1; p <= paginas; p++) {

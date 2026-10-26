@@ -208,9 +208,16 @@ button {
 
 .categorias {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.4rem;
-  overflow-x: auto;
   padding: 0.5rem 0 1rem;
+}
+
+@media (max-width: 860px) {
+  .categorias {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
 }
 
 .categorias button {
@@ -231,6 +238,145 @@ button {
 .categorias button:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+.categorias .cuenta {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-left: 0.15rem;
+}
+
+.buscador input {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--borde);
+  border-radius: 99px;
+  background: var(--superficie);
+  font: inherit;
+}
+
+.vacio {
+  color: var(--suave);
+  padding: 1rem 0;
+}
+
+.chip-permiso {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 99px;
+  vertical-align: middle;
+}
+
+.chip-permiso.ok {
+  background: #e3f1e8;
+  color: var(--ok);
+}
+
+.chip-permiso.alerta {
+  background: #f8e2d6;
+  color: var(--alerta);
+}
+
+.chip-permiso.consultar {
+  background: var(--acento-suave);
+  color: var(--madera-osc);
+}
+
+.chip-permiso.sobre {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.5rem;
+}
+
+/* Ficha técnica */
+.ficha {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.ficha h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.ficha p {
+  margin: 0.2rem 0;
+}
+
+.ficha-datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  color: var(--suave);
+  font-size: 0.9rem;
+}
+
+.ficha-permiso {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 0.8rem 1rem;
+  background: var(--superficie);
+}
+
+.ficha-permiso.alerta {
+  border-color: #e9b79c;
+  background: #fdf3ee;
+}
+
+.ficha-nota {
+  border-left: 3px solid var(--acento);
+  padding: 0.4rem 0.8rem;
+  background: var(--acento-suave);
+  border-radius: 0 var(--radio) var(--radio) 0;
+}
+
+.ficha-reglas {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ficha-fuente {
+  color: var(--suave);
+  font-size: 0.85rem;
+}
+
+.ficha td a {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.ficha td a small {
+  color: var(--suave);
+  font-size: 0.75rem;
+}
+
+.ficha-tiendas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.ficha-tiendas a span {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.ficha-tiendas a span.tienda-ref {
+  border-color: var(--madera);
+  background: var(--acento-suave);
+  font-weight: 600;
 }
 
 .tarjetas {

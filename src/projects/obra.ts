@@ -186,8 +186,9 @@ export function casa(o: OpcCasa) {
   const nombreFr = 'Frontón'
   const frontones: PiezaInstancia[] = []
   for (let yb = yT; ; yb += hFr) {
-    const largo = Math.min(W - 2 * c, W - 2 * (zs + (yb - yT) / Math.tan(p)))
     const alto = Math.min(hFr, y1 - yb)
+    // Largo a media altura de la franja: el trapecio que se corta tiene esa misma superficie.
+    const largo = Math.min(W - 2 * c, W - 2 * (zs + (yb + alto / 2 - yT) / Math.tan(p)))
     if (largo < 100 || alto < 20) break
     // Las franjas más largas que la plancha o la tabla se dividen en tramos iguales.
     const partes = tramos(largo, MATERIALES[m.revest].formato[0])

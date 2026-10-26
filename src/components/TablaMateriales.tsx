@@ -1,4 +1,5 @@
 import { formatoCLP, type LineaCosto } from '../core/costos'
+import { comprar } from '../lib/investigacion'
 import { useApp } from '../store/useApp'
 
 export function TablaMateriales({ lineas, total }: { lineas: LineaCosto[]; total: number }) {
@@ -24,7 +25,7 @@ export function TablaMateriales({ lineas, total }: { lineas: LineaCosto[]; total
                   <small className="sub">{l.detalle}</small>
                 </td>
                 <td className="num">
-                  {l.cantidad} {l.unidadVenta}
+                  {comprar(l.cantidad, l.unidadVenta)}
                 </td>
                 <td className="num">
                   <input

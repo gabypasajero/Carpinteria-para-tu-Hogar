@@ -2,6 +2,7 @@ import { useCallback, useMemo, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { Comparador } from '../components/Comparador'
 import { Cotizacion } from '../components/Cotizacion'
+import { Ficha } from '../components/Ficha'
 import { Guia } from '../components/Guia'
 import { PanelMedidas } from '../components/PanelMedidas'
 import { PlanoCortes } from '../components/PlanoCortes'
@@ -16,13 +17,14 @@ import { useCalculo } from '../lib/useCalculo'
 import { useApp } from '../store/useApp'
 import { buscarProyecto, normalizarParams } from '../projects'
 
-type Pestana = 'corte' | 'materiales' | 'optimizacion' | 'guia'
+type Pestana = 'corte' | 'materiales' | 'optimizacion' | 'guia' | 'ficha'
 
 const PESTANAS: [Pestana, string][] = [
   ['corte', 'Lista de corte'],
   ['materiales', 'Materiales y costo'],
   ['optimizacion', 'Plano de cortes'],
   ['guia', 'Guía paso a paso'],
+  ['ficha', 'Ficha y compras'],
 ]
 
 /** Copia reducida en JPEG del lienzo 3D: un PNG por paso deja el PDF en varios MB. */
@@ -238,6 +240,7 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           {pestana === 'guia' && (
             <Guia pasos={res.pasos} piezas={res.piezas} letras={letras} herramientas={proyecto.herramientas} paso={pasoGuia} onPaso={setPasoGuia} />
           )}
+          {pestana === 'ficha' && <Ficha proyecto={proyecto} lineas={costos.lineas} />}
         </div>
       </section>
 

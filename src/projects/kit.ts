@@ -307,3 +307,38 @@ export function entramado(o: { material: string; eje: 'x' | 'z'; origen: V3; lar
   }
   return { piezas, aberturas: vanos.map((v) => ({ u0: v.desde, u1: v.desde + v.ancho, v0: v.antepecho ?? 0, v1: v.alto })) }
 }
+
+/**
+ * Cuerpo de melamina: laterales de piso a techo, base sobre zócalo retranqueado 5 cm y techo completo
+ * o dos travesaños (muebles base de cocina). Ocupa x0..x0+W y z0..z1. Devuelve el hueco interior.
+ */
+export function cuerpo(o: {
+  x0?: number
+  W: number
+  H: number
+  z0: number
+  z1: number
+  mat: string
+  zocalo: number
+  techo: 'completo' | 'travesanos'
+  paso: number
+}) {
+  const t = espesor(o.mat)
+  const x0 = o.x0 ?? 0
+  const x1 = x0 + o.W
+  const D = o.z1 - o.z0
+  const Z = o.zocalo
+  const k = (b: string, a: number, c: number) => claveDim(b, o.mat, a, c)
+  const piezas: PiezaInstancia[] = []
+  for (const x of [x0, x1 - t]) piezas.push(pieza(k('lateral', o.H, D), 'Lateral', o.mat, [x, 0, o.z0], [x + t, o.H, o.z1], o.paso, { canto: o.H }))
+  piezas.push(pieza(k('base', o.W - 2 * t, D), 'Base', o.mat, [x0 + t, Z, o.z0], [x1 - t, Z + t, o.z1], o.paso, { canto: o.W - 2 * t }))
+  if (Z > 0) piezas.push(pieza(k('zocalo', o.W - 2 * t, Z), 'Zócalo', o.mat, [x0 + t, 0, o.z1 - 50 - t], [x1 - t, Z, o.z1 - 50], o.paso, { canto: o.W - 2 * t }))
+  if (o.techo === 'completo') piezas.push(pieza(k('techo', o.W - 2 * t, D), 'Techo', o.mat, [x0 + t, o.H - t, o.z0], [x1 - t, o.H, o.z1], o.paso, { canto: o.W - 2 * t }))
+  else
+    for (const z of [o.z0, o.z1 - 100]) piezas.push(pieza(k('travesano', o.W - 2 * t, 100), 'Travesaño superior', o.mat, [x0 + t, o.H - t, z], [x1 - t, o.H, z + 100], o.paso, { canto: o.W - 2 * t }))
+  return {
+    piezas,
+    herrajes: [{ id: 't4x40', cantidad: Z > 0 ? 16 : 12 }] as HerrajeUso[],
+    interior: { x0: x0 + t, x1: x1 - t, y0: Z + t, y1: o.H - t },
+  }
+}

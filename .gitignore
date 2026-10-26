@@ -4,3 +4,7 @@ dist
 .env.local
 *.log
 *.tsbuildinfo
+__pycache__/
+scripts/precios/crudo.json
+scripts/precios/precios_reales.json
+scripts/precios/catalogo_proyectos.json

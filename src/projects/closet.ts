@@ -38,7 +38,9 @@ export const closet: ProyectoDef = {
     const b = (W - 3 * t) / 2
     const xDiv = t + b
     piezas.push(pieza('division', 'División central', M, [xDiv, ZOCALO + t, r], [xDiv + t, H - t, D], 3, { canto: H - 2 * t - ZOCALO }))
-    piezas.push(pieza('respaldo', 'Respaldo', R, [0, 0, 0], [W, H, r], 4))
+    // El respaldo va en dos mitades unidas sobre la división: entero no cabe en una plancha de 1,52 m.
+    piezas.push(pieza('respaldo', 'Respaldo (mitad)', R, [0, 0, 0], [W / 2, H, r], 4))
+    piezas.push(pieza('respaldo', 'Respaldo (mitad)', R, [W / 2, 0, 0], [W, H, r], 4))
 
     // Lado izquierdo: repisas regulables.
     for (const y of repartir(ZOCALO + t, H - t, n, t)) {
@@ -97,7 +99,7 @@ export const closet: ProyectoDef = {
         },
         {
           titulo: 'Clava el respaldo',
-          texto: 'Con el closet acostado boca abajo, mide diagonales y clava el respaldo cada 10 cm, también sobre la división. Luego, entre dos personas, ponlo de pie.',
+          texto: 'Con el closet acostado boca abajo, mide diagonales y clava las dos mitades del respaldo cada 10 cm; se unen justo sobre la división. Luego, entre dos personas, ponlo de pie.',
         },
         {
           titulo: 'Repisas, maletero y barra',

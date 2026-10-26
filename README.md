@@ -4,8 +4,8 @@ Carpintería general para mueblistas y dueñ@s de hogar. Planos a tu medida, al 
 
 - **Visor 3D** con cada pieza identificada por letra (A, B, C…), vista explotada y armado por pasos.
 - **Lista de corte** con largo, ancho, espesor, cantidad y metros de tapacanto por pieza.
-- **Materiales y costo** con precios referenciales en CLP (Sodimac, Easy, Imperial), editables y guardados en el navegador.
-- **Plano de cortes** optimizado para planchas de 244×183 cm y listones de 3,2 m (descuenta 4 mm por corte y respeta la veta).
+- **Materiales y costo** con precios reales en CLP de Sodimac, Easy e Imperial (cotizados el 26-10-2026), actualizables desde Supabase y ajustables por cada persona.
+- **Plano de cortes** optimizado para el formato real de cada plancha (melamina 250×183 cm, MDF 244×152 cm) y listones de 3,2 m (descuenta 4 mm por corte y respeta la veta).
 - **Guía paso a paso** con herramientas, consejos y la escena 3D de cada paso.
 - **PDF descargable** con todo lo anterior, más un recuadro «¿Prefieres que te lo hagan?» con las tiendas que fabrican.
 - **Planilla para dimensionar** (CSV para Excel) con medidas en mm, veta y lados con tapacanto, lista para pedir el corte en tienda.
@@ -13,6 +13,10 @@ Carpintería general para mueblistas y dueñ@s de hogar. Planos a tu medida, al 
 - **«¿No quieres hacerlo tú?»**: envía el diseño como solicitud de cotización a De Todito Outlet o a Muebles y Hogar Molina.
 
 Proyectos incluidos: repisa librero, velador con cajones, banca de pino, mueble TV y closet de dos puertas.
+
+## Investigación de mercado
+
+[`docs/investigacion`](docs/investigacion/README.md): catálogo de 54 proyectos (piezas, materiales, herramientas, normas y permisos) y precios reales por tienda. Se recotiza con [`scripts/precios`](scripts/precios/README.md).
 
 ## Desarrollo
 

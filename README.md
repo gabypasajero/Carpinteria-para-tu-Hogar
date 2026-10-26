@@ -38,6 +38,8 @@ Por ahora la app vive en el esquema aislado **`carpinteria`** dentro del proyect
 
 Las migraciones están en `supabase/migrations/`.
 
+**Datos de prueba:** siempre se deja al menos un registro para probar. En `carpinteria.solicitudes` está la solicitud con nombre `PRUEBA-CLAUDE` (comuna `Prueba`); no es un pedido real y no se borra.
+
 **Migrar a un proyecto propio (al pasar a Pro):** crea el proyecto, aplica las migraciones de `supabase/migrations/` en orden, copia los datos de las cuatro tablas (`pg_dump --schema=carpinteria --data-only`) y cambia `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` en Vercel. Las cuentas de usuario (`auth.users`) se exportan aparte; los diseños apuntan a ellas por `user_id`.
 
 En *Authentication → URL Configuration* agrega el dominio de Vercel como URL de redirección para el enlace mágico.

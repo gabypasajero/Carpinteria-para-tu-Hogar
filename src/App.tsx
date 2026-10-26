@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { Catalogo } from './pages/Catalogo'
 import { Ingresar } from './pages/Ingresar'
 import { MisProyectos } from './pages/MisProyectos'
@@ -7,9 +7,20 @@ import { useApp } from './store/useApp'
 
 // El visor 3D (three.js) es pesado: se carga solo al abrir un proyecto.
 const ProyectoPage = lazy(() => import('./pages/ProyectoPage').then((m) => ({ default: m.ProyectoPage })))
+const Estudio = lazy(() => import('./pages/Estudio').then((m) => ({ default: m.Estudio })))
 
 export function App() {
   const sesion = useApp((s) => s.sesion)
+  const { pathname } = useLocation()
+  // Estudio fotográfico para generar las fotos del catálogo: sin cabecera.
+  if (pathname.startsWith('/estudio/'))
+    return (
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/estudio/:id" element={<Estudio />} />
+        </Routes>
+      </Suspense>
+    )
   return (
     <>
       <header className="cabecera">

@@ -1048,3 +1048,8 @@ input[type='range'] {
     columns: 1;
   }
 }
+
+.estudio {
+  width: 100vw;
+  height: 100vh;
+}

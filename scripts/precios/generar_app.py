@@ -3,7 +3,8 @@
 Salida:
   src/data/precios.json        precio de referencia de cada material y herraje (lo usa el cálculo de costos)
   src/data/investigacion.json  fuentes, herramientas en tres gamas y precio en cada tienda (lo usa la ficha)
-  ../../supabase/precios_app.sql  mismo precio de referencia para carpinteria.precios
+  src/data/fichas.json         ficha técnica de cada proyecto (categoría, herramientas, reglas, permiso y nota)
+  ../../supabase/precios_app.sql  mismo precio de referencia para carpinteria.precios (se copia a una migración nueva)
 
 Uso (desde scripts/precios):  python3 generar_app.py ../../docs/investigacion/precios-2026-10-26.json [crudo.json]
 """

@@ -1,3 +1,4 @@
+-- Precios de referencia de los 62 materiales y herrajes que usan los 54 proyectos (generado por scripts/precios/generar_app.py).
 insert into carpinteria.precios (id, precio, tienda, producto, url, envase, unidad_venta, actualizado) values
 ('mel15',35490,'Imperial','Melamina blanca 15 mm 1,83x2,44 Swed','https://www.imperial.cl/melamina-blanco-y-color/melamina-blanca-15-mm-183x244-swed/product/128315',1,'plancha','2026-10-26T06:48:08.903252+00:00'),
 ('mel18',46310,'Imperial','Melamina blanca clásica 18mm 1.83 x 2.50 masisa','https://www.imperial.cl/melamina-blanco-y-color/melamina-blanca-cl%C3%A1sica-18mm-183-x-250-masisa/product/148859',1,'plancha','2026-10-26T06:48:08.903252+00:00'),
@@ -62,3 +63,6 @@ insert into carpinteria.precios (id, precio, tienda, producto, url, envase, unid
 ('lanamin',48750,'Sodimac','Lana de vidrio R94 libre 40mm 1,2x24m 1 rollo','https://www.sodimac.cl/sodimac-cl/product/1046918',28.8,'rollo 28,8 m²','2026-10-26T06:48:08.903252+00:00'),
 ('polin45',8890,'Sodimac','Polin impregnado 4 a 4 1/2 - 100 a 115 mm x  2,44 m','https://www.sodimac.cl/sodimac-cl/product/570915',1,'pieza','2026-10-26T06:48:08.903252+00:00')
 on conflict (id) do update set precio = excluded.precio, tienda = excluded.tienda, producto = excluded.producto, url = excluded.url, envase = excluded.envase, unidad_venta = excluded.unidad_venta, actualizado = excluded.actualizado;
+
+-- Todos los proyectos investigados ya están en la app.
+update carpinteria.catalogo_proyectos set estado = 'en_app' where estado = 'propuesto';

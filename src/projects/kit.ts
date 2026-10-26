@@ -160,10 +160,33 @@ export function listonLargo(clave: string, nombre: string, mat: string, min: V3,
     a[eje] = desde
     b[eje] = desde + l
     desde += l
-    const dims = [b[0] - a[0], b[1] - a[1], b[2] - a[2]].sort((x, y) => y - x)
-    return pieza(claveDim(clave, mat, dims[0], dims[1] * 1000 + dims[2]), nombre, mat, a, b, paso)
+    return pieza(claveDim(clave, mat, l, 0), nombre, mat, a, b, paso)
   })
 }
+
+/**
+ * Listón recto que parte en `min`: el largo sigue al eje `eje`, la cara ancha de la sección al eje `ancho`
+ * y el espesor al eje restante. Si supera el largo comercial se divide en tramos (empalmes sobre apoyos).
+ */
+export function lis(clave: string, nombre: string, mat: string, min: V3, eje: 0 | 1 | 2, largo: number, ancho: 0 | 1 | 2, paso: number, extra: { veta?: boolean; nota?: string } = {}) {
+  const [a, e] = seccion(mat)
+  const max = [...min] as V3
+  max[eje] += largo
+  max[ancho] += a
+  max[3 - eje - ancho] += e
+  if (largo <= MATERIALES[mat].formato[0]) return [pieza(claveDim(clave, mat, largo, 0), nombre, mat, min, max, paso, extra)]
+  return listonLargo(clave, nombre, mat, min, max, eje, paso)
+}
+
+/** Medidas de colchón en Chile (ancho × largo, mm). */
+export const COLCHONES: { nombre: string; ancho: number; largo: number }[] = [
+  { nombre: '1 plaza (90×190)', ancho: 900, largo: 1900 },
+  { nombre: '1½ plaza (105×190)', ancho: 1050, largo: 1900 },
+  { nombre: '2 plazas (150×190)', ancho: 1500, largo: 1900 },
+  { nombre: 'Queen (160×200)', ancho: 1600, largo: 2000 },
+  { nombre: 'King (180×200)', ancho: 1800, largo: 2000 },
+  { nombre: 'Super king (200×200)', ancho: 2000, largo: 2000 },
+]
 
 /**
  * Mesa de listones: 4 patas, faldones bajo la cubierta y cubierta de tablas (a lo largo de x) o de un tablero.

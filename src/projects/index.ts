@@ -1,11 +1,12 @@
 import type { Categoria, Params, ProyectoDef } from '../core/types'
 import { banca } from './banca'
 import { closet } from './closet'
+import { DORMITORIO } from './dormitorio'
 import { muebleTv } from './muebleTv'
 import { repisa } from './repisa'
 import { velador } from './velador'
 
-export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet]
+export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet, ...DORMITORIO]
 
 export const CATEGORIAS: Categoria[] = ['dormitorio', 'living', 'cocina', 'baño', 'oficina', 'infantil', 'organización', 'exterior', 'construcción']
 

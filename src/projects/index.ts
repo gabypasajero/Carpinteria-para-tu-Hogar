@@ -3,7 +3,10 @@ import { banca } from './banca'
 import { BANO } from './bano'
 import { closet } from './closet'
 import { COCINA } from './cocina'
+import { CONSTRUCCION } from './construccion'
 import { DORMITORIO } from './dormitorio'
+import { EXTERIOR } from './exterior'
+import { INFANTIL } from './infantil'
 import { LIVING } from './living'
 import { muebleTv } from './muebleTv'
 import { OFICINA } from './oficina'
@@ -11,7 +14,7 @@ import { ORGANIZACION } from './organizacion'
 import { repisa } from './repisa'
 import { velador } from './velador'
 
-export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet, ...DORMITORIO, ...LIVING, ...COCINA, ...BANO, ...OFICINA, ...ORGANIZACION]
+export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet, ...DORMITORIO, ...LIVING, ...COCINA, ...BANO, ...OFICINA, ...INFANTIL, ...ORGANIZACION, ...EXTERIOR, ...CONSTRUCCION]
 
 export const CATEGORIAS: Categoria[] = ['dormitorio', 'living', 'cocina', 'baño', 'oficina', 'infantil', 'organización', 'exterior', 'construcción']
 

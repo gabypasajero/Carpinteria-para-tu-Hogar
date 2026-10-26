@@ -275,6 +275,8 @@ export function entramado(o: { material: string; eje: 'x' | 'z'; origen: V3; lar
   const enZona = (p: number) => zonas.some(([z0, z1]) => p + e > z0 && p < z1)
   const grilla: number[] = []
   for (let p = 0; p < o.largo - e; p += o.sep) grilla.push(p)
+  // Si el último pie de la grilla queda pegado al del extremo, se reemplaza por este.
+  if (grilla.length > 1 && o.largo - e - grilla[grilla.length - 1] < e) grilla.pop()
   grilla.push(o.largo - e)
   const verticales: [number, number][] = []
   for (const p of grilla)
@@ -301,7 +303,8 @@ export function entramado(o: { material: string; eje: 'x' | 'z'; origen: V3; lar
     for (let i = 0; i + 1 < verticales.length; i++) {
       const u0 = verticales[i][1]
       const u1 = verticales[i + 1][0]
-      const cruzaVano = vanos.some((v) => u0 < v.desde + v.ancho && u1 > v.desde && ym > (v.antepecho ?? 0) - e && ym < v.alto + e)
+      // Bajo y sobre los vanos hay pies cojos: ahí no van cadenetas.
+      const cruzaVano = vanos.some((v) => u0 < v.desde + v.ancho && u1 > v.desde)
       if (u1 - u0 > 20 && !cruzaVano) put('cadeneta', 'Cadeneta', u0, u1, ym - e / 2, ym + e / 2)
     }
   }

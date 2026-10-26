@@ -1,7 +1,8 @@
 import type { PiezaInstancia, ProyectoDef } from '../core/types'
 import { aMm, bisagrasPorPuerta, clavosRespaldo, juntarHerrajes, pieza } from './util'
+import { ficha } from './ficha'
 
-const M = 'mel18'
+const M = 'mel18c'
 const R = 'hdf3'
 const t = 18
 const r = 3
@@ -12,11 +13,9 @@ export const muebleTv: ProyectoDef = {
   id: 'mueble-tv',
   nombre: 'Mueble TV',
   descripcion: 'Rack de TV en melamina color roble con nicho central abierto y dos puertas.',
-  categoria: 'living',
   plan: 'pro',
-  dificultad: 2,
+  ...ficha('mueble_tv'),
   horas: '6 a 8 horas',
-  herramientas: ['Taladro atornillador', 'Broca 3 mm y 5 mm', 'Broca Forstner 35 mm (bisagras)', 'Sierra copa 60 mm (cables)', 'Huincha de medir', 'Escuadra', 'Plancha (para tapacanto)', 'Martillo'],
   params: [
     { id: 'ancho', label: 'Ancho', unidad: 'cm', min: 100, max: 220, step: 1, default: 150 },
     { id: 'alto', label: 'Alto', unidad: 'cm', min: 40, max: 70, step: 1, default: 50 },
@@ -62,14 +61,14 @@ export const muebleTv: ProyectoDef = {
       exterior: [W, H, D + t],
       avisos,
       herrajes: juntarHerrajes([
-        { id: 'tornillo4x40', cantidad: 8 + 8 + 8 },
-        { id: 'tornillo35x16', cantidad: bisagras * 4 },
-        { id: 'bisagraCazoleta', cantidad: bisagras },
+        { id: 't4x40', cantidad: 8 + 8 + 8 },
+        { id: 't35x16', cantidad: bisagras * 4 },
+        { id: 'bisagra', cantidad: bisagras },
         { id: 'tirador', cantidad: 2 },
-        { id: 'soporteRepisa', cantidad: 12 },
+        { id: 'soporte', cantidad: 12 },
         { id: 'clavo1', cantidad: clavosRespaldo(W, H, 3) },
         { id: 'cola', cantidad: 1 },
-        { id: 'lija', cantidad: 1 },
+        { id: 'lija120', cantidad: 1 },
       ]),
       pasos: [
         {

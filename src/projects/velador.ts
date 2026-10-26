@@ -1,5 +1,6 @@
 import type { PiezaInstancia, ProyectoDef } from '../core/types'
 import { aMm, clavosRespaldo, juntarHerrajes, pieza } from './util'
+import { ficha } from './ficha'
 
 const M = 'mel15'
 const R = 'hdf3'
@@ -14,11 +15,9 @@ export const velador: ProyectoDef = {
   id: 'velador',
   nombre: 'Velador con cajones',
   descripcion: 'Velador de melamina con 1 a 3 cajones sobre correderas telescópicas.',
-  categoria: 'dormitorio',
   plan: 'gratis',
-  dificultad: 2,
+  ...ficha('velador'),
   horas: '5 a 6 horas',
-  herramientas: ['Taladro atornillador', 'Broca 3 mm', 'Huincha de medir', 'Escuadra', 'Martillo', 'Plancha (para tapacanto)', 'Cuchillo cartonero', 'Nivel'],
   params: [
     { id: 'ancho', label: 'Ancho', unidad: 'cm', min: 35, max: 60, step: 1, default: 45 },
     { id: 'alto', label: 'Alto', unidad: 'cm', min: 40, max: 75, step: 1, default: 55 },
@@ -64,13 +63,13 @@ export const velador: ProyectoDef = {
       exterior: [W, H, D + t],
       avisos,
       herrajes: juntarHerrajes([
-        { id: 'tornillo4x40', cantidad: 10 + n * 12 },
-        { id: 'tornillo35x16', cantidad: n * 12 },
-        { id: largoCorredera === 450 ? 'corredera450' : 'corredera350', cantidad: n },
+        { id: 't4x40', cantidad: 10 + n * 12 },
+        { id: 't35x16', cantidad: n * 12 },
+        { id: largoCorredera === 450 ? 'corr45' : 'corr35', cantidad: n },
         { id: 'tirador', cantidad: n },
         { id: 'clavo1', cantidad: clavosRespaldo(W, H, 1) + n * 14 },
         { id: 'cola', cantidad: 1 },
-        { id: 'lija', cantidad: 1 },
+        { id: 'lija120', cantidad: 1 },
       ]),
       pasos: [
         {

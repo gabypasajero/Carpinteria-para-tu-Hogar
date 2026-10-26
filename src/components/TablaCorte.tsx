@@ -38,6 +38,7 @@ export function TablaCorte({ cortes, resaltada, onResaltar }: Props) {
               <td>
                 {c.nombre}
                 {c.veta && <span className="chip" title="Respetar la dirección de la veta">veta</span>}
+                {c.nota && <small className="nota-corte">{c.nota}</small>}
               </td>
               <td className="num">{c.cantidad}</td>
               <td className="num">{cm(c.largo)}</td>

@@ -49,6 +49,7 @@ export function agruparPiezas(piezas: PiezaInstancia[]): PiezaCorte[] {
       cantidad: 1,
       canto: p.canto ?? 0,
       veta: p.veta ?? false,
+      nota: p.nota,
     })
   }
   return [...grupos.values()]

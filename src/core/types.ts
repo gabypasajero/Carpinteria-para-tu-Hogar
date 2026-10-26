@@ -1,6 +1,6 @@
 // Todas las medidas internas están en milímetros. La interfaz muestra centímetros.
 
-export type Categoria = 'dormitorio' | 'living' | 'cocina' | 'baño' | 'exterior' | 'organización'
+export type Categoria = 'dormitorio' | 'living' | 'cocina' | 'baño' | 'oficina' | 'infantil' | 'organización' | 'exterior' | 'construcción'
 
 export type Plan = 'gratis' | 'pro'
 
@@ -14,6 +14,8 @@ export interface ParamDef {
   step: number
   default: number
   ayuda?: string
+  /** Nombres de cada valor (de min a max) para mostrar un selector en vez de un número. */
+  opciones?: string[]
 }
 
 export type Params = Record<string, number>
@@ -24,15 +26,19 @@ export interface PiezaInstancia {
   clave: string
   nombre: string
   material: string
-  /** Tamaño de la caja en x (ancho), y (alto), z (fondo). */
+  /** Tamaño de la caja en sus ejes propios: x (ancho), y (alto), z (fondo). */
   size: [number, number, number]
   pos: [number, number, number]
+  /** Giro en radianes sobre x, y, z (solo para piezas inclinadas: techos, diagonales, respaldos). */
+  rot?: [number, number, number]
   /** Paso de la guía en que se instala (0 = primer paso). */
   paso: number
   /** Metros lineales de tapacanto para esta pieza, en mm. */
   canto?: number
   /** La veta debe seguir el largo: el optimizador no rota la pieza. */
   veta?: boolean
+  /** Indicación de corte, p. ej. «extremos a 30°». */
+  nota?: string
 }
 
 export interface HerrajeUso {
@@ -55,6 +61,12 @@ export interface ResultadoProyecto {
   avisos: string[]
 }
 
+export interface Regla {
+  texto: string
+  /** Clave de la fuente en la investigación (ver src/data/investigacion.json). */
+  fuente: string
+}
+
 export interface ProyectoDef {
   id: string
   nombre: string
@@ -63,8 +75,14 @@ export interface ProyectoDef {
   plan: Plan
   dificultad: 1 | 2 | 3
   horas: string
+  /** Ids de herramientas cotizadas (ver HERRAMIENTAS) o texto libre. */
   herramientas: string[]
   params: ParamDef[]
+  /** Reglas técnicas y de seguridad con su fuente. */
+  reglas?: Regla[]
+  /** Qué dice la OGUC sobre permisos para este proyecto. */
+  permiso?: string
+  nota?: string
   construir: (p: Params) => ResultadoProyecto
 }
 
@@ -80,4 +98,5 @@ export interface PiezaCorte {
   cantidad: number
   canto: number
   veta: boolean
+  nota?: string
 }

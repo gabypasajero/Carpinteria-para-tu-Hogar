@@ -1,6 +1,6 @@
 import { jsPDF } from 'jspdf'
 import autoTable from 'jspdf-autotable'
-import { MATERIALES } from '../core/catalogo'
+import { MATERIALES, nombreHerramienta } from '../core/catalogo'
 import { DIFICULTAD, cm, formatoCLP } from '../core/costos'
 import { precioFabricacion, type Tienda } from '../core/tiendas'
 import type { ProyectoDef } from '../core/types'
@@ -78,7 +78,7 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
     }
   }
   titulo(doc, 'Herramientas', y + 6)
-  doc.text(doc.splitTextToSize(proyecto.herramientas.join(', ') + '.', anchoPag - 2 * MARGEN), MARGEN, y + 12)
+  doc.text(doc.splitTextToSize(proyecto.herramientas.map(nombreHerramienta).join(', ') + '.', anchoPag - 2 * MARGEN), MARGEN, y + 12)
   recuadroTiendas(doc, tiendas, costos.total, enlace)
 
   // Lista de corte
@@ -89,7 +89,7 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
     head: [['Pieza', 'Nombre', 'Cant.', 'Largo cm', 'Ancho cm', 'Esp. mm', 'Material', 'Tapacanto']],
     body: cortes.map((c) => [
       c.letra,
-      c.nombre + (c.veta ? ' (veta)' : ''),
+      c.nombre + (c.veta ? ' (veta)' : '') + (c.nota ? ` - ${c.nota}` : ''),
       c.cantidad,
       cm(c.largo),
       cm(c.ancho),

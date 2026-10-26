@@ -364,6 +364,20 @@ button {
   color: var(--suave);
 }
 
+.medida select {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--superficie);
+  font: inherit;
+}
+
+.nota-corte {
+  display: block;
+  color: var(--alerta);
+  font-size: 0.8rem;
+}
+
 input[type='range'] {
   width: 100%;
   accent-color: var(--madera);

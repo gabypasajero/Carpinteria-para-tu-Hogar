@@ -1,8 +1,9 @@
 import type { PiezaInstancia, ProyectoDef } from '../core/types'
 import { aMm, juntarHerrajes, pieza } from './util'
+import { ficha } from './ficha'
 
-const TABLA = 'pino1x4'
-const PATA = 'pino2x2'
+const TABLA = 'pc1x4'
+const PATA = 'pc2x2'
 const e = 19 // espesor 1×4
 const a = 90 // ancho 1×4
 const p = 41 // lado 2×2
@@ -12,11 +13,9 @@ export const banca: ProyectoDef = {
   id: 'banca',
   nombre: 'Banca de pino',
   descripcion: 'Banca de madera de pino cepillado para terraza, entrada o comedor.',
-  categoria: 'exterior',
   plan: 'gratis',
-  dificultad: 1,
+  ...ficha('banca'),
   horas: '3 a 4 horas',
-  herramientas: ['Sierra circular o serrucho', 'Taladro atornillador', 'Broca 4 mm', 'Escuadra', 'Huincha de medir', 'Lijadora o taco de lija', 'Brocha'],
   params: [
     { id: 'largo', label: 'Largo', unidad: 'cm', min: 60, max: 200, step: 1, default: 120 },
     { id: 'alto', label: 'Alto', unidad: 'cm', min: 35, max: 50, step: 1, default: 45 },
@@ -59,9 +58,9 @@ export const banca: ProyectoDef = {
       exterior: [L, H, D],
       avisos,
       herrajes: juntarHerrajes([
-        { id: 'tornillo4x50', cantidad: n * (L > 1000 ? 6 : 4) + 2 * 4 + 2 * 4 + 2 * 4 },
+        { id: 't4x50', cantidad: n * (L > 1000 ? 6 : 4) + 2 * 4 + 2 * 4 + 2 * 4 },
         { id: 'cola', cantidad: 1 },
-        { id: 'lija', cantidad: 3 },
+        { id: 'lija120', cantidad: 3 },
         { id: 'barniz', cantidad: 1 },
       ]),
       pasos: [

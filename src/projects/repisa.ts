@@ -1,5 +1,6 @@
 import type { PiezaInstancia, ProyectoDef } from '../core/types'
 import { aMm, clavosRespaldo, juntarHerrajes, pieza, repartir } from './util'
+import { ficha } from './ficha'
 
 const M = 'mel15'
 const R = 'hdf3'
@@ -10,11 +11,9 @@ export const repisa: ProyectoDef = {
   id: 'repisa',
   nombre: 'Repisa librero',
   descripcion: 'Librero simple de melamina con repisas regulables. Ideal para el primer proyecto.',
-  categoria: 'organización',
   plan: 'gratis',
-  dificultad: 1,
+  ...ficha('repisa'),
   horas: '3 a 4 horas',
-  herramientas: ['Taladro atornillador', 'Broca 3 mm y 5 mm', 'Huincha de medir', 'Escuadra', 'Martillo', 'Plancha (para tapacanto)', 'Cuchillo cartonero'],
   params: [
     { id: 'ancho', label: 'Ancho', unidad: 'cm', min: 40, max: 120, step: 1, default: 80 },
     { id: 'alto', label: 'Alto', unidad: 'cm', min: 50, max: 220, step: 1, default: 120 },
@@ -46,11 +45,11 @@ export const repisa: ProyectoDef = {
       exterior: [W, H, D],
       avisos,
       herrajes: juntarHerrajes([
-        { id: 'tornillo4x40', cantidad: 8 },
-        { id: 'soporteRepisa', cantidad: n * 4 },
+        { id: 't4x40', cantidad: 8 },
+        { id: 'soporte', cantidad: n * 4 },
         { id: 'clavo1', cantidad: clavosRespaldo(W, H, 0) },
         { id: 'cola', cantidad: 1 },
-        { id: 'lija', cantidad: 1 },
+        { id: 'lija120', cantidad: 1 },
       ]),
       pasos: [
         {

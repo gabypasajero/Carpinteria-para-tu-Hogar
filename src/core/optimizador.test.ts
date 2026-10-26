@@ -59,7 +59,7 @@ describe('optimizarPlanchas', () => {
 
 describe('optimizarListones', () => {
   it('reparte cortes en barras de 3,2 m con descuento de sierra', () => {
-    const { barras } = optimizarListones([corte('A', 1500, 90, 3, 'pino1x4')])
+    const { barras } = optimizarListones([corte('A', 1500, 90, 3, 'pc1x4')])
     expect(barras).toHaveLength(2)
     expect(barras[0].cortes).toHaveLength(2)
   })

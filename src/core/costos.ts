@@ -66,7 +66,7 @@ export function calcularCostos(
     lineas.push({
       id,
       nombre: h.nombre,
-      detalle: `Se usan ${uso} ${id === 'tapacanto' ? 'm' : 'u'}`,
+      detalle: `Se usan ${uso.toLocaleString('es-CL')} ${h.unidadUso}`,
       cantidad: envases,
       unidadVenta: h.unidadVenta,
       precioUnitario: pu,

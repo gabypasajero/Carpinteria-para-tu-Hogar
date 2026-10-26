@@ -1,5 +1,6 @@
 import type { PiezaInstancia, ProyectoDef } from '../core/types'
 import { aMm, bisagrasPorPuerta, clavosRespaldo, juntarHerrajes, pieza, repartir } from './util'
+import { ficha } from './ficha'
 
 const M = 'mel15'
 const R = 'hdf3'
@@ -13,11 +14,9 @@ export const closet: ProyectoDef = {
   id: 'closet',
   nombre: 'Closet dos puertas',
   descripcion: 'Closet de melamina con un lado de repisas y otro con barra para colgar y maletero.',
-  categoria: 'dormitorio',
   plan: 'pro',
-  dificultad: 3,
+  ...ficha('closet'),
   horas: '1 a 2 días',
-  herramientas: ['Taladro atornillador', 'Broca 3 mm y 5 mm', 'Broca Forstner 35 mm (bisagras)', 'Huincha de medir', 'Escuadra', 'Nivel', 'Plancha (para tapacanto)', 'Martillo', 'Ayudante (para levantarlo)'],
   params: [
     { id: 'ancho', label: 'Ancho', unidad: 'cm', min: 80, max: 180, step: 1, default: 120 },
     { id: 'alto', label: 'Alto', unidad: 'cm', min: 160, max: 240, step: 1, default: 200 },
@@ -69,15 +68,15 @@ export const closet: ProyectoDef = {
       exterior: [W, H, D + t],
       avisos,
       herrajes: juntarHerrajes([
-        { id: 'tornillo4x40', cantidad: 8 + 8 + 6 + 4 },
-        { id: 'tornillo35x16', cantidad: bisagras * 4 },
-        { id: 'bisagraCazoleta', cantidad: bisagras },
+        { id: 't4x40', cantidad: 8 + 8 + 6 + 4 },
+        { id: 't35x16', cantidad: bisagras * 4 },
+        { id: 'bisagra', cantidad: bisagras },
         { id: 'tirador', cantidad: 2 },
-        { id: 'soporteRepisa', cantidad: (n + 1) * 4 },
-        { id: 'barraCloset', cantidad: Math.ceil(b / 1000) },
+        { id: 'soporte', cantidad: (n + 1) * 4 },
+        { id: 'barra', cantidad: Math.ceil(b / 1000) },
         { id: 'clavo1', cantidad: clavosRespaldo(W, H, 2 + n) },
         { id: 'cola', cantidad: 1 },
-        { id: 'lija', cantidad: 1 },
+        { id: 'lija120', cantidad: 1 },
       ]),
       pasos: [
         {

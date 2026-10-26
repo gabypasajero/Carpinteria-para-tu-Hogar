@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { MATERIALES } from '../core/catalogo'
 import type { PiezaInstancia } from '../core/types'
+import { esquinas, limitesPieza } from '../projects/util'
 
 const C = Math.cos(Math.PI / 6)
 const S = Math.sin(Math.PI / 6)
@@ -24,11 +25,7 @@ function detras(a: Caja, b: Caja): boolean {
 
 /** Orden de pintor: cada pieza se dibuja después de todas las que tiene detrás. */
 function ordenar(piezas: PiezaInstancia[]): Caja[] {
-  const cajas = piezas.map((pz) => ({
-    pz,
-    min: pz.pos.map((c, i) => c - pz.size[i] / 2),
-    max: pz.pos.map((c, i) => c + pz.size[i] / 2),
-  }))
+  const cajas = piezas.map((pz) => ({ pz, ...limitesPieza(pz) }))
   const hecho = new Set<Caja>()
   const salida: Caja[] = []
   const visitar = (c: Caja, enCurso: Set<Caja>) => {
@@ -42,6 +39,16 @@ function ordenar(piezas: PiezaInstancia[]): Caja[] {
   return salida
 }
 
+// Caras de la caja según el índice de esquina (bit 2 = x, bit 1 = y, bit 0 = z).
+const CARAS = [
+  [4, 5, 7, 6],
+  [0, 1, 3, 2],
+  [2, 3, 7, 6],
+  [0, 1, 5, 4],
+  [1, 3, 7, 5],
+  [0, 2, 6, 4],
+]
+
 /** Vista isométrica simple de las piezas, dibujada en SVG. */
 export function Miniatura({ piezas }: { piezas: PiezaInstancia[] }) {
   const { caras, viewBox } = useMemo(() => {
@@ -50,23 +57,26 @@ export function Miniatura({ piezas }: { piezas: PiezaInstancia[] }) {
     let minY = Infinity
     let maxX = -Infinity
     let maxY = -Infinity
-    const poligono = (pts: [number, number, number][], fill: string) => {
-      const p = pts.map((q) => proyectar(...q))
-      for (const [x, y] of p) {
-        minX = Math.min(minX, x)
-        maxX = Math.max(maxX, x)
-        minY = Math.min(minY, y)
-        maxY = Math.max(maxY, y)
-      }
-      caras.push({ d: 'M' + p.map((q) => q.map((v) => v.toFixed(1)).join(' ')).join('L') + 'Z', fill })
-    }
-    for (const { pz, min, max } of ordenar(piezas)) {
-      const [x0, y0, z0] = min
-      const [x1, y1, z1] = max
+    for (const { pz } of ordenar(piezas)) {
+      const e = esquinas(pz)
       const color = MATERIALES[pz.material].color
-      poligono([[x0, y1, z0], [x1, y1, z0], [x1, y1, z1], [x0, y1, z1]], oscurecer(color, 1))
-      poligono([[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]], oscurecer(color, 0.86))
-      poligono([[x1, y0, z0], [x1, y0, z1], [x1, y1, z1], [x1, y1, z0]], oscurecer(color, 0.72))
+      for (const cara of CARAS) {
+        const pts = cara.map((i) => e[i])
+        // Se ve la cara cuya normal apunta hacia el observador (desde +x, +y, +z).
+        const n = [0, 1, 2].map((k) => pts.reduce((s, q) => s + q[k], 0) / 4 - pz.pos[k])
+        const largo = Math.hypot(...n) || 1
+        const [nx, ny, nz] = n.map((v) => v / largo)
+        if (nx + ny + nz <= 1e-6) continue
+        const luz = (Math.max(0, ny) * 1 + Math.max(0, nz) * 0.86 + Math.max(0, nx) * 0.72) / (Math.max(0, nx) + Math.max(0, ny) + Math.max(0, nz))
+        const p = pts.map((q) => proyectar(...q))
+        for (const [x, y] of p) {
+          minX = Math.min(minX, x)
+          maxX = Math.max(maxX, x)
+          minY = Math.min(minY, y)
+          maxY = Math.max(maxY, y)
+        }
+        caras.push({ d: 'M' + p.map((q) => q.map((v) => v.toFixed(1)).join(' ')).join('L') + 'Z', fill: oscurecer(color, luz) })
+      }
     }
     const m = 20
     return { caras, viewBox: `${minX - m} ${minY - m} ${maxX - minX + 2 * m} ${maxY - minY + 2 * m}` }

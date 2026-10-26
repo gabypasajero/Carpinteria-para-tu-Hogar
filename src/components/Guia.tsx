@@ -1,3 +1,4 @@
+import { nombreHerramienta } from '../core/catalogo'
 import type { PiezaInstancia, PasoGuia } from '../core/types'
 
 interface Props {
@@ -38,7 +39,7 @@ export function Guia({ pasos, piezas, letras, herramientas, paso, onPaso }: Prop
           <h4>Herramientas</h4>
           <ul className="herramientas">
             {herramientas.map((h) => (
-              <li key={h}>{h}</li>
+              <li key={h}>{nombreHerramienta(h)}</li>
             ))}
           </ul>
         </>

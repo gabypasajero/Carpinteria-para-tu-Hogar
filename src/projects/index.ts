@@ -7,7 +7,7 @@ import { velador } from './velador'
 
 export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet]
 
-export const CATEGORIAS: Categoria[] = ['dormitorio', 'living', 'cocina', 'baño', 'exterior', 'organización']
+export const CATEGORIAS: Categoria[] = ['dormitorio', 'living', 'cocina', 'baño', 'oficina', 'infantil', 'organización', 'exterior', 'construcción']
 
 export function buscarProyecto(id: string): ProyectoDef | undefined {
   return PROYECTOS.find((p) => p.id === id)

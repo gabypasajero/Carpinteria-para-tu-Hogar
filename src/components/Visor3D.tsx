@@ -88,6 +88,7 @@ export function Visor3D({ piezas, letras, exterior, explosion, paso, mostrarLetr
           return (
             <group key={i} position={pos}>
               <mesh
+                rotation={p.rot}
                 onPointerOver={(e) => {
                   if (futura) return
                   e.stopPropagation()

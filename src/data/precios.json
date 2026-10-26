@@ -1,0 +1,623 @@
+{
+ "fecha": "2026-10-26T06:48:08.903252+00:00",
+ "items": {
+  "mel15": {
+   "nombre": "Melamina blanca 15 mm",
+   "precio": 35490,
+   "tienda": "Imperial",
+   "producto": "Melamina blanca 15 mm 1,83x2,44 Swed",
+   "url": "https://www.imperial.cl/melamina-blanco-y-color/melamina-blanca-15-mm-183x244-swed/product/128315",
+   "formato": [
+    2440,
+    1830
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "mel18": {
+   "nombre": "Melamina blanca 18 mm",
+   "precio": 46310,
+   "tienda": "Imperial",
+   "producto": "Melamina blanca clásica 18mm 1.83 x 2.50 masisa",
+   "url": "https://www.imperial.cl/melamina-blanco-y-color/melamina-blanca-cl%C3%A1sica-18mm-183-x-250-masisa/product/148859",
+   "formato": [
+    2500,
+    1830
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "mel18c": {
+   "nombre": "Melamina color madera 18 mm",
+   "precio": 52990,
+   "tienda": "Sodimac",
+   "producto": "Melamina Cerezo 18 mm 183x250 cm",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/548930X",
+   "formato": [
+    2500,
+    1830
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "hdf3": {
+   "nombre": "Trupán / HDF / MDF 3 mm",
+   "precio": 7340,
+   "tienda": "Imperial",
+   "producto": "Tablero MDF 3mm 1,52x2,44mt",
+   "url": "https://www.imperial.cl/mdf/tablero-mdf-3mm-152x244mt/product/141350",
+   "formato": [
+    2440,
+    1520
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "mdf9": {
+   "nombre": "MDF 9 mm crudo",
+   "precio": 15490,
+   "tienda": "Imperial",
+   "producto": "Plancha mdf modulo 9mm 1.22 x 2.44 d",
+   "url": "https://www.imperial.cl/mdf/plancha-mdf-modulo-9mm-122-x-244-d/product/70107",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "mdf15": {
+   "nombre": "MDF 15 mm crudo",
+   "precio": 18790,
+   "tienda": "Imperial",
+   "producto": "Plancha Mdf Modulo 15mm 1.22 X 2.44",
+   "url": "https://www.imperial.cl/aglomerado-desnudo/plancha-mdf-modulo-15mm-122-x-244/product/70109",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "mdf18": {
+   "nombre": "MDF 18 mm crudo",
+   "precio": 24390,
+   "tienda": "Imperial",
+   "producto": "Tablero MDF modulo 18mm 1,22x2,44mt",
+   "url": "https://www.imperial.cl/aglomerado-desnudo/tablero-mdf-modulo-18mm-122x244mt/product/70110",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "terc12": {
+   "nombre": "Terciado (contrachapado) 12 mm",
+   "precio": 18650,
+   "tienda": "Sodimac",
+   "producto": "Terciado estructural pino 12mm 1,22x2,44",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/650757",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "terc15": {
+   "nombre": "Terciado (contrachapado) 15 mm",
+   "precio": 19850,
+   "tienda": "Sodimac · Easy",
+   "producto": "Terciado estructural 15mm 1,22x2,44",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/650765",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "terc18": {
+   "nombre": "Terciado (contrachapado) 18 mm",
+   "precio": 22450,
+   "tienda": "Sodimac · Easy",
+   "producto": "Terciado estructural pino 18mm 1,22x2,44.",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/650838",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "osb9": {
+   "nombre": "OSB 9,5 mm",
+   "precio": 11490,
+   "tienda": "Sodimac · Easy",
+   "producto": "OSB Estructural 9.5 mm 122x244 cm",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/52760",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "osb11": {
+   "nombre": "OSB 11,1 mm",
+   "precio": 14590,
+   "tienda": "Sodimac · Easy",
+   "producto": "OSB Estructural 11 mm 122x244 cm",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/199877",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "osb15": {
+   "nombre": "OSB 15 mm",
+   "precio": 22390,
+   "tienda": "Sodimac",
+   "producto": "OSB Estructural 15 mm 122x244 cm",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/246824",
+   "formato": [
+    2440,
+    1220
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "volc10": {
+   "nombre": "Yeso cartón (volcanita) 10 mm ST",
+   "precio": 6450,
+   "tienda": "Easy",
+   "producto": "Plancha Volcanita 10 mm 120x240 cm",
+   "url": "https://www.easy.cl/plancha-volcanita-10-mm-120x240-cm-118466/p",
+   "formato": [
+    2400,
+    1200
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "volc15": {
+   "nombre": "Yeso cartón (volcanita) 15 mm ST",
+   "precio": 11360,
+   "tienda": "Sodimac",
+   "producto": "Yeso Cartón Borde Rebajado 15 mm 120x240 cm",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/738638",
+   "formato": [
+    2400,
+    1200
+   ],
+   "unidadVenta": "plancha",
+   "envase": 1
+  },
+  "pc1x2": {
+   "nombre": "Pino cepillado 1x2\" 3,2 m",
+   "precio": 1450,
+   "tienda": "Imperial",
+   "producto": "Pino seco cepillado 1x2\" 3,20mt",
+   "url": "https://www.imperial.cl/madera-seca/pino-seco-cepillado-1x2-320mt/product/74900",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pc1x3": {
+   "nombre": "Pino cepillado 1x3\" 3,2 m",
+   "precio": 1990,
+   "tienda": "Sodimac · Easy",
+   "producto": "Pino Certificado Seco Cepillado 1x3 3,2 m",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/850624",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pc1x4": {
+   "nombre": "Pino cepillado 1x4\" 3,2 m",
+   "precio": 2640,
+   "tienda": "Sodimac · Easy · Imperial",
+   "producto": "Pino seco cepillado premium 1x4 3,2 m",
+   "url": "https://www.easy.cl/pino-seco-cepillado-premium-1x4-32-m-192589/p",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pc1x5": {
+   "nombre": "Pino cepillado 1x5\" 3,2 m",
+   "precio": 3270,
+   "tienda": "Imperial",
+   "producto": "Pino seco cepillado 1x5\" 3,20mt",
+   "url": "https://www.imperial.cl/madera-seca/pino-seco-cepillado-1x5-320mt/product/74902",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pc1x6": {
+   "nombre": "Pino cepillado 1x6\" 3,2 m",
+   "precio": 3910,
+   "tienda": "Imperial",
+   "producto": "Pino seco cepillado 1x6\" 3,20mt",
+   "url": "https://www.imperial.cl/madera-seca/pino-seco-cepillado-1x6-320mt/product/74903",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pc2x2": {
+   "nombre": "Pino cepillado 2x2\" 3,2 m",
+   "precio": 2630,
+   "tienda": "Sodimac · Easy · Imperial",
+   "producto": "Pino seco cepillado premium 2x2 3,2 m",
+   "url": "https://www.easy.cl/pino-seco-cepillado-premium-2x2-32-m-192599/p",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pc2x3": {
+   "nombre": "Pino cepillado 2x3\" 3,2 m",
+   "precio": 3750,
+   "tienda": "Sodimac",
+   "producto": "Pino Certificado Seco Cepillado 2x3 3,2 m",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/850853",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pc2x4": {
+   "nombre": "Pino cepillado 2x4\" 3,2 m",
+   "precio": 5250,
+   "tienda": "Sodimac · Easy · Imperial",
+   "producto": "Pino seco cepillado premium 2x4 3,2 m",
+   "url": "https://www.easy.cl/pino-seco-cepillado-premium-2x4-32-m-192603/p",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pc2x6": {
+   "nombre": "Pino cepillado 2x6\" 3,2 m",
+   "precio": 7990,
+   "tienda": "Imperial",
+   "producto": "Pino seco cepillado 2x6\" 3,20mt",
+   "url": "https://www.imperial.cl/madera-seca/pino-seco-cepillado-2x6-320mt/product/74899",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pd2x3": {
+   "nombre": "Pino dimensionado seco 2x3\" (tabiquería)",
+   "precio": 2660,
+   "tienda": "Imperial",
+   "producto": "Pino dimensionado volumen 2x3\" 3,20mt ",
+   "url": "https://www.imperial.cl/madera-verde/pino-dimensionado-volumen-2x3-320mt-/product/90619",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pd2x4": {
+   "nombre": "Pino dimensionado seco 2x4\" (tabiquería)",
+   "precio": 4420,
+   "tienda": "Easy",
+   "producto": "Pino seco dimensionado premium 2x4 3,2 m",
+   "url": "https://www.easy.cl/pino-seco-dimensionado-premium-2x4-32-m-108807/p",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pi2x2": {
+   "nombre": "Pino impregnado 2x2\" 3,2 m",
+   "precio": 2890,
+   "tienda": "Easy",
+   "producto": "Pino impregnado micronizado 2x2 3,2 m",
+   "url": "https://www.easy.cl/pino-impregnado-micronizado-2x2-32-m-1155429/p",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pi2x3": {
+   "nombre": "Pino impregnado 2x3\" 3,2 m",
+   "precio": 4463,
+   "tienda": "Sodimac · Easy",
+   "producto": "Pino impregnado cobre micronizado 2 x 3 x 3,2 m",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/2714841",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pi2x4": {
+   "nombre": "Pino impregnado 2x4\" 3,2 m",
+   "precio": 5890,
+   "tienda": "Easy",
+   "producto": "Pino impregnado micronizado 2x4 3,2 m",
+   "url": "https://www.easy.cl/pino-impregnado-micronizado-2x4-32-m-1155431/p",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "pi2x6": {
+   "nombre": "Pino impregnado 2x6\" 3,2 m",
+   "precio": 14990,
+   "tienda": "Easy",
+   "producto": "Pino impregnado micronizado 2x6 3,2 m",
+   "url": "https://www.easy.cl/pino-impregnado-micronizado-2x6-32-m-1155432/p",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "deck": {
+   "nombre": "Tabla de deck pino impregnado",
+   "precio": 6490,
+   "tienda": "Sodimac",
+   "producto": "Pino Deck Verde 1 1/2x5 3,2 m",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/19011",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "machi": {
+   "nombre": "Machihembrado pino 1x4/1x5",
+   "precio": 2990,
+   "tienda": "Sodimac · Imperial",
+   "producto": "Pino Machihembrado Seco Cepillado 3/4x4 3,2 m",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/852260",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "polin": {
+   "nombre": "Polín impregnado 4-5\" 2,4 m",
+   "precio": 3696,
+   "tienda": "Imperial",
+   "producto": "Polin impregnado pino 3 a 4\" x 2,40mt",
+   "url": "https://www.imperial.cl/rolletes-y-polines/polin-impregnado-pino-3-a-4-x-240mt/product/70816",
+   "unidadVenta": "pieza",
+   "envase": 1
+  },
+  "t4x40": {
+   "nombre": "Tornillo aglomerado 4×40 mm (caja)",
+   "precio": 3450,
+   "tienda": "Easy",
+   "producto": "Tornillo multiuso 4 x 40 mm (N°8 x 1 1/2'') 144 unidades Imporper",
+   "url": "https://www.easy.cl/tornillo-multiuso-4-x-40-mm-n8-x-1-12-144-unidades-imporper-238462/p",
+   "envase": 144,
+   "unidadVenta": "144 u"
+  },
+  "t4x50": {
+   "nombre": "Tornillo madera 4×50 mm (caja)",
+   "precio": 1290,
+   "tienda": "Imperial",
+   "producto": "Tornillo aglomerado 4 x 50 bolsa 100un khor",
+   "url": "https://www.imperial.cl/fijaciones-para-maderas/tornillo-aglomerado-4-x-50-bolsa-100un-khor/product/149970",
+   "envase": 100,
+   "unidadVenta": "100 u"
+  },
+  "t35x16": {
+   "nombre": "Tornillo 3,5×16 mm (herrajes)",
+   "precio": 1890,
+   "tienda": "Easy",
+   "producto": "Tornillo madera aglomerada 3,5x16 mm 144 unidades Mamut",
+   "url": "https://www.easy.cl/tornillo-madera-aglomerada-35x16-mm-144-unidades-mamut-144552/p",
+   "envase": 144,
+   "unidadVenta": "144 u"
+  },
+  "tvolc": {
+   "nombre": "Tornillo volcanita 6×1 1/4\" (caja)",
+   "precio": 4190,
+   "tienda": "Imperial",
+   "producto": "Tornillo volcanita pta aguja 1 1/4x6 zinc rg balde 500un khor",
+   "url": "https://www.imperial.cl/fijaciones-para-tabiques/tornillo-volcanita-pta-aguja-1-1-4x6-zinc-rg-balde-500un-khor/product/149992",
+   "envase": 500,
+   "unidadVenta": "500 u"
+  },
+  "tdeck": {
+   "nombre": "Tornillo exterior zincado/galvanizado 8×3\" (deck, estructuras)",
+   "precio": 7620,
+   "tienda": "Easy",
+   "producto": "Tornillo turbo screw #14 6,0x100 mm zincado 24 unidades Mamut",
+   "url": "https://www.easy.cl/tornillo-turbo-screw-14-60x100-mm-zincado-24-unidades-mamut-1187783/p",
+   "envase": 24,
+   "unidadVenta": "24 u"
+  },
+  "tarugo8": {
+   "nombre": "Tarugo de madera 8 mm",
+   "precio": 2990,
+   "tienda": "Imperial",
+   "producto": "Tarugo madera 8x45mm 100uds",
+   "url": "https://www.imperial.cl/conectores-para-madera/tarugo-madera-8x45mm-100uds/product/75997",
+   "envase": 100,
+   "unidadVenta": "100 u"
+  },
+  "clavo1": {
+   "nombre": "Clavo puntilla 1\" (respaldos)",
+   "precio": 3390,
+   "tienda": "Sodimac · Easy",
+   "producto": "Clavo corriente 1\" bolsa 1 kg",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/190160",
+   "envase": 1000,
+   "unidadVenta": "bolsa 1,0 kg"
+  },
+  "clavo2": {
+   "nombre": "Clavo corriente 2\"",
+   "precio": 4890,
+   "tienda": "Sodimac",
+   "producto": "Clavo Corriente 2\" x 12mm, bolsa 2,5kgs",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/37427",
+   "envase": 750,
+   "unidadVenta": "bolsa 2,5 kg"
+  },
+  "clavo3": {
+   "nombre": "Clavo corriente 3\"",
+   "precio": 4025,
+   "tienda": "Sodimac",
+   "producto": "Clavo Corriente 3\", bolsa 2,5kgs",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/680710",
+   "envase": 325,
+   "unidadVenta": "bolsa 2,5 kg"
+  },
+  "clavo4": {
+   "nombre": "Clavo corriente 4\"",
+   "precio": 3565,
+   "tienda": "Sodimac · Easy",
+   "producto": "Clavo Corriente 4\", bolsa 2,5kgs",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/680729",
+   "envase": 175,
+   "unidadVenta": "bolsa 2,5 kg"
+  },
+  "bisagra": {
+   "nombre": "Bisagra cazoleta 35 mm recta",
+   "precio": 2990,
+   "tienda": "Imperial",
+   "producto": "Bisagra recta 35 mm 10 unidades sin tornillos",
+   "url": "https://www.imperial.cl/bisagras-muebles/bisagra-recta-35-mm-10-unidades-sin-tornillos/product/126433",
+   "envase": 10,
+   "unidadVenta": "10 u"
+  },
+  "corr35": {
+   "nombre": "Corredera telescópica 35 cm (par)",
+   "precio": 3990,
+   "tienda": "Imperial",
+   "producto": "Corredera telescópica TL 350 mm",
+   "url": "https://www.imperial.cl/correderas-telesc%C3%B3picas/corredera-telesc%C3%B3pica-tl-350-mm/product/85087",
+   "envase": 1,
+   "unidadVenta": "juego (par)"
+  },
+  "corr45": {
+   "nombre": "Corredera telescópica 45 cm (par)",
+   "precio": 4990,
+   "tienda": "Sodimac",
+   "producto": "Corredera telescópica para cajón 450 mm",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/2702401",
+   "envase": 1,
+   "unidadVenta": "juego (par)"
+  },
+  "tirador": {
+   "nombre": "Tirador metálico 96 mm",
+   "precio": 750,
+   "tienda": "Sodimac",
+   "producto": "Manilla 96 mm cromo mate",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/3256189",
+   "envase": 1,
+   "unidadVenta": "unidad"
+  },
+  "soporte": {
+   "nombre": "Soporte de repisa (pin)",
+   "precio": 1490,
+   "tienda": "Imperial",
+   "producto": "Soporte repisa fijo blanco 50uds",
+   "url": "https://www.imperial.cl/accesorios-muebles/soporte-repisa-fijo-blanco-50uds/product/137182",
+   "envase": 50,
+   "unidadVenta": "50 u"
+  },
+  "barra": {
+   "nombre": "Barra de closet",
+   "precio": 2190,
+   "tienda": "Imperial",
+   "producto": "Barra closet blanca 1 mts plástica",
+   "url": "https://www.imperial.cl/accesorios-cl%C3%B3set/barra-closet-blanca-1-mts-pl%C3%A1stica/product/16408",
+   "envase": 1,
+   "unidadVenta": "unidad"
+  },
+  "escuadra": {
+   "nombre": "Escuadra metálica 3\"",
+   "precio": 690,
+   "tienda": "Imperial",
+   "producto": "Escuadra con nervio 5x6 (13x15cm) blanca ducasse",
+   "url": "https://www.imperial.cl/accesorios-muebles/escuadra-con-nervio-5x6-13x15cm-blanca-ducasse/product/154932",
+   "envase": 1,
+   "unidadVenta": "unidad"
+  },
+  "perno": {
+   "nombre": "Perno coche 3/8 × 4\"",
+   "precio": 890,
+   "tienda": "Sodimac",
+   "producto": "Perno coche 3/8\" x 3\" 2 unidades",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/807869",
+   "envase": 2,
+   "unidadVenta": "2 u"
+  },
+  "basepilar": {
+   "nombre": "Base/anclaje pilar 4×4",
+   "precio": 15190,
+   "tienda": "Imperial",
+   "producto": "Base para poste 4x4\" zmax ajustable",
+   "url": "https://www.imperial.cl/conectores-para-madera/base-para-poste-4x4-zmax-ajustable/product/142177",
+   "envase": 1,
+   "unidadVenta": "unidad"
+  },
+  "rueda": {
+   "nombre": "Rueda/garrucha con freno 50 mm",
+   "precio": 2590,
+   "tienda": "Imperial",
+   "producto": "Rueda yoyo espiga 50mm con freno 4uds",
+   "url": "https://www.imperial.cl/accesorios-muebles/rueda-yoyo-espiga-50mm-con-freno-4uds/product/139400",
+   "envase": 4,
+   "unidadVenta": "4 u"
+  },
+  "tapacanto": {
+   "nombre": "Tapacanto PVC 22 mm blanco",
+   "precio": 3190,
+   "tienda": "Sodimac",
+   "producto": "Tapacanto PVC blanco 22x0,45 mm Ro 25 mt",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/5477921",
+   "envase": 25.0,
+   "unidadVenta": "rollo 25 m"
+  },
+  "cola": {
+   "nombre": "Cola fría / adhesivo carpintero",
+   "precio": 3990,
+   "tienda": "Easy · Imperial",
+   "producto": "Cola fría 250 gr Multiuso con pincel",
+   "url": "https://www.easy.cl/cola-fria-250-gr-multiuso-con-pincel-1080326/p",
+   "envase": 1,
+   "unidadVenta": "unidad"
+  },
+  "lija120": {
+   "nombre": "Lija para madera grano 120",
+   "precio": 210,
+   "tienda": "Imperial",
+   "producto": "Lija para madera grano 120",
+   "url": "https://www.imperial.cl/lijas/lija-para-madera-grano-120/product/5530",
+   "envase": 1,
+   "unidadVenta": "unidad"
+  },
+  "barniz": {
+   "nombre": "Barniz marino",
+   "precio": 5990,
+   "tienda": "Easy",
+   "producto": "Barniz Marino Castaño 1 Litro BMAC",
+   "url": "https://www.easy.cl/barniz-marino-castano-1-litro-bmac-mk1qnaqu4y/p",
+   "envase": 1,
+   "unidadVenta": "unidad"
+  },
+  "protdeck": {
+   "nombre": "Protector/aceite para deck",
+   "precio": 47990,
+   "tienda": "Imperial",
+   "producto": "Protector para Deck base agua satín natural 1 gal",
+   "url": "https://www.imperial.cl/barnices-impregnantes-y-stain/protector-para-deck-base-agua-sat%C3%ADn-natural-1-gal/product/147632",
+   "envase": 15.1,
+   "unidadVenta": "envase 3,79 L"
+  },
+  "cintamuro": {
+   "nombre": "Cinta para juntas de volcanita",
+   "precio": 2290,
+   "tienda": "Imperial",
+   "producto": "Cinta para juntas tabiquería 5 cm x 45mt",
+   "url": "https://www.imperial.cl/tabiquer%C3%ADa/cinta-para-juntas-tabiquer%C3%ADa-5-cm-x-45mt/product/11639",
+   "envase": 45.0,
+   "unidadVenta": "rollo 45 m"
+  },
+  "pastamuro": {
+   "nombre": "Pasta para muro (volcanita)",
+   "precio": 1290,
+   "tienda": "Sodimac",
+   "producto": "Pasta muro interior TOPEX TR-15 bolsa 1 kilo",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/6879519",
+   "envase": 1,
+   "unidadVenta": "bolsa 1 kg"
+  },
+  "lanamin": {
+   "nombre": "Lana mineral/vidrio rollo (tabique)",
+   "precio": 48750,
+   "tienda": "Sodimac",
+   "producto": "Lana de vidrio R94 libre 40mm 1,2x24m 1 rollo",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/1046918",
+   "envase": 28.8,
+   "unidadVenta": "rollo 28,8 m²"
+  },
+  "polin45": {
+   "nombre": "Polín impregnado 4–5\" 2,4 m",
+   "precio": 8890,
+   "tienda": "Sodimac",
+   "producto": "Polin impregnado 4 a 4 1/2 - 100 a 115 mm x  2,44 m",
+   "url": "https://www.sodimac.cl/sodimac-cl/product/570915",
+   "unidadVenta": "pieza",
+   "envase": 1
+  }
+ }
+}

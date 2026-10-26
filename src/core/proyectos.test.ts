@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
+import investigacion from '../data/investigacion.json'
 import { PROYECTOS, normalizarParams } from '../projects'
-import { MATERIALES } from './catalogo'
+import { limitesPieza } from '../projects/util'
+import { HERRAJES, HERRAMIENTAS, MATERIALES } from './catalogo'
 import { calcularCostos } from './costos'
 import { agruparPiezas } from './despiece'
 import { optimizar } from './optimizador'
@@ -19,31 +21,47 @@ function combinaciones(p: ProyectoDef): Params[] {
   return casos
 }
 
+it('los ids de los proyectos no se repiten', () => {
+  expect(new Set(PROYECTOS.map((p) => p.id)).size).toBe(PROYECTOS.length)
+})
+
 describe.each(PROYECTOS)('$nombre', (proyecto) => {
+  it('tiene ficha completa', () => {
+    expect(proyecto.descripcion.length).toBeGreaterThan(20)
+    expect(proyecto.herramientas.length).toBeGreaterThan(0)
+    for (const h of proyecto.herramientas) expect(HERRAMIENTAS[h], h).toBeDefined()
+    for (const r of proyecto.reglas ?? []) expect(investigacion.fuentes, r.fuente).toHaveProperty(r.fuente)
+    for (const d of proyecto.params) {
+      expect(d.default).toBeGreaterThanOrEqual(d.min)
+      expect(d.default).toBeLessThanOrEqual(d.max)
+      if (d.opciones) expect(d.opciones.length, d.id).toBe(Math.round((d.max - d.min) / d.step) + 1)
+    }
+  })
+
   it.each(combinaciones(proyecto))('se construye bien con %o', (params) => {
     const res = proyecto.construir(params)
     const [W, H, D] = res.exterior
     expect(res.piezas.length).toBeGreaterThan(0)
-
-    for (const pz of res.piezas) {
-      expect(MATERIALES[pz.material]).toBeDefined()
-      expect(pz.paso).toBeGreaterThanOrEqual(0)
-      expect(pz.paso).toBeLessThan(res.pasos.length)
-      // Cada pieza queda dentro de las medidas exteriores.
-      const min = pz.pos.map((c, i) => c - pz.size[i] / 2)
-      const max = pz.pos.map((c, i) => c + pz.size[i] / 2)
-      expect(Math.min(...min)).toBeGreaterThanOrEqual(-0.5)
-      expect(max[0]).toBeLessThanOrEqual(W + 0.5)
-      expect(max[1]).toBeLessThanOrEqual(H + 0.5)
-      expect(max[2]).toBeLessThanOrEqual(D + 0.5)
+    for (const h of res.herrajes) {
+      expect(HERRAJES[h.id], h.id).toBeDefined()
+      expect(h.cantidad).toBeGreaterThan(0)
     }
 
-    // Las piezas no se atraviesan entre sí.
-    const cajas = res.piezas.map((pz) => ({
-      nombre: pz.nombre,
-      min: pz.pos.map((c, i) => c - pz.size[i] / 2),
-      max: pz.pos.map((c, i) => c + pz.size[i] / 2),
-    }))
+    for (const pz of res.piezas) {
+      expect(MATERIALES[pz.material], pz.material).toBeDefined()
+      expect(pz.paso).toBeGreaterThanOrEqual(0)
+      expect(pz.paso).toBeLessThan(res.pasos.length)
+      expect(pz.size.every((s) => s > 0 && Number.isFinite(s)), pz.nombre).toBe(true)
+      // Cada pieza queda dentro de las medidas exteriores.
+      const { min, max } = limitesPieza(pz)
+      expect(Math.min(...min), pz.nombre).toBeGreaterThanOrEqual(-0.5)
+      expect(max[0], pz.nombre).toBeLessThanOrEqual(W + 0.5)
+      expect(max[1], pz.nombre).toBeLessThanOrEqual(H + 0.5)
+      expect(max[2], pz.nombre).toBeLessThanOrEqual(D + 0.5)
+    }
+
+    // Las piezas no se atraviesan entre sí (las inclinadas se revisan a mano en el visor: su caja envolvente no sirve).
+    const cajas = res.piezas.filter((pz) => !pz.rot).map((pz) => ({ nombre: pz.nombre, ...limitesPieza(pz) }))
     for (let i = 0; i < cajas.length; i++) {
       for (let j = i + 1; j < cajas.length; j++) {
         const a = cajas[i]

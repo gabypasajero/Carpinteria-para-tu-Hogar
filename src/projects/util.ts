@@ -227,3 +227,7 @@ export const areaM2 = (piezas: PiezaInstancia[]) =>
     const [a, b] = [...p.size].sort((x, y) => y - x)
     return s + (a * b) / 1e6
   }, 0)
+
+/** Desplaza un conjunto de piezas (para armar un proyecto con partes de otro). */
+export const mover = (piezas: PiezaInstancia[], d: V3): PiezaInstancia[] =>
+  piezas.map((p) => ({ ...p, pos: [p.pos[0] + d[0], p.pos[1] + d[1], p.pos[2] + d[2]] as V3 }))

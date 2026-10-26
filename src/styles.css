@@ -1053,3 +1053,393 @@ input[type='range'] {
   width: 100vw;
   height: 100vh;
 }
+
+/* Diseñador «Crea tu proyecto» */
+.disenador {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr) 320px;
+  grid-template-rows: auto auto minmax(420px, 62vh) auto;
+  grid-template-areas:
+    'cab cab cab'
+    'msg msg msg'
+    'izq escena der'
+    'izq tablas der';
+  min-height: calc(100vh - 53px);
+}
+.dz-cabecera {
+  grid-area: cab;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--borde);
+  background: var(--superficie);
+}
+.dz-nombre {
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  background: transparent;
+  min-width: 0;
+  flex: 1 1 200px;
+}
+.dz-nombre:hover,
+.dz-nombre:focus {
+  border-color: var(--borde);
+}
+.dz-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.dz-acciones .boton {
+  padding: 0.45rem 0.8rem;
+  font-size: 0.9rem;
+}
+.dz-mensaje {
+  grid-area: msg;
+  margin: 0.4rem 1rem;
+}
+.dz-paneles {
+  display: none;
+}
+.dz-izq {
+  grid-area: izq;
+  border-right: 1px solid var(--borde);
+  background: var(--superficie);
+  overflow-y: auto;
+  max-height: calc(100vh - 110px);
+}
+.dz-der {
+  grid-area: der;
+  border-left: 1px solid var(--borde);
+  background: var(--superficie);
+  padding: 0.8rem 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.dz-der h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.dz-escena {
+  grid-area: escena;
+  position: relative;
+  min-height: 420px;
+}
+.dz-tablas {
+  grid-area: tablas;
+  padding: 0 1rem 1rem;
+  min-width: 0;
+}
+.dz-bienvenida {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: 420px;
+  height: fit-content;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radio);
+  padding: 1.2rem 1.4rem;
+  pointer-events: none;
+  box-shadow: 0 6px 18px rgba(30, 20, 30, 0.08);
+}
+.dz-bienvenida h2 {
+  margin: 0 0 0.4rem;
+  color: var(--madera);
+}
+.dz-ayuda {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--suave);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+.dz-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--borde);
+  position: sticky;
+  top: 0;
+  background: var(--superficie);
+  z-index: 1;
+}
+.dz-tabs button {
+  flex: 1;
+  border: 0;
+  background: none;
+  padding: 0.7rem 0.4rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--suave);
+  border-bottom: 2px solid transparent;
+}
+.dz-tabs button.activa {
+  color: var(--madera);
+  border-bottom-color: var(--madera);
+}
+.dz-biblioteca details {
+  border-bottom: 1px solid var(--borde);
+}
+.dz-biblioteca summary {
+  padding: 0.6rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.dz-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.5rem 0.5rem;
+}
+.dz-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: none;
+  border-radius: 8px;
+  padding: 0.45rem 0.5rem;
+  font: inherit;
+  font-size: 0.88rem;
+  color: var(--texto);
+}
+.dz-item:hover {
+  border-color: var(--borde);
+  background: var(--fondo);
+}
+.dz-item small,
+.dz-herraje small {
+  display: block;
+  color: var(--suave);
+  font-size: 0.75rem;
+}
+.dz-muestra {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex: none;
+}
+.dz-mas {
+  margin-left: auto;
+  color: var(--madera);
+  font-weight: 700;
+}
+.dz-herraje {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.4rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--borde);
+}
+.dz-herraje > span {
+  flex: 1;
+}
+.dz-herraje input {
+  width: 4.2rem;
+  padding: 0.3rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  font: inherit;
+  text-align: right;
+}
+.dz-sugerir {
+  margin: 0.6rem;
+  width: calc(100% - 1.2rem);
+  font-size: 0.85rem;
+}
+.dz-plantillas {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.dz-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.chip-boton {
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+  border-radius: 99px;
+  padding: 0.35rem 0.8rem;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.chip-boton:hover {
+  border-color: var(--madera);
+}
+.dz-props {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.dz-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.dz-campo input,
+.dz-campo select {
+  font: inherit;
+  font-weight: 400;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--superficie);
+}
+.dz-fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+}
+.dz-num {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.2rem;
+  flex: 1 1 80px;
+}
+.dz-num input {
+  font: inherit;
+  padding: 0.35rem 0.4rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  width: 100%;
+}
+.dz-num small {
+  display: none;
+}
+.dz-dato {
+  font-size: 0.85rem;
+  color: var(--suave);
+  flex: 1 1 120px;
+}
+.dz-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  font-size: 0.85rem;
+}
+.dz-botones button {
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.dz-botones button:hover {
+  border-color: var(--madera);
+}
+.peligro {
+  color: #b42323 !important;
+}
+.dz-vacio {
+  margin: 0;
+}
+.dz-guardados ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0;
+}
+.dz-guardados li {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1100px) {
+  .disenador {
+    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-areas:
+      'cab cab'
+      'msg msg'
+      'izq escena'
+      'der tablas';
+  }
+  .dz-der {
+    border-left: 0;
+    border-right: 1px solid var(--borde);
+  }
+}
+
+@media (max-width: 760px) {
+  .disenador {
+    display: flex;
+    flex-direction: column;
+  }
+  .dz-escena {
+    order: 1;
+    height: 52vh;
+    min-height: 300px;
+  }
+  .dz-paneles {
+    order: 2;
+    display: flex;
+    border-bottom: 1px solid var(--borde);
+    background: var(--superficie);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  .dz-paneles button {
+    flex: 1;
+    border: 0;
+    background: none;
+    padding: 0.75rem 0.4rem;
+    font: inherit;
+    font-weight: 700;
+    color: var(--suave);
+    border-bottom: 2px solid transparent;
+  }
+  .dz-paneles button.activa {
+    color: var(--madera);
+    border-bottom-color: var(--madera);
+  }
+  .dz-izq,
+  .dz-der {
+    order: 3;
+    display: none;
+    max-height: none;
+    border: 0;
+  }
+  .dz-izq.visible,
+  .dz-der.visible {
+    display: flex;
+    flex-direction: column;
+  }
+  .dz-der .oculto-movil {
+    display: none;
+  }
+  .dz-tablas {
+    order: 4;
+    padding-top: 0.6rem;
+  }
+  .dz-cabecera {
+    order: 0;
+  }
+  .dz-acciones .boton {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.82rem;
+  }
+}

@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from 'react'
-import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { Comparador } from '../components/Comparador'
 import { Cotizacion } from '../components/Cotizacion'
 import { Ficha } from '../components/Ficha'
@@ -14,7 +14,9 @@ import { planillaDimensionado } from '../core/dimensionado'
 import type { ProyectoDef } from '../core/types'
 import { guardarDiseno } from '../lib/disenos'
 import { useCalculo } from '../lib/useCalculo'
+import { desdeInstancia } from '../core/libre'
 import { useApp } from '../store/useApp'
+import { useDiseno } from '../store/useDiseno'
 import { buscarProyecto, normalizarParams } from '../projects'
 
 type Pestana = 'corte' | 'materiales' | 'optimizacion' | 'guia' | 'ficha'
@@ -73,6 +75,8 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
   const [mensaje, setMensaje] = useState('')
   const canvas = useRef<HTMLCanvasElement | null>(null)
   const tiendas = useApp((s) => s.tiendas)
+  const navegar = useNavigate()
+  const cargarDiseno = useDiseno((s) => s.cargar)
 
   const cambiar = useCallback(
     (pid: string, valor: number) => {
@@ -178,6 +182,15 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           </button>
           <button className="boton secundario" onClick={guardar}>
             Guardar diseño
+          </button>
+          <button
+            className="boton secundario"
+            onClick={() => {
+              cargarDiseno({ nombre: `${proyecto.nombre} (mi versión)`, piezas: res.piezas.map((p, i) => desdeInstancia(p, `${i}-${Date.now()}`)), herrajes: res.herrajes })
+              navegar('/disena')
+            }}
+          >
+            Personalizar en el diseñador 3D
           </button>
           <button className="boton destacado" onClick={() => setCotizando(true)}>
             ¿No quieres hacerlo tú?

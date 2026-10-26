@@ -7,6 +7,7 @@ import { useApp } from './store/useApp'
 
 // El visor 3D (three.js) es pesado: se carga solo al abrir un proyecto.
 const ProyectoPage = lazy(() => import('./pages/ProyectoPage').then((m) => ({ default: m.ProyectoPage })))
+const Disenador = lazy(() => import('./pages/Disenador').then((m) => ({ default: m.Disenador })))
 const Estudio = lazy(() => import('./pages/Estudio').then((m) => ({ default: m.Estudio })))
 
 export function App() {
@@ -32,6 +33,7 @@ export function App() {
           <NavLink to="/" end>
             Proyectos
           </NavLink>
+          <NavLink to="/disena">Crea tu proyecto</NavLink>
           <NavLink to="/mis-proyectos">Mis proyectos</NavLink>
           <NavLink to="/ingresar">{sesion ? 'Mi cuenta' : 'Ingresar'}</NavLink>
         </nav>
@@ -43,6 +45,14 @@ export function App() {
           element={
             <Suspense fallback={<main className="vacio">Cargando el taller…</main>}>
               <ProyectoPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/disena"
+          element={
+            <Suspense fallback={<main className="vacio">Abriendo el diseñador…</main>}>
+              <Disenador />
             </Suspense>
           }
         />

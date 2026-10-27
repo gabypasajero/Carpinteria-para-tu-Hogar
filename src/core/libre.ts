@@ -26,6 +26,8 @@ export interface PiezaLibre {
 
 export interface DisenoLibre {
   nombre: string
+  /** Tipo de mueble (closet, velador…), si se conoce. */
+  tipo?: import('../lib/detodito').TipoMueble
   piezas: PiezaLibre[]
   herrajes: HerrajeUso[]
 }

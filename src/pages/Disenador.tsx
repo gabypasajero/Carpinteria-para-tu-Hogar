@@ -7,6 +7,8 @@ import { Link, useSearchParams } from 'react-router-dom'
 import type { Mesh } from 'three'
 import { Bloqueo } from '../components/Bloqueo'
 import { Cotizacion } from '../components/Cotizacion'
+import { SugerenciaDTO } from '../components/SugerenciaDTO'
+import { TIPOS_DTO, tipoDeNombre, tipoDeProyecto, type TipoMueble } from '../lib/detodito'
 import { PlanoCortes } from '../components/PlanoCortes'
 import { TablaCorte } from '../components/TablaCorte'
 import { TablaMateriales } from '../components/TablaMateriales'
@@ -95,7 +97,7 @@ function Biblioteca() {
     const pr = buscarProyecto(pid)
     if (!pr) return
     const res = pr.construir(paramsPorDefecto(pr))
-    cargar({ nombre: `${pr.nombre} (mi versión)`, piezas: res.piezas.map((pi, i) => desdeInstancia(pi, `${i}-${id()}`)), herrajes: res.herrajes })
+    cargar({ nombre: `${pr.nombre} (mi versión)`, tipo: tipoDeProyecto(pid), piezas: res.piezas.map((pi, i) => desdeInstancia(pi, `${i}-${id()}`)), herrajes: res.herrajes })
   }
   return (
     <div className="dz-biblioteca">
@@ -297,6 +299,9 @@ export function Disenador() {
   const pro = useDisenoCompleto()
   const { muestra, pro: esPro } = useAcceso()
   const usarMuestra = usePerfil((s) => s.usarMuestra)
+  // Tipo elegido, o deducido del nombre: solo closets, veladores, cómodas y cocina sugieren a De Todito Outlet.
+  const tipo: TipoMueble = d.tipo ?? tipoDeNombre(d.nombre)
+  const sugerir = tipo !== 'otro'
   const precios = usePrecios()
   const tiendas = useApp((s) => s.tiendas)
   const [busqueda, setBusqueda] = useSearchParams()
@@ -392,6 +397,14 @@ export function Disenador() {
     <main className="disenador">
       <header className="dz-cabecera">
         <input className="dz-nombre" value={d.nombre} onChange={(e) => d.setNombre(e.target.value)} aria-label="Nombre del diseño" />
+        <select className="dz-tipo" value={tipo} onChange={(e) => d.setTipo(e.target.value as TipoMueble)} aria-label="¿Qué estás diseñando?">
+          <option value="otro">Otro mueble</option>
+          {Object.entries(TIPOS_DTO).map(([k, t]) => (
+            <option key={k} value={k}>
+              {t.nombre}
+            </option>
+          ))}
+        </select>
         <div className="dz-acciones">
           <button
             className="boton secundario"
@@ -408,9 +421,6 @@ export function Disenador() {
           <button className="boton secundario" onClick={pdf} disabled={!d.piezas.length}>
             PDF{!pro && ' 🔒'}
           </button>
-          <button className="boton secundario" onClick={() => setCotizando('detodito')} disabled={!d.piezas.length}>
-            Contactar a De Todito Outlet
-          </button>
           <button className="boton destacado" onClick={() => setCotizando('cualquiera')} disabled={!d.piezas.length}>
             Que me lo fabriquen
           </button>
@@ -424,8 +434,9 @@ export function Disenador() {
           </button>
         </div>
       </header>
-      {((!esPro && pro) || mensaje) && (
+      {((!esPro && pro) || mensaje || (sugerir && d.piezas.length > 0)) && (
         <div className="dz-mensaje">
+          {d.piezas.length > 0 && <SugerenciaDTO tipo={tipo} onCotizar={() => setCotizando('detodito')} />}
           {!esPro && pro && <p className="franja-muestra">🎁 Este diseño es tu proyecto de regalo: sin límite de piezas y con PDF.</p>}
           {mensaje && (
             <p className="mensaje" role="status">

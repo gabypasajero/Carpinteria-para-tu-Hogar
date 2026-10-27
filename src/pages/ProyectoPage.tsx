@@ -15,6 +15,8 @@ import { planillaDimensionado } from '../core/dimensionado'
 import type { ProyectoDef } from '../core/types'
 import { guardarDiseno } from '../lib/disenos'
 import { NOTA_PROFESIONAL, conProfesional } from '../lib/profesional'
+import { tipoDeProyecto } from '../lib/detodito'
+import { SugerenciaDTO } from '../components/SugerenciaDTO'
 import { proyectoAbierto, useAcceso } from '../lib/plan'
 import { useCalculo } from '../lib/useCalculo'
 import { desdeInstancia } from '../core/libre'
@@ -162,11 +164,9 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
         {conProfesional(proyecto) && (
           <div className="aviso-profesional">
             <p>👷 {NOTA_PROFESIONAL}</p>
-            <button className="enlace" onClick={() => setCotizando('detodito')}>
-              Contactar a De Todito Outlet →
-            </button>
           </div>
         )}
+        <SugerenciaDTO tipo={tipoDeProyecto(proyecto.id)} onCotizar={() => setCotizando('detodito')} />
         {esMuestra && <p className="franja-muestra">🎁 Este es tu proyecto de regalo: lo tienes completo.</p>}
         <PanelMedidas proyecto={proyecto} params={params} onChange={cambiar} />
         <div className="resumen">
@@ -203,14 +203,11 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           <button
             className="boton secundario"
             onClick={() => {
-              cargarDiseno({ nombre: `${proyecto.nombre} (mi versión)`, piezas: res.piezas.map((p, i) => desdeInstancia(p, `${i}-${Date.now()}`)), herrajes: res.herrajes })
+              cargarDiseno({ nombre: `${proyecto.nombre} (mi versión)`, tipo: tipoDeProyecto(proyecto.id), piezas: res.piezas.map((p, i) => desdeInstancia(p, `${i}-${Date.now()}`)), herrajes: res.herrajes })
               navegar('/disena')
             }}
           >
             Personalizar en el diseñador 3D
-          </button>
-          <button className="boton secundario" onClick={() => setCotizando('detodito')}>
-            Contactar a De Todito Outlet
           </button>
           <button className="boton destacado" onClick={() => setCotizando('cualquiera')}>
             ¿No quieres hacerlo tú?

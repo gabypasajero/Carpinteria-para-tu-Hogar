@@ -2178,3 +2178,34 @@ input[type='range'] {
   margin: 0 0 0.3rem;
   font-weight: 700;
 }
+
+.sugerencia-dto {
+  background: var(--acento-suave);
+  border: 1px solid #efc9d8;
+  border-radius: var(--radio);
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  font-size: 0.92rem;
+}
+
+.sugerencia-dto p {
+  margin: 0;
+  flex: 1 1 220px;
+}
+
+.dz-tipo {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font: inherit;
+  background: var(--superficie);
+}
+
+.dz-mensaje {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}

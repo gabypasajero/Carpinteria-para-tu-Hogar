@@ -15,12 +15,14 @@ import { calcularCostos, cm, formatoCLP } from '../core/costos'
 import { agruparPiezas, letrasPorClave } from '../core/despiece'
 import { aInstancia, caja, choques, codificar, decodificar, desdeInstancia, girar, herrajesSugeridos, medidas, nuevaPieza, sobrePiso, type Eje, type PiezaLibre } from '../core/libre'
 import { optimizar } from '../core/optimizador'
+import { planoParaCotizar } from '../core/plano'
 import type { ProyectoDef, ResultadoProyecto } from '../core/types'
-import { PIEZAS_GRATIS, useAcceso } from '../lib/plan'
+import { PIEZAS_GRATIS, muestraDiseno, useAcceso } from '../lib/plan'
 import { usePrecios } from '../lib/useCalculo'
 import { PROYECTOS, buscarProyecto, paramsPorDefecto } from '../projects'
 import { useApp } from '../store/useApp'
 import { useDiseno } from '../store/useDiseno'
+import { usePerfil } from '../store/usePerfil'
 
 const ESCALA = 1 / 1000
 const PLANTILLAS = ['repisa_muro', 'caja_tapa', 'repisa', 'velador', 'mesa_centro', 'banca', 'escritorio', 'cocina_base']
@@ -86,7 +88,7 @@ function Escena({ onCanvas }: { onCanvas: (c: HTMLCanvasElement) => void }) {
 }
 
 function Biblioteca() {
-  const { piezas, agregar, herrajes, setHerraje, cargar } = useDiseno()
+  const { piezas, agregar, herrajes, setHerraje, cargar, uid } = useDiseno()
   const lleno = useLleno()
   const [tab, setTab] = useState<'materiales' | 'herrajes' | 'plantillas'>('materiales')
   const usados = Object.fromEntries(herrajes.map((h) => [h.id, h.cantidad]))
@@ -105,7 +107,7 @@ function Biblioteca() {
           </button>
         ))}
       </div>
-      {tab === 'materiales' && lleno && <Bloqueo que={`Diseñar con más de ${PIEZAS_GRATIS} piezas`} />}
+      {tab === 'materiales' && lleno && <Bloqueo que={`Diseñar con más de ${PIEZAS_GRATIS} piezas`} muestraId={muestraDiseno(uid)} />}
       {tab === 'materiales' &&
         GRUPOS.map(([g, f]) => (
           <details key={g} open={g !== 'Volcanita'}>
@@ -279,21 +281,30 @@ function Propiedades() {
 
 /** Sin plan Pro el diseñador permite hasta PIEZAS_GRATIS piezas. */
 function useLleno() {
-  const { pro } = useAcceso()
+  const completo = useDisenoCompleto()
   const n = useDiseno((s) => s.piezas.length)
-  return !pro && n >= PIEZAS_GRATIS
+  return !completo && n >= PIEZAS_GRATIS
+}
+
+/** Pro, o este diseño es el proyecto de muestra. */
+function useDisenoCompleto() {
+  const { abierto } = useAcceso()
+  const uid = useDiseno((s) => s.uid)
+  return abierto(muestraDiseno(uid))
 }
 
 export function Disenador() {
   const d = useDiseno()
-  const { pro } = useAcceso()
+  const pro = useDisenoCompleto()
+  const { muestra, pro: esPro } = useAcceso()
+  const usarMuestra = usePerfil((s) => s.usarMuestra)
   const precios = usePrecios()
   const tiendas = useApp((s) => s.tiendas)
   const [busqueda, setBusqueda] = useSearchParams()
   const [pestana, setPestana] = useState<'corte' | 'materiales' | 'plano'>('materiales')
   const [panel, setPanel] = useState<'biblioteca' | 'pieza' | 'resumen'>('biblioteca')
   const [mensaje, setMensaje] = useState('')
-  const [cotizando, setCotizando] = useState(false)
+  const [cotizando, setCotizando] = useState<string | null>(null)
   const canvas = useRef<HTMLCanvasElement | null>(null)
 
   // Diseño compartido por enlace (?d=...).
@@ -363,8 +374,12 @@ export function Disenador() {
   }
   async function pdf() {
     if (!pro) {
-      setMensaje('El PDF del diseñador es parte del plan Pro: pruébalo 7 días gratis en Yo › Mi plan.')
-      return
+      if (!muestra && window.confirm('El PDF del diseñador es Pro. ¿Usar tu proyecto de regalo en este diseño? Lo tendrás completo, sin límite de piezas y con PDF (solo una vez).')) {
+        usarMuestra(muestraDiseno(d.uid))
+      } else {
+        setMensaje('El PDF del diseñador es parte del plan Pro: pruébalo 7 días gratis en Yo › Mi plan.')
+        return
+      }
     }
     if (!canvas.current) return
     setMensaje('Generando PDF…')
@@ -394,7 +409,10 @@ export function Disenador() {
           <button className="boton secundario" onClick={pdf} disabled={!d.piezas.length}>
             PDF{!pro && ' 🔒'}
           </button>
-          <button className="boton destacado" onClick={() => setCotizando(true)} disabled={!d.piezas.length}>
+          <button className="boton secundario" onClick={() => setCotizando('detodito')} disabled={!d.piezas.length}>
+            Contactar a De Todito Outlet
+          </button>
+          <button className="boton destacado" onClick={() => setCotizando('cualquiera')} disabled={!d.piezas.length}>
             Que me lo fabriquen
           </button>
           <button
@@ -407,10 +425,15 @@ export function Disenador() {
           </button>
         </div>
       </header>
-      {mensaje && (
-        <p className="mensaje dz-mensaje" role="status">
-          {mensaje}
-        </p>
+      {((!esPro && pro) || mensaje) && (
+        <div className="dz-mensaje">
+          {!esPro && pro && <p className="franja-muestra">🎁 Este diseño es tu proyecto de regalo: sin límite de piezas y con PDF.</p>}
+          {mensaje && (
+            <p className="mensaje" role="status">
+              {mensaje}
+            </p>
+          )}
+        </div>
       )}
 
       <nav className="dz-paneles" aria-label="Paneles del diseñador">
@@ -521,7 +544,29 @@ export function Disenador() {
         </div>
       </section>
 
-      {cotizando && <Cotizacion proyecto={proyecto} params={{}} exterior={calc.res.exterior} costoMateriales={calc.costos.total} onCerrar={() => setCotizando(false)} />}
+      {cotizando && (
+        <Cotizacion
+          proyecto={proyecto}
+          params={{}}
+          exterior={calc.res.exterior}
+          costoMateriales={calc.costos.total}
+          tiendaInicial={cotizando}
+          enlace={enlace()}
+          descargable={pro}
+          plano={planoParaCotizar({
+            nombre: d.nombre,
+            proyecto: 'libre',
+            enlace: enlace(),
+            exterior: calc.res.exterior,
+            costoMateriales: calc.costos.total,
+            cortes: calc.cortes,
+            letras: calc.letras,
+            piezas: calc.res.piezas,
+            herrajes: d.herrajes,
+          })}
+          onCerrar={() => setCotizando(null)}
+        />
+      )}
     </main>
   )
 }

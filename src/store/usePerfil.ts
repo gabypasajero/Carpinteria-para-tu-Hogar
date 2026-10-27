@@ -23,6 +23,9 @@ interface PerfilState {
   inicioPrueba: string | null
   iniciarPrueba: () => void
   setPlan: (p: EstadoPlan) => void
+  /** Proyecto de muestra: uno completo gratis (id del catálogo o «diseno:<uid>» del diseñador). */
+  muestra: string | null
+  usarMuestra: (id: string) => void
 }
 
 export const usePerfil = create<PerfilState>()(
@@ -36,6 +39,8 @@ export const usePerfil = create<PerfilState>()(
       inicioPrueba: null,
       iniciarPrueba: () => set((s) => (s.inicioPrueba ? {} : { plan: 'prueba', inicioPrueba: new Date().toISOString() })),
       setPlan: (plan) => set({ plan }),
+      muestra: null,
+      usarMuestra: (id) => set((s) => (s.muestra ? {} : { muestra: id })),
     }),
     { name: 'carpinteria-perfil' },
   ),

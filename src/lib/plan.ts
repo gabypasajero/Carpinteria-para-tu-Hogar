@@ -14,11 +14,17 @@ export function diasRestantes(inicio: string | null, ahora = Date.now()): number
 }
 
 export function useAcceso() {
-  const { plan, inicioPrueba } = usePerfil()
+  const { plan, inicioPrueba, muestra } = usePerfil()
   const dias = diasRestantes(inicioPrueba)
   const pro = plan === 'pro' || (plan === 'prueba' && dias > 0)
-  return { pro, plan, dias, pruebaUsada: !!inicioPrueba, vencida: plan === 'prueba' && dias === 0 }
+  /** Pro, o el único proyecto de muestra que la persona eligió. */
+  const abierto = (id: string) => pro || muestra === id
+  return { pro, plan, dias, pruebaUsada: !!inicioPrueba, vencida: plan === 'prueba' && dias === 0, muestra, abierto }
 }
 
-/** Un proyecto gratis se usa completo; uno Pro muestra el 3D y el costo, y bloquea planos, guía y PDF. */
-export const proyectoAbierto = (p: ProyectoDef, pro: boolean) => p.plan === 'gratis' || pro
+/** Un proyecto gratis se usa completo; uno Pro muestra el 3D y el costo, y bloquea planos, guía y PDF
+ * (salvo que sea el proyecto de muestra). */
+export const proyectoAbierto = (p: ProyectoDef, abierto: (id: string) => boolean) => p.plan === 'gratis' || abierto(p.id)
+
+/** Clave de la muestra para un diseño propio del diseñador. */
+export const muestraDiseno = (uid: string) => `diseno:${uid}`

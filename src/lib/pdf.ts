@@ -1,4 +1,5 @@
 import { jsPDF } from 'jspdf'
+import { NOTA_PROFESIONAL, conProfesional } from './profesional'
 import autoTable from 'jspdf-autotable'
 import { FECHA_PRECIOS, MATERIALES, nombreHerramienta } from '../core/catalogo'
 import { DIFICULTAD, cm, formatoCLP } from '../core/costos'
@@ -227,6 +228,10 @@ export function generarPdf(proyecto: ProyectoDef, calc: Calculo, capturas: Captu
   if (proyecto.permiso) {
     parrafo('Permisos (OGUC)', { negrita: true })
     parrafo(proyecto.permiso)
+    y += 2
+  }
+  if (conProfesional(proyecto)) {
+    parrafo(NOTA_PROFESIONAL, { negrita: true })
     y += 2
   }
   if (proyecto.nota) {

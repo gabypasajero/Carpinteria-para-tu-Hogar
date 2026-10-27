@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { cm, formatoCLP } from '../core/costos'
+import { descargarPlano, type PlanoCotizar } from '../core/plano'
 import { precioFabricacion } from '../core/tiendas'
 import type { Params, ProyectoDef } from '../core/types'
 import { supabase } from '../lib/supabase'
@@ -13,13 +14,21 @@ interface Props {
   exterior: [number, number, number]
   costoMateriales: number
   onCerrar: () => void
+  /** Tienda elegida al abrir (p. ej. «detodito» desde «Contactar a De Todito Outlet»). */
+  tiendaInicial?: string
+  /** Enlace que abre este mismo diseño (por defecto, la página actual). */
+  enlace?: string
+  /** Plano para cotizar que viaja con la solicitud. */
+  plano?: PlanoCotizar
+  /** Si la persona puede bajar el plano (sin plan Pro solo lo recibe la tienda). */
+  descargable?: boolean
 }
 
-export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerrar }: Props) {
+export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerrar, tiendaInicial = 'cualquiera', enlace = window.location.href, plano, descargable = true }: Props) {
   const sesion = useApp((s) => s.sesion)
   const tiendas = useApp((s) => s.tiendas)
   const opciones = [...tiendas, CUALQUIERA]
-  const [tienda, setTienda] = useState('cualquiera')
+  const [tienda, setTienda] = useState(tiendaInicial)
   const [form, setForm] = useState({ nombre: '', telefono: '', email: sesion?.user.email ?? '', comuna: '', comentario: '' })
   const [estado, setEstado] = useState<'editando' | 'enviando' | 'enviado' | 'error'>('editando')
   const [error, setError] = useState('')
@@ -32,7 +41,8 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
     `Nombre: ${form.nombre}`,
     `Comuna: ${form.comuna}`,
     form.comentario && `Comentario: ${form.comentario}`,
-    `Enlace al diseño: ${window.location.href}`,
+    `Enlace al diseño: ${enlace}`,
+    plano && `Lista de corte: ${plano.cortes.length} piezas distintas (plano adjunto en la solicitud)`,
   ]
     .filter(Boolean)
     .join('\n')
@@ -48,7 +58,7 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
       return
     }
     setEstado('enviando')
-    const { error } = await supabase.rpc('carpinteria_enviar_solicitud', {
+    const datos = {
       p_tienda: tienda,
       p_proyecto: proyecto.id,
       p_params: params,
@@ -58,8 +68,11 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
       p_email: form.email,
       p_comuna: form.comuna,
       p_comentario: form.comentario,
-      p_enlace: window.location.href,
-    })
+      p_enlace: enlace,
+    }
+    let { error } = await supabase.rpc('carpinteria_enviar_solicitud', { ...datos, p_plano: plano ?? null })
+    // Si la base aún no recibe el plano, la solicitud viaja igual (con el enlace al diseño).
+    if (error && /p_plano|function/i.test(error.message)) ({ error } = await supabase.rpc('carpinteria_enviar_solicitud', datos))
     if (error) {
       setError(error.message)
       setEstado('error')
@@ -72,11 +85,17 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
         <button className="modal-cerrar" onClick={onCerrar} aria-label="Cerrar">
           ×
         </button>
-        <h2 id="cotizar-titulo">¿No quieres hacerlo tú?</h2>
+        <h2 id="cotizar-titulo">{tiendaInicial === 'detodito' ? 'Contactar a De Todito Outlet' : '¿No quieres hacerlo tú?'}</h2>
         <p>
-          Te lo fabricamos. Envía este diseño ({medidas}) y una tienda te contactará con el precio final. Fabricado cuesta desde{' '}
+          Te lo fabricamos. Envía este diseño ({medidas}) y {tiendaInicial === 'detodito' ? 'De Todito Outlet' : 'una tienda'} te contactará con el precio final. Fabricado cuesta desde{' '}
           <strong>{formatoCLP(precioFabricacion(costoMateriales, tiendas))}</strong> aprox. (solo materiales: {formatoCLP(costoMateriales)}).
         </p>
+        {plano && (
+          <p className="nota">
+            📐 Enviamos el plano completo ({plano.cortes.length} piezas distintas, herrajes y el modelo 3D) para que la mueblería lo lea en su diseñador y te
+            cotice exacto.
+          </p>
+        )}
 
         {estado === 'enviado' ? (
           <div className="exito">
@@ -85,6 +104,11 @@ export function Cotizacion({ proyecto, params, exterior, costoMateriales, onCerr
               <a className="boton" href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(resumen)}`} target="_blank" rel="noreferrer">
                 Enviar también por WhatsApp
               </a>
+            )}
+            {plano && descargable && (
+              <button className="boton secundario" onClick={() => descargarPlano(plano)}>
+                Descargar el plano para cotizar (.json)
+              </button>
             )}
             {!supabase && !whatsapp && (
               <button className="boton" onClick={() => navigator.clipboard.writeText(resumen)}>

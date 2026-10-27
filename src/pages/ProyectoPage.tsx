@@ -13,7 +13,9 @@ import { Visor3D } from '../components/Visor3D'
 import { DIFICULTAD, cm } from '../core/costos'
 import { planillaDimensionado } from '../core/dimensionado'
 import type { ProyectoDef } from '../core/types'
+import { planoParaCotizar } from '../core/plano'
 import { guardarDiseno } from '../lib/disenos'
+import { NOTA_PROFESIONAL, conProfesional } from '../lib/profesional'
 import { proyectoAbierto, useAcceso } from '../lib/plan'
 import { useCalculo } from '../lib/useCalculo'
 import { desdeInstancia } from '../core/libre'
@@ -67,8 +69,9 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
   const calc = useCalculo(proyecto, params)
   const { res, cortes, letras, opt, costos } = calc
 
-  const { pro } = useAcceso()
-  const abierto = proyectoAbierto(proyecto, pro)
+  const acceso = useAcceso()
+  const abierto = proyectoAbierto(proyecto, acceso.abierto)
+  const esMuestra = !acceso.pro && acceso.muestra === proyecto.id
   const [pestana, setPestana] = useState<Pestana>(abierto ? 'corte' : 'materiales')
   const bloqueada = (k: Pestana) => !abierto && k !== 'materiales' && k !== 'ficha'
   const [explosion, setExplosion] = useState(0)
@@ -76,7 +79,8 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
   const [resaltada, setResaltada] = useState<string | null>(null)
   const [pasoGuia, setPasoGuia] = useState(0)
   const [captura, setCaptura] = useState<{ paso: number | null } | null>(null)
-  const [cotizando, setCotizando] = useState(false)
+  /** Tienda con la que se abre la cotización (null = cerrada). */
+  const [cotizando, setCotizando] = useState<string | null>(null)
   const [mensaje, setMensaje] = useState('')
   const canvas = useRef<HTMLCanvasElement | null>(null)
   const tiendas = useApp((s) => s.tiendas)
@@ -156,6 +160,15 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           {DIFICULTAD[proyecto.dificultad - 1]} · {proyecto.horas}
           {proyecto.plan === 'pro' && <span className="insignia en-linea">Pro</span>}
         </p>
+        {conProfesional(proyecto) && (
+          <div className="aviso-profesional">
+            <p>👷 {NOTA_PROFESIONAL}</p>
+            <button className="enlace" onClick={() => setCotizando('detodito')}>
+              Contactar a De Todito Outlet →
+            </button>
+          </div>
+        )}
+        {esMuestra && <p className="franja-muestra">🎁 Este es tu proyecto de regalo: lo tienes completo.</p>}
         <PanelMedidas proyecto={proyecto} params={params} onChange={cambiar} />
         <div className="resumen">
           <div>
@@ -173,7 +186,7 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
             <strong>{opt.tableros.length + opt.barras.length}</strong>
           </div>
         </div>
-        <Comparador costoMateriales={costos.total} horas={proyecto.horas} onCotizar={() => setCotizando(true)} />
+        <Comparador costoMateriales={costos.total} horas={proyecto.horas} onCotizar={() => setCotizando('cualquiera')} />
         {res.avisos.length > 0 && (
           <ul className="avisos">
             {res.avisos.map((a) => (
@@ -197,7 +210,10 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           >
             Personalizar en el diseñador 3D
           </button>
-          <button className="boton destacado" onClick={() => setCotizando(true)}>
+          <button className="boton secundario" onClick={() => setCotizando('detodito')}>
+            Contactar a De Todito Outlet
+          </button>
+          <button className="boton destacado" onClick={() => setCotizando('cualquiera')}>
             ¿No quieres hacerlo tú?
           </button>
         </div>
@@ -243,7 +259,7 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           ))}
         </div>
         <div className="pestana-contenido" role="tabpanel">
-          {bloqueada(pestana) && <Bloqueo que={PESTANAS.find(([k]) => k === pestana)![1]} />}
+          {bloqueada(pestana) && <Bloqueo que={PESTANAS.find(([k]) => k === pestana)![1]} muestraId={proyecto.id} />}
           {pestana === 'corte' && abierto && (
             <>
               <div className="barra-pestana">
@@ -265,7 +281,26 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
       </section>
 
       {cotizando && (
-        <Cotizacion proyecto={proyecto} params={params} exterior={res.exterior} costoMateriales={costos.total} onCerrar={() => setCotizando(false)} />
+        <Cotizacion
+          proyecto={proyecto}
+          params={params}
+          exterior={res.exterior}
+          costoMateriales={costos.total}
+          tiendaInicial={cotizando}
+          descargable={abierto}
+          plano={planoParaCotizar({
+            nombre: proyecto.nombre,
+            proyecto: proyecto.id,
+            enlace: window.location.href,
+            exterior: res.exterior,
+            costoMateriales: costos.total,
+            cortes,
+            letras,
+            piezas: res.piezas,
+            herrajes: res.herrajes,
+          })}
+          onCerrar={() => setCotizando(null)}
+        />
       )}
     </main>
   )

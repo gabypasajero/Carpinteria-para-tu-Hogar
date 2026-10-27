@@ -1,6 +1,7 @@
 import { FECHA_PRECIOS, nombreHerramienta, productoDe } from '../core/catalogo'
 import { DIFICULTAD, formatoCLP, type LineaCosto } from '../core/costos'
 import type { ProyectoDef } from '../core/types'
+import { NOTA_PROFESIONAL, conProfesional } from '../lib/profesional'
 import { FUENTES, GAMAS_HERRAMIENTAS, PRECIOS_POR_TIENDA, comprar, etiquetaPermiso, fechaLarga } from '../lib/investigacion'
 
 interface Props {
@@ -46,6 +47,7 @@ export function Ficha({ proyecto, lineas }: Props) {
           </p>
         </section>
       )}
+      {conProfesional(proyecto) && <p className="ficha-nota">👷 {NOTA_PROFESIONAL}</p>}
       {proyecto.nota && <p className="ficha-nota">{proyecto.nota}</p>}
 
       {(proyecto.reglas?.length ?? 0) > 0 && (

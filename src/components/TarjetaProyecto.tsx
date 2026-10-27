@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { DIFICULTAD, formatoCLP } from '../core/costos'
 import type { ProyectoDef } from '../core/types'
+import { conProfesional } from '../lib/profesional'
 
 /** Tarjeta con la foto del proyecto (renderizada desde su modelo 3D). */
 export function TarjetaProyecto({ p, costo, variante = 'grilla' }: { p: ProyectoDef; costo?: number; variante?: 'grilla' | 'carrusel' }) {
@@ -17,6 +18,7 @@ export function TarjetaProyecto({ p, costo, variante = 'grilla' }: { p: Proyecto
         <p>
           <span>⏱ {p.horas}</span>
           <span>{DIFICULTAD[p.dificultad - 1]}</span>
+          {conProfesional(p) && <span>👷 Con profesional</span>}
           {costo !== undefined && <span className="precio-desde">desde {formatoCLP(costo)}</span>}
         </p>
       </div>

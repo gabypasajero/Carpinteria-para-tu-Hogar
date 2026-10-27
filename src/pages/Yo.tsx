@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { formatoCLP } from '../core/costos'
 import { DIAS_PRUEBA, PIEZAS_GRATIS, PRECIO_MENSUAL, useAcceso } from '../lib/plan'
+import { buscarProyecto } from '../projects'
 import { useDiseno } from '../store/useDiseno'
 import { usePerfil } from '../store/usePerfil'
 import { Ingresar } from './Ingresar'
@@ -10,7 +11,7 @@ import { MisProyectos } from './MisProyectos'
 
 export function Yo() {
   const { encuesta, iniciarPrueba, setPlan } = usePerfil()
-  const { pro, plan, dias, pruebaUsada, vencida } = useAcceso()
+  const { pro, plan, dias, pruebaUsada, vencida, muestra } = useAcceso()
   const { guardados, cargar, borrarGuardado } = useDiseno()
   const { hash } = useLocation()
 
@@ -54,6 +55,22 @@ export function Yo() {
               ? 'Tienes todos los planos, guías, PDF y el diseñador 3D sin límites.'
               : `Proyectos gratis completos; en los Pro ves el 3D y el costo. Diseñador hasta ${PIEZAS_GRATIS} piezas.`}
           </span>
+          {!pro && (
+            <span className="sub">
+              {muestra ? (
+                <>
+                  🎁 Tu proyecto de regalo:{' '}
+                  {muestra.startsWith('diseno:') ? (
+                    <Link to="/disena">{guardados.find((g) => `diseno:${g.id}` === muestra)?.nombre ?? 'un diseño propio'}</Link>
+                  ) : (
+                    <Link to={`/proyecto/${muestra}`}>{buscarProyecto(muestra)?.nombre ?? muestra}</Link>
+                  )}
+                </>
+              ) : (
+                '🎁 Tienes 1 proyecto completo de regalo: elígelo en cualquier proyecto Pro o en tu diseño 3D.'
+              )}
+            </span>
+          )}
         </div>
         <div className="planes">
           <article className="plan-tarjeta">
@@ -61,6 +78,7 @@ export function Yo() {
             <p className="plan-precio">$0</p>
             <ul>
               <li>Proyectos gratis completos</li>
+              <li>1 proyecto Pro o diseño propio completo de regalo</li>
               <li>3D, medidas y costo de todos los proyectos</li>
               <li>Diseñador 3D hasta {PIEZAS_GRATIS} piezas</li>
               <li>Cotización con mueblerías</li>

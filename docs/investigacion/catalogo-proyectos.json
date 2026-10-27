@@ -120,7 +120,7 @@
     }
    ],
    "permiso": null,
-   "nota": "Proyecto de riesgo: incluir advertencia y prohibir su uso por menores de 6 años en el nivel superior."
+   "nota": "No se recomienda que menores de 6 años usen el nivel superior; instala siempre la baranda."
   },
   {
    "id": "cama_alta",
@@ -1796,7 +1796,7 @@
    ],
    "reglas": [],
    "permiso": null,
-   "nota": "Producto de seguridad infantil: recomendar diseño probado y advertencias."
+   "nota": "Producto para niños: úsala siempre con un adulto cerca, con la baranda puesta y los peldaños firmes."
   },
   {
    "id": "perchero",
@@ -2044,7 +2044,7 @@
     }
    ],
    "permiso": "Con fundaciones o cubierta cerrada suele requerir permiso: consultar DOM (art. 5.1.2 solo exime elementos sin cimientos).",
-   "nota": "Luces de vigas no tienen tabla chilena pública para hogar: limitar luces conservadoras o derivar a calculista."
+   "nota": "Respeta las luces máximas de vigas que propone el plano; no las alargues."
   },
   {
    "id": "jardinera",
@@ -2507,7 +2507,7 @@
     }
    ],
    "permiso": "Ampliación hasta 100 m²: «obra menor» con permiso DOM, arquitecto, plano 1:50 y especificaciones (arts. 1.1.2 y 5.1.4). Sin permiso los derechos tienen recargo.",
-   "nota": "La app puede entregar el despiece y el presupuesto, pero el proyecto debe firmarlo un arquitecto. Oportunidad: derivar a profesionales y tiendas."
+   "nota": null
   },
   {
    "id": "altillo",
@@ -2560,7 +2560,7 @@
     }
    ],
    "permiso": "Agrega superficie y es estructural: requiere permiso y cálculo.",
-   "nota": "Recomendado solo como cotización a profesional."
+   "nota": null
   },
   {
    "id": "bandeja_botas",

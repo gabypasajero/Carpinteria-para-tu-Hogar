@@ -1,0 +1,1901 @@
+{
+ "cama": {
+  "categoria": "dormitorio",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora",
+   "prensa"
+  ],
+  "reglas": [
+   {
+    "texto": "Medidas de colchón: 1 plaza 90×190, 1½ 105×190, 2 plazas 150×190, queen 160×200, king 180×200, super king 200×200 cm",
+    "fuente": "camas"
+   },
+   {
+    "texto": "Desde 150 cm de ancho agregar travesaño central con pata al piso",
+    "fuente": "woodweb"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "camarote": {
+  "categoria": "dormitorio",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora",
+   "prensa",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Baranda del nivel superior: su borde al menos 130 mm (5\") sobre el colchón; dos barandas, la del lado del muro continua",
+    "fuente": "cfr1513"
+   },
+   {
+    "texto": "Ninguna abertura de la estructura del nivel superior puede dejar pasar una esfera de 230 mm (9\")",
+    "fuente": "cfr1513"
+   },
+   {
+    "texto": "La app debe fijar el grosor máximo de colchón para garantizar la altura de baranda",
+    "fuente": "cfr1513"
+   }
+  ],
+  "permiso": null,
+  "nota": "No se recomienda que menores de 6 años usen el nivel superior; instala siempre la baranda."
+ },
+ "cama_alta": {
+  "categoria": "dormitorio",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Mismas reglas de baranda que el camarote",
+    "fuente": "cfr1513"
+   },
+   {
+    "texto": "Escritorio a 73–76 cm de alto",
+    "fuente": "ergonomia"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "cama_nido": {
+  "categoria": "dormitorio",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal",
+   "circular"
+  ],
+  "reglas": [
+   {
+    "texto": "Medidas de colchón estándar en Chile",
+    "fuente": "camas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "velador": {
+  "categoria": "dormitorio",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "comoda": {
+  "categoria": "dormitorio",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [
+   {
+    "texto": "Más de 1 m de alto: fijar al muro (riesgo de volcamiento)",
+    "fuente": "oguc"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "closet": {
+  "categoria": "dormitorio",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal",
+   "forstner",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Fondo para colgar 55–60 cm",
+    "fuente": "closet"
+   },
+   {
+    "texto": "Barra a 160–170 cm para ropa larga; 90–110 cm para camisas en doble barra",
+    "fuente": "closet"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "closet_abierto": {
+  "categoria": "almacenamiento",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [
+   {
+    "texto": "Fondo 55–60 cm para colgar",
+    "fuente": "closet"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "respaldo": {
+  "categoria": "dormitorio",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "caladora",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Ancho = ancho del colchón + 10 a 20 cm",
+    "fuente": "camas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "zapatero": {
+  "categoria": "entrada",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "tocador": {
+  "categoria": "dormitorio",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [
+   {
+    "texto": "Cubierta a 73–76 cm",
+    "fuente": "ergonomia"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "mueble_tv": {
+  "categoria": "sala de estar",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal",
+   "forstner"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "mesa_centro": {
+  "categoria": "sala de estar",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora",
+   "prensa"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto similar al asiento del sofá: ~45 cm",
+    "fuente": "sofa"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "mesa_lateral": {
+  "categoria": "sala de estar",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "repisa": {
+  "categoria": "sala de estar",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [
+   {
+    "texto": "Repisas de 15–18 mm de más de ~80 cm se flectan con libros: limitar luz o reforzar canto frontal",
+    "fuente": "woodweb"
+   },
+   {
+    "texto": "Flecha admisible orientativa: 0,02\" por pie de luz (≈1,7 mm por metro)",
+    "fuente": "sagulator"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "repisa_flotante": {
+  "categoria": "decoración",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "circular",
+   "lijadora",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Anclar el bastidor a pies derechos o con tarugos adecuados al muro",
+    "fuente": "volcan"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "sofa_2x4": {
+  "categoria": "sala de estar",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora",
+   "prensa"
+  ],
+  "reglas": [
+   {
+    "texto": "Asiento 41–44 cm de alto; 2 plazas 140–180 cm, 3 plazas 180–240 cm (confianza baja: fuente divulgativa)",
+    "fuente": "sofa"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "panel_ranurado": {
+  "categoria": "decoración",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "ingletadora",
+   "nivel",
+   "pistolacal"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "mesa_comedor": {
+  "categoria": "cocina",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora",
+   "prensa"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto de mesa 75–76 cm con sillas de 45–48 cm",
+    "fuente": "ergonomia"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "banca": {
+  "categoria": "cocina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Asiento a 45–48 cm",
+    "fuente": "ergonomia"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "silla": {
+  "categoria": "cocina",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "ingletadora",
+   "caladora",
+   "lijadora",
+   "prensa"
+  ],
+  "reglas": [
+   {
+    "texto": "Asiento a 45–48 cm",
+    "fuente": "ergonomia"
+   }
+  ],
+  "permiso": null,
+  "nota": "Uniones angulares exigentes: recomendable solo con ingletadora y prensas."
+ },
+ "cocina_base": {
+  "categoria": "cocina",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal",
+   "forstner",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Altura de cubierta 85–95 cm (≈90), fondo 60 cm",
+    "fuente": "cocina"
+   },
+   {
+    "texto": "Anchos estándar de módulos en Chile: 60, 80, 100 y 120 cm",
+    "fuente": "cocina"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "cocina_aereo": {
+  "categoria": "cocina",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal",
+   "forstner",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Fondo 30–35 cm; base a 45–60 cm sobre la cubierta",
+    "fuente": "cocina"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "despensa": {
+  "categoria": "cocina",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal",
+   "forstner"
+  ],
+  "reglas": [
+   {
+    "texto": "Fijar al muro",
+    "fuente": "oguc"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "isla": {
+  "categoria": "cocina",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [
+   {
+    "texto": "Cubierta a ~90 cm",
+    "fuente": "cocina"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "especiero": {
+  "categoria": "cocina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "vanitorio": {
+  "categoria": "baño",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal",
+   "forstner",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Melamina es de uso interior: sellar todos los cantos y no apoyar el tablero directo en el piso húmedo",
+    "fuente": "vesto"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "repisa_wc": {
+  "categoria": "baño",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [
+   {
+    "texto": "Sellar cantos por humedad",
+    "fuente": "vesto"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "toallero": {
+  "categoria": "baño",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "escritorio": {
+  "categoria": "oficina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto 73–76 cm",
+    "fuente": "ergonomia"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "escritorio_muro": {
+  "categoria": "oficina",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto de trabajo 73–76 cm",
+    "fuente": "ergonomia"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "estanteria": {
+  "categoria": "almacenamiento",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular"
+  ],
+  "reglas": [
+   {
+    "texto": "Más de 1,5 m: fijar al muro",
+    "fuente": "oguc"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "banco_trabajo": {
+  "categoria": "taller",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto típico 85–95 cm según usuario",
+    "fuente": "cocina"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "casita_juego": {
+  "categoria": "espacio infantil",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "nivel",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Juegos infantiles en áreas verdes figuran entre las obras sin permiso (art. 5.1.2 n.° 11); en predio privado consultar DOM",
+    "fuente": "oguc"
+   },
+   {
+    "texto": "Si la terraza supera 1 m de altura: baranda ≥ 0,95 m, sin huecos de más de 12,5 cm",
+    "fuente": "oguc"
+   },
+   {
+    "texto": "Madera en exterior: impregnada para riesgo R3 (R4 si toca suelo)",
+    "fuente": "nch819"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "mesa_infantil": {
+  "categoria": "espacio infantil",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": "Cantos redondeados y pintura no tóxica."
+ },
+ "baul": {
+  "categoria": "espacio infantil",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "circular",
+   "lijadora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": "Usar bisagra con retenedor de tapa (evita golpes)."
+ },
+ "cama_montessori": {
+  "categoria": "espacio infantil",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Colchón 1 plaza 90×190",
+    "fuente": "camas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "torre_aprendizaje": {
+  "categoria": "espacio infantil",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "caladora",
+   "lijadora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": "Producto para niños: úsala siempre con un adulto cerca, con la baranda puesta y los peldaños firmes."
+ },
+ "perchero": {
+  "categoria": "entrada",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "lijadora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "lavadero": {
+  "categoria": "almacenamiento",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "pistolacal"
+  ],
+  "reglas": [
+   {
+    "texto": "Sellar cantos: zona húmeda",
+    "fuente": "vesto"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "panel_herramientas": {
+  "categoria": "taller",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "nivel"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "deck": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "circular",
+   "ingletadora",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Distancia máxima entre apoyos de las tablas: 41 cm",
+    "fuente": "arauco_deck"
+   },
+   {
+    "texto": "Separación entre tablas ≥ 5 mm; tablas sin volar más de 30 cm del último apoyo",
+    "fuente": "arauco_deck"
+   },
+   {
+    "texto": "Tornillos galvanizados 3½\": 2 en los extremos, 1–2 en apoyos intermedios",
+    "fuente": "arauco_deck"
+   },
+   {
+    "texto": "No usar barnices que forman película; usar protector con tinte",
+    "fuente": "arauco_deck"
+   },
+   {
+    "texto": "Si queda a más de 1 m del suelo: baranda ≥ 0,95 m que resista 50 kg/m, sin huecos de más de 12,5 cm",
+    "fuente": "oguc"
+   },
+   {
+    "texto": "Madera impregnada R3 (sobre el suelo) o R4 (contacto con suelo) según NCh 819",
+    "fuente": "nch819"
+   }
+  ],
+  "permiso": "Deck apoyado sin cimientos: «elemento exterior sobrepuesto» sin permiso (5.1.2 n.° 2). Si lleva fundaciones o es una terraza elevada que amplía superficie: consultar DOM.",
+  "nota": null
+ },
+ "pergola": {
+  "categoria": "exterior",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "circular",
+   "ingletadora",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Madera exterior impregnada (R3; R4 en contacto con suelo)",
+    "fuente": "nch819"
+   },
+   {
+    "texto": "Pilar 4x4 cepillado ≈ 89×89 mm reales",
+    "fuente": "sodimac_fichas"
+   }
+  ],
+  "permiso": "Con fundaciones o cubierta cerrada suele requerir permiso: consultar DOM (art. 5.1.2 solo exime elementos sin cimientos).",
+  "nota": "Respeta las luces máximas de vigas que propone el plano; no las alargues."
+ },
+ "jardinera": {
+  "categoria": "jardín",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "circular"
+  ],
+  "reglas": [
+   {
+    "texto": "Usar madera impregnada para contacto con tierra (R4)",
+    "fuente": "nch819"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "mesa_picnic": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular"
+  ],
+  "reglas": [
+   {
+    "texto": "Mesa ~75 cm, bancas ~45 cm",
+    "fuente": "ergonomia"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "adirondack": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "caladora",
+   "lijadora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "casa_perro": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "circular",
+   "caladora"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "lenera": {
+  "categoria": "jardín",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular"
+  ],
+  "reglas": [],
+  "permiso": null,
+  "nota": null
+ },
+ "cerco": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "circular",
+   "nivel"
+  ],
+  "reglas": [],
+  "permiso": "Cierros: sin permiso (5.1.2 n.° 3) pero deben cumplir altura y transparencia del Plan Regulador Comunal.",
+  "nota": null
+ },
+ "bodega": {
+  "categoria": "exterior",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Pies derechos cada 40 o 60 cm, cadenetas cada 60 cm",
+    "fuente": "volcan"
+   },
+   {
+    "texto": "Pino dimensionado 2x3 real ≈ 48×73 mm (verde) / 41×65 mm (cepillado)",
+    "fuente": "sodimac_fichas"
+   }
+  ],
+  "permiso": "Agrega superficie: «obra menor» (ampliación hasta 100 m²) con permiso DOM, arquitecto y plano 1:50 (arts. 1.1.2 y 5.1.4). El texto vigente del 5.1.2 ya no exime «cobertizos».",
+  "nota": null
+ },
+ "tabique": {
+  "categoria": "construcción",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "circular",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Pies derechos a 40 o 60 cm; cadenetas cada 60 cm",
+    "fuente": "volcan"
+   },
+   {
+    "texto": "Tornillo autoavellanante 6×1¼\" en estructura de madera",
+    "fuente": "volcan"
+   },
+   {
+    "texto": "Tabique 2x3: pino C16 y humedad ≤ 18 %",
+    "fuente": "modulor"
+   }
+  ],
+  "permiso": "Tabique no soportante dentro de vivienda: sin permiso y sin expediente (art. 5.1.2 n.° 1).",
+  "nota": null
+ },
+ "muro_revestido": {
+  "categoria": "construcción",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "ingletadora",
+   "nivel"
+  ],
+  "reglas": [],
+  "permiso": "Revestimiento interior: obra no estructural, sin permiso (5.1.2 n.° 1).",
+  "nota": null
+ },
+ "habitacion": {
+  "categoria": "construcción",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Pies derechos estructurales 2x4 grado C24; tabiquería no estructural C16",
+    "fuente": "modulor"
+   },
+   {
+    "texto": "Pies derechos a 40/60 cm",
+    "fuente": "volcan"
+   }
+  ],
+  "permiso": "Ampliación hasta 100 m²: «obra menor» con permiso DOM, arquitecto, plano 1:50 y especificaciones (arts. 1.1.2 y 5.1.4). Sin permiso los derechos tienen recargo.",
+  "nota": null
+ },
+ "altillo": {
+  "categoria": "construcción",
+  "dificultad": 3,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "martillo",
+   "serrucho",
+   "ingletadora",
+   "circular",
+   "nivel"
+  ],
+  "reglas": [
+   {
+    "texto": "Baranda ≥ 0,95 m que resista 50 kg/m; en escaleras ≥ 0,85 m",
+    "fuente": "oguc"
+   },
+   {
+    "texto": "Peldaños: huella ≥ 28 cm y contrahuella 13–18 cm (vías de evacuación)",
+    "fuente": "oguc"
+   }
+  ],
+  "permiso": "Agrega superficie y es estructural: requiere permiso y cálculo.",
+  "nota": null
+ },
+ "bandeja_botas": {
+  "categoria": "entrada",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Listones con 1 cm de separación para que escurra el agua; barniz marino por la humedad",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "caja_listones": {
+  "categoria": "almacenamiento",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Cabeceras de 1x6 y costados de listones 1x3: la altura la define la tabla de cabecera",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "casa_pajaros": {
+  "categoria": "jardín",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Piso interior de 10×10 cm, alto 15–20 cm y entrada a 12–15 cm del piso",
+    "fuente": "nidos2"
+   },
+   {
+    "texto": "Entrada de 2,5–2,9 cm para chincoles y similares; sin percha (atrae depredadores)",
+    "fuente": "nidos"
+   }
+  ],
+  "permiso": null,
+  "nota": "No barnizar el interior; dejar agujeros de ventilación y drenaje."
+ },
+ "tabla_picar": {
+  "categoria": "cocina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "prensa",
+   "lijadora",
+   "serrucho"
+  ],
+  "reglas": [
+   {
+    "texto": "Mantener con aceite apto para alimentos y no sumergir en agua",
+    "fuente": "tablas_picar"
+   }
+  ],
+  "permiso": null,
+  "nota": "Para uso diario prefiere madera dura (roble, raulí o coigüe); el pino sirve para tablas de picoteo."
+ },
+ "porta_plantas": {
+  "categoria": "jardín",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Deja al menos 18 cm entre niveles para macetas medianas",
+    "fuente": "plantas2"
+   },
+   {
+    "texto": "Estructura 2x2 y repisas de tablas, ~85 cm de alto",
+    "fuente": "plantas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "macetero_alto": {
+  "categoria": "jardín",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Madera para contacto con tierra: impregnada o con forro plástico interior",
+    "fuente": "nch819"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "vinoteca": {
+  "categoria": "sala de estar",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Celdas de ~10 cm: caben casi todas las botellas de 750 ml",
+    "fuente": "vinos"
+   },
+   {
+    "texto": "Separación de 10 cm entre botellas en racks de listones",
+    "fuente": "vinos2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "soporte_monitor": {
+  "categoria": "oficina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Elevadores comerciales levantan el monitor 9 a 14 cm y dejan espacio para el teclado",
+    "fuente": "monitor"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "atril": {
+  "categoria": "oficina",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Inclinación de 60–70° y tope inferior para sostener la página",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "banquito": {
+  "categoria": "baño",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Peldaños cada ~16 cm y escalón superior de ~32 cm",
+    "fuente": "escalon"
+   },
+   {
+    "texto": "Base más ancha que el escalón y superficie antideslizante",
+    "fuente": "escalon2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "caballetes": {
+  "categoria": "taller",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "circular",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto de trabajo de ~75 cm; patas cortadas a 15°",
+    "fuente": "caballetes"
+   },
+   {
+    "texto": "Caballetes de 2x4 de 75 cm de alto",
+    "fuente": "caballetes2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "caja_herramientas": {
+  "categoria": "taller",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Costados en punta y manilla pasante centrada a ~2 cm del borde superior",
+    "fuente": "tote"
+   },
+   {
+    "texto": "Fondo de terciado o tabla atornillada; manilla de 2,5 a 3 cm",
+    "fuente": "tote2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "cajon_arena": {
+  "categoria": "espacio infantil",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Arenero de ~1,2×1,2 m y 28 cm de profundidad útil",
+    "fuente": "arena2"
+   },
+   {
+    "texto": "Tapa abatible que se convierte en asientos",
+    "fuente": "arena"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "pikler": {
+  "categoria": "espacio infantil",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "caladora"
+  ],
+  "reglas": [
+   {
+    "texto": "Alto ~77–81 cm, peldaños cada ~9 cm, para 6 meses a 6 años",
+    "fuente": "pikler"
+   }
+  ],
+  "permiso": null,
+  "nota": "Juego de motricidad: uso siempre con un adulto, lijado perfecto y peldaños atornillados y encolados."
+ },
+ "cama_perro": {
+  "categoria": "sala de estar",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Tamaños de referencia en pino macizo: 52×44, 72×54 y 100×70 cm",
+    "fuente": "perros"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "marco_cuadro": {
+  "categoria": "decoración",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "ingletadora",
+   "prensa",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Esquinas a inglete de 45° encoladas y prensadas",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "librero_escalera": {
+  "categoria": "sala de estar",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Apoyado en el muro y anclado con una escuadra: no es una escalera para subir",
+    "fuente": "plantas2"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "tumbona": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora",
+   "circular",
+   "ingletadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Madera exterior impregnada R3",
+    "fuente": "nch819"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "bandeja_sofa": {
+  "categoria": "sala de estar",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Se ajusta al ancho del brazo del sofá más 1 cm de holgura",
+    "fuente": "cajas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "tipi": {
+  "categoria": "espacio infantil",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Estructura A con travesaños: la tela se cose aparte",
+    "fuente": "pikler"
+   }
+  ],
+  "permiso": null,
+  "nota": "La tela (lona o crudo) se compra aparte."
+ },
+ "colgador_muro": {
+  "categoria": "entrada",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Ganchos a 1,70 m para adultos y 1,10 m para niños, cada 15–20 cm",
+    "fuente": "perchas"
+   },
+   {
+    "texto": "Respaldo de tablas 1x6 y repisa superior",
+    "fuente": "colgador"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "puf_cajon": {
+  "categoria": "sala de estar",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Cubo de ~45 cm en terciado de 18 mm con ruedas",
+    "fuente": "puf"
+   }
+  ],
+  "permiso": null,
+  "nota": "El tapiz (espuma y tela) se compra aparte."
+ },
+ "banca_zapatos": {
+  "categoria": "entrada",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Banca de entrada con repisa para zapatos debajo",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "mesa_exterior": {
+  "categoria": "exterior",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Mesa de exterior de bajo costo con listones 2x4",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "caja_exterior": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Caja de almacenaje para patios y terrazas",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "mesa_jardineria": {
+  "categoria": "jardín",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Mesa de trasplante que también sirve de bar o exhibidor de plantas",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "velador_infantil": {
+  "categoria": "espacio infantil",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Velador infantil con repisas para los cuentos de la noche",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "carro_taller": {
+  "categoria": "taller",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Banco de trabajo móvil compacto con repisas",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "bar_exterior": {
+  "categoria": "exterior",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Barra de madera para terrazas y patios",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "mueble_tocadiscos": {
+  "categoria": "sala de estar",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Mueble con espacio para tocadiscos, parlantes y discos",
+    "fuente": "anikas"
+   },
+   {
+    "texto": "Los LP miden 31,5 cm: celdas de 33 cm de alto",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "repisa_muro": {
+  "categoria": "decoración",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Repisa de muro sencilla que se arma en pocas horas",
+    "fuente": "sodimac_estante"
+   },
+   {
+    "texto": "Las repisas simples están entre los proyectos que más se venden",
+    "fuente": "ventas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "caja_tapa": {
+  "categoria": "decoración",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Cajas de madera: de los objetos hechos a mano que más se venden",
+    "fuente": "ventas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "verdulero": {
+  "categoria": "cocina",
+  "dificultad": 2,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Contenedor de verduras con divisiones, ventilado",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ },
+ "zapatero_bajo_cama": {
+  "categoria": "dormitorio",
+  "dificultad": 1,
+  "herramientas": [
+   "huincha",
+   "escuadrac",
+   "taladro",
+   "brocas",
+   "serrucho",
+   "lijadora"
+  ],
+  "reglas": [
+   {
+    "texto": "Organizador de 10 pares bajo la cama con divisiones",
+    "fuente": "anikas"
+   }
+  ],
+  "permiso": null,
+  "nota": null
+ }
+}

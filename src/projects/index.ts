@@ -1,0 +1,54 @@
+import type { Categoria, Params, ProyectoDef } from '../core/types'
+import { banca } from './banca'
+import { BANO } from './bano'
+import { closet } from './closet'
+import { COCINA } from './cocina'
+import { CONSTRUCCION } from './construccion'
+import { DORMITORIO } from './dormitorio'
+import { EXTERIOR } from './exterior'
+import { INFANTIL } from './infantil'
+import { INSPIRACION } from './inspiracion'
+import { LIVING } from './living'
+import { muebleTv } from './muebleTv'
+import { OFICINA } from './oficina'
+import { ORGANIZACION } from './organizacion'
+import { repisa } from './repisa'
+import { velador } from './velador'
+import { WEB } from './web'
+
+export const PROYECTOS: ProyectoDef[] = [repisa, velador, banca, muebleTv, closet, ...DORMITORIO, ...LIVING, ...COCINA, ...BANO, ...OFICINA, ...INFANTIL, ...ORGANIZACION, ...EXTERIOR, ...CONSTRUCCION, ...INSPIRACION, ...WEB]
+
+export const CATEGORIAS: Categoria[] = [
+  'dormitorio',
+  'sala de estar',
+  'cocina',
+  'baño',
+  'oficina',
+  'espacio infantil',
+  'almacenamiento',
+  'entrada',
+  'jardín',
+  'decoración',
+  'taller',
+  'exterior',
+  'construcción',
+]
+
+export function buscarProyecto(id: string): ProyectoDef | undefined {
+  return PROYECTOS.find((p) => p.id === id)
+}
+
+export function paramsPorDefecto(p: ProyectoDef): Params {
+  return Object.fromEntries(p.params.map((d) => [d.id, d.default]))
+}
+
+/** Ajusta los valores a los límites y al paso de cada parámetro. */
+export function normalizarParams(p: ProyectoDef, valores: Partial<Params>): Params {
+  const r: Params = {}
+  for (const d of p.params) {
+    const v = Number(valores[d.id] ?? d.default)
+    const ajustado = Math.round((Number.isFinite(v) ? v : d.default) / d.step) * d.step
+    r[d.id] = Math.min(d.max, Math.max(d.min, ajustado))
+  }
+  return r
+}

@@ -13,7 +13,6 @@ import { Visor3D } from '../components/Visor3D'
 import { DIFICULTAD, cm } from '../core/costos'
 import { planillaDimensionado } from '../core/dimensionado'
 import type { ProyectoDef } from '../core/types'
-import { planoParaCotizar } from '../core/plano'
 import { guardarDiseno } from '../lib/disenos'
 import { NOTA_PROFESIONAL, conProfesional } from '../lib/profesional'
 import { proyectoAbierto, useAcceso } from '../lib/plan'
@@ -287,18 +286,6 @@ function Configurador({ proyecto }: { proyecto: ProyectoDef }) {
           exterior={res.exterior}
           costoMateriales={costos.total}
           tiendaInicial={cotizando}
-          descargable={abierto}
-          plano={planoParaCotizar({
-            nombre: proyecto.nombre,
-            proyecto: proyecto.id,
-            enlace: window.location.href,
-            exterior: res.exterior,
-            costoMateriales: costos.total,
-            cortes,
-            letras,
-            piezas: res.piezas,
-            herrajes: res.herrajes,
-          })}
           onCerrar={() => setCotizando(null)}
         />
       )}

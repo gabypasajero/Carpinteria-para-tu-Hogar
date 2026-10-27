@@ -15,7 +15,6 @@ import { calcularCostos, cm, formatoCLP } from '../core/costos'
 import { agruparPiezas, letrasPorClave } from '../core/despiece'
 import { aInstancia, caja, choques, codificar, decodificar, desdeInstancia, girar, herrajesSugeridos, medidas, nuevaPieza, sobrePiso, type Eje, type PiezaLibre } from '../core/libre'
 import { optimizar } from '../core/optimizador'
-import { planoParaCotizar } from '../core/plano'
 import type { ProyectoDef, ResultadoProyecto } from '../core/types'
 import { PIEZAS_GRATIS, muestraDiseno, useAcceso } from '../lib/plan'
 import { usePrecios } from '../lib/useCalculo'
@@ -552,18 +551,6 @@ export function Disenador() {
           costoMateriales={calc.costos.total}
           tiendaInicial={cotizando}
           enlace={enlace()}
-          descargable={pro}
-          plano={planoParaCotizar({
-            nombre: d.nombre,
-            proyecto: 'libre',
-            enlace: enlace(),
-            exterior: calc.res.exterior,
-            costoMateriales: calc.costos.total,
-            cortes: calc.cortes,
-            letras: calc.letras,
-            piezas: calc.res.piezas,
-            herrajes: d.herrajes,
-          })}
           onCerrar={() => setCotizando(null)}
         />
       )}
